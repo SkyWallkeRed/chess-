@@ -1,5 +1,4 @@
-<p>
-  board works!
-</p>
 
-<app-row [myY]='i' *ngFor='let row of boardArray; let i = index'></app-row>
+<div class="container" >
+  <app-row class="row" [myY]='i' *ngFor='let row of boardArray; let i = index'></app-row>
+</div>
