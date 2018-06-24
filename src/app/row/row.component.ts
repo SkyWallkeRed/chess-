@@ -7,7 +7,7 @@ import { GameService } from '../game.service';
   styleUrls: ['./row.component.scss']
 })
 export class RowComponent implements OnInit {
-  @Input() myY : number
+  @Input() myY: number;
   private rows;
   private cellColor = this.getStyle();
   // @Output() cellColorOutPut: EventEmitter<any> = new EventEmitter();
@@ -18,7 +18,7 @@ export class RowComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.myY)
+    console.log(this.myY);
     this.rows = this.gameService.boardArray[this.myY];
   }
   getStyle() {

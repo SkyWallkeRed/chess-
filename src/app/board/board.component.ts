@@ -7,27 +7,20 @@ import { GameService } from '../game.service';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  boardArray : Array<any>;
+  boardArray: Array<any>;
   constructor(private gameService: GameService) {
-    debugger
-    this.getBoard()
+    this.getBoard();
   }
 
   ngOnInit() {
-    this.gameService.getData()          
-    this.gameService.boardObservable.subscribe((data)=>{
-    this.gameService.getData()      
-      console.log('test')
-      this.boardArray = data
-    })
+    this.gameService.getData();
+
   }
-  getBoard(){
-    this.gameService.getData()          
-    this.gameService.boardObservable.subscribe((data)=>{
-    this.gameService.getData()      
-      console.log('test')
-      this.boardArray = data
-    })
+  getBoard() {
+    this.gameService.boardObservable.subscribe((data) => {
+      console.log('test');
+      this.boardArray = data;
+    });
   }
 
 }
