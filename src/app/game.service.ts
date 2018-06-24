@@ -24,17 +24,6 @@ export class GameService {
   constructor() {
     this.boardSubject = new Subject<any>();
     this.boardObservable = this.boardSubject.asObservable();
-
-    this.boardArray = [
-      [{ Rb }, { Nb }, { Bb }, { Qb }, { Kb }, { Bb }, { Nb }, { Rb }],
-      [{ Pb }, { Pb }, { Pb }, { Pb }, { Pb }, { Pb }, { Pb }, { Pb }],
-      [{}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}],
-      [{ Pw }, { Pw }, { Pw }, { Pw }, { Pw }, { Pw }, { Pw }, { Pw }],
-      [{ Rw }, { Nw }, { Bw }, { Qw }, { Kw }, { Bw }, { Nw }, { Rw }]
-    ];
     this.getData();
   }
   getData() {
