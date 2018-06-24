@@ -5,9 +5,9 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class GameService {
+  public boardArray: Array<any>
   public boardObservable: Observable<any>;
   public boardSubject: Subject<any>;
-  boardArray: Array<any>;
   constructor() {
     this.boardArray = [
       [{}, {}, {}, {}, {}, {}, {}, {}],
@@ -21,8 +21,20 @@ export class GameService {
     ];
     this.boardSubject = new Subject<any>();
     this.boardObservable = this.boardSubject.asObservable();
+    this.getData()    
+  }
+  getData(){
+    this.boardArray = [
+      [{}, {}, {}, {}, {}, {}, {}, {}],
+      [{}, {}, {}, {}, {}, {}, {}, {}],
+      [{}, {}, {}, {}, {}, {}, {}, {}],
+      [{}, {}, {}, {}, {}, {}, {}, {}],
+      [{}, {}, {}, {}, {}, {}, {}, {}],
+      [{}, {}, {}, {}, {}, {}, {}, {}],
+      [{}, {}, {}, {}, {}, {}, {}, {}],
+      [{}, {}, {}, {}, {}, {}, {}, {}],
+    ];
     this.boardSubject.next(this.boardArray);
-
   }
 
 }
