@@ -12,7 +12,8 @@ import {Piece} from './model/base-piece';
   providedIn: 'root'
 })
 export class GameService {
-  public BoardArray: Array<any>;
+  public boardArray: Array<any>;
+  public optionsArray: Array<any>;
 
   constructor() {
     var Nb  = new Knight("knight", "black");
@@ -28,7 +29,7 @@ export class GameService {
     var Qw = new Queen("queen", "white");
     var Pw = new Pawn("pawn", "white");
 
-    this.BoardArray = [
+    this.boardArray = [
       [{Rb}, {Nb}, {Bb}, {Qb}, {Kb}, {Bb}, {Nb}, {Rb}],
       [{Pb}, {Pb}, {Pb}, {Pb}, {Pb}, {Pb}, {Pb},{Pb}],
       [{},{}, {},{},{},{},{},{}],

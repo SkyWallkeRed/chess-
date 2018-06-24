@@ -2,7 +2,7 @@ import {Piece} from './base-piece';
 import { GameService } from '../game.service';
 
 export class Pawn extends Piece {
-constructor(type, color){
+constructor(type, color, private gameService: GameService){
     super();
     this.moveOptions = this.moveOptions()
 }
