@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GameService } from '../game.service';
 
 @Component({
@@ -9,11 +9,28 @@ import { GameService } from '../game.service';
 export class RowComponent implements OnInit {
   @Input() myY;
   private rows;
+  private cellColor = this.getStyle();
+  // @Output() cellColorOutPut: EventEmitter<any> = new EventEmitter();
+
   constructor(private gameService: GameService) {
     this.rows = this.gameService.boardArray[0];
+    // this.cellColor = 'white';
   }
 
   ngOnInit() {
+  }
+  getStyle() {
+    // debugger
+    // return 'green';
+    // this.cellColorOutPut.emit(this.cellColor);
+
+    if (this.cellColor === 'white') {
+      this.cellColor = 'black';
+      return 'white';
+    } else if (this.cellColor === 'black') {
+      this.cellColor = 'white';
+      return 'black';
+    }
   }
 
 }
