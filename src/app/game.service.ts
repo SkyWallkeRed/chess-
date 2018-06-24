@@ -14,10 +14,15 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class GameService {
-  public boardArray: Array<any>;
-  public optionsArray: Array<any>;
 
+  public boardArray: Array<any>
+  public boardObservable: Observable<any>;
+  public boardSubject: Subject<any>;
+  public optionsArray: Array<any>;
+  
   constructor() {
+    this.boardSubject = new Subject<any>();
+    this.boardObservable = this.boardSubject.asObservable();
     var Nb  = new Knight("knight", "black");
     var Rb = new Rook("rook", "black"); 
     var Kb = new King("king", "black");
@@ -30,7 +35,6 @@ export class GameService {
     var Bw = new Bishop("bishop", "white");
     var Qw = new Queen("queen", "white");
     var Pw = new Pawn("pawn", "white");
-
     this.boardArray = [
       [{Rb}, {Nb}, {Bb}, {Qb}, {Kb}, {Bb}, {Nb}, {Rb}],
       [{Pb}, {Pb}, {Pb}, {Pb}, {Pb}, {Pb}, {Pb},{Pb}],
@@ -41,7 +45,22 @@ export class GameService {
       [{Pw}, {Pw}, {Pw}, {Pw}, {Pw}, {Pw}, {Pw},{Pw}],
       [{Rw}, {Nw}, {Bw}, {Qw}, {Kw}, {Bw}, {Nw}, {Rw}]
       ];
-   }
+    this.getData()    
+  }
+  getData(){
+    this.boardArray = [
+      [{Rb}, {Nb}, {Bb}, {Qb}, {Kb}, {Bb}, {Nb}, {Rb}],
+      [{Pb}, {Pb}, {Pb}, {Pb}, {Pb}, {Pb}, {Pb},{Pb}],
+      [{},{}, {},{},{},{},{},{}],
+      [{},{}, {},{},{},{},{},{}],
+      [{},{}, {},{},{},{},{},{}],
+      [{},{}, {},{},{},{},{},{}],
+      [{Pw}, {Pw}, {Pw}, {Pw}, {Pw}, {Pw}, {Pw},{Pw}],
+      [{Rw}, {Nw}, {Bw}, {Qw}, {Kw}, {Bw}, {Nw}, {Rw}]
+      ];
+    this.boardSubject.next(this.boardArray);
+  }
+
 
 }
 
