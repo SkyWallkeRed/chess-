@@ -6,14 +6,30 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./cell.component.scss']
 })
 export class CellComponent implements OnInit {
-@Input() cellColor;
-@Input() myX;
-@Input() myY;
+  public cellColor = 'green';
+  // private colo = this.cellColorF();
+  @Input() myX;
+  @Input() myY;
   // private cellColor = 'white';
-  constructor() { }
+  constructor() {
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    this.cellColorF();
+
+  }
+  cellColorF() {
+    // debugger
+    const t = this.myX + this.myY;
+    if (t % 2 === 0) {
+      this.cellColor = 'white';
+      return 'white';
+    } else {
+      this.cellColor = 'black';
+      return 'black';
+    }
+  }
 
 }
+
