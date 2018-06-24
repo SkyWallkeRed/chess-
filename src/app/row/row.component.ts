@@ -9,7 +9,7 @@ import { GameService } from '../game.service';
 export class RowComponent implements OnInit {
   @Input() myY;
   private rows;
-  private cellColor = this.getStyle();
+  @Input() cellColor;
   // @Output() cellColorOutPut: EventEmitter<any> = new EventEmitter();
 
   constructor(private gameService: GameService) {
@@ -19,18 +19,6 @@ export class RowComponent implements OnInit {
 
   ngOnInit() {
   }
-  getStyle() {
-    // debugger
-    // return 'green';
-    // this.cellColorOutPut.emit(this.cellColor);
 
-    if (this.cellColor === 'white') {
-      this.cellColor = 'black';
-      return 'white';
-    } else if (this.cellColor === 'black') {
-      this.cellColor = 'white';
-      return 'black';
-    }
-  }
 
 }

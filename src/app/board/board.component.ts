@@ -8,8 +8,9 @@ import { GameService } from '../game.service';
 })
 export class BoardComponent implements OnInit {
   private boardArray;
+  public cellColor = this.getStyle();
   constructor(private gameService: GameService) {
-
+    // this.cellColor = 'green';
   }
 
   ngOnInit() {
@@ -28,6 +29,19 @@ export class BoardComponent implements OnInit {
     //   [{}, {}, {}, {}, {}, {}, {}, {}],
     // ];
 
+  }
+  getStyle() {
+    // debugger
+    // return 'green';
+    // this.cellColorOutPut.emit(this.cellColor);
+
+    if (this.cellColor === 'white') {
+      this.cellColor = 'black';
+      return 'white';
+    } else if (this.cellColor === 'black') {
+      this.cellColor = 'white';
+      return 'black';
+    }
   }
 
 }
