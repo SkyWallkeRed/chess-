@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-board',
@@ -6,10 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
+  private boardArray;
+  constructor(private gameService: GameService) {
 
-  constructor() { }
+  }
 
   ngOnInit() {
+
+    this.boardArray = this.gameService.boardArray;
+    // console.log(this.boardArray);
+    // debugger;
+    // this.boardArray = [
+    //   [{}, {}, {}, {}, {}, {}, {}, {}],
+    //   [{}, {}, {}, {}, {}, {}, {}, {}],
+    //   [{}, {}, {}, {}, {}, {}, {}, {}],
+    //   [{}, {}, {}, {}, {}, {}, {}, {}],
+    //   [{}, {}, {}, {}, {}, {}, {}, {}],
+    //   [{}, {}, {}, {}, {}, {}, {}, {}],
+    //   [{}, {}, {}, {}, {}, {}, {}, {}],
+    //   [{}, {}, {}, {}, {}, {}, {}, {}],
+    // ];
+
   }
 
 }
+
+
+
