@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import {Pawn} from './model/pawn';
 import {Rook} from './model/rook';
 import {Knight} from './model/knight';
@@ -6,6 +7,7 @@ import {King} from './model/king';
 import {Bishop} from './model/bishop';
 import {Queen} from './model/queen';
 import {Piece} from './model/base-piece';
+import { Observable, Subject } from 'rxjs';
 
 
 @Injectable({
@@ -40,5 +42,6 @@ export class GameService {
       [{Rw}, {Nw}, {Bw}, {Qw}, {Kw}, {Bw}, {Nw}, {Rw}]
       ];
    }
-  
+
 }
+
