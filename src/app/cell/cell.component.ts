@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CellComponent implements OnInit {
 @Input() cellColor;
+@Input() myX
+@Input() myY
   // private cellColor = 'white';
   constructor() { }
 
