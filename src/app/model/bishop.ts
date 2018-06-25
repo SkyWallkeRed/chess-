@@ -6,7 +6,6 @@ export class Bishop extends Piece {
         super();
         this.type = type;
         this.color = color;
-        this.imgUrl = '';
         this.b = 'https://cdn4.iconfinder.com/data/icons/chess-icons/200/chess_black_bishop-512.png';
         this.w = 'http://icons.iconarchive.com/icons/icons-land/vista-chess/128/Bishop-Yellow-icon.png';
         this.imgUrl = this.color === 'white' ? this.imgUrl = this.w : this.imgUrl = this.b;
