@@ -1,11 +1,18 @@
 .cell{
     width: 100px;
     height: 100px;
-    border: 2px solid black;
+    // border: 2px solid black;
     box-sizing: border-box;
     display: inline-block;
     color :red;
+    text-align: center;
+    // padding-top: 40px;
 }
+// .glow{
+//     width: 100px;
+//     height: 100px;
+//     border-radius: 50px;
+// }
 .white{
 background: white;
     
@@ -13,5 +20,37 @@ background: white;
 .black{
     background: black;
 }
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 -20px #2CD3D4;}
+    20% {background-color: #2CD3D4}
+    40% { box-shadow: 0 0 30px #2CD3D4; }
+    // 50% {background-color: #2CD3D4;}
+    60% { box-shadow: 0 0 30px #2CD3D4; }
+    100% { box-shadow: 0 0 -20px #2CD3D4; }
+
+  }
+  @keyframes glowingAttack {
+    0% { box-shadow: 0 0 -30px #C60E33;}
+    // 20% {background-color: #C60E33}
+    40% { box-shadow: 0 0 40px #C60E33; }
+    50% {background-color: #C60E33;}
+    60% { box-shadow: 0 0 40px #C60E33; }
+    100% { box-shadow: 0 0 -30px #C60E33; }
+
+  }
+
+  .glow:hover{
+    animation: glowing 2000ms infinite;
+    
+  }
+  
+  .glowAttack {
+    animation: glowingAttack 2000ms infinite;
+    // animation: fillGlow 2000ms infinite;
+    
+    
+   
+  }
 
 

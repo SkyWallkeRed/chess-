@@ -29,6 +29,7 @@ export class GameService {
   }
   getData() {
     this.boardArray = [
+
       [ Rb ,  Nb ,  Bb ,  Qb ,  Kb ,  Bb ,  Nb ,  Rb ],
       [ Pb ,  Pb ,  Pb ,  Pb ,  Pb ,  Pb ,  Pb ,  Pb ],
       [null, null, null, null, null, null, null, null],
@@ -37,6 +38,7 @@ export class GameService {
       [null, null, null, null, null, null, null, null],
       [ Pw ,  Pw ,  Pw ,  Pw ,  Pw ,  Pw ,  Pw ,  Pw ],
       [ Rw ,  Nw ,  Bw ,  Qw ,  Kw ,  Bw ,  Nw ,  Rw ]
+
     ];
     this.boardSubject.next(this.boardArray);
   }
@@ -55,6 +57,7 @@ export class GameService {
 
 const Nb = new Knight('knight', 'black');
 const Rb = new Rook('rook', 'black');
+Rb.type = 'rook';
 const Kb = new King('king', 'black');
 const Bb = new Bishop('bishop', 'black');
 const Qb = new Queen('queen', 'black');

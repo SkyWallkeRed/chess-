@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GameService } from '../game.service';
+import { TweenMax } from 'gsap';
 
 @Component({
   selector: 'app-board',
@@ -8,12 +9,17 @@ import { GameService } from '../game.service';
 })
 export class BoardComponent implements OnInit {
   boardArray: Array<any>;
+  @ViewChild('container') container: ElementRef;
+
   constructor(private gameService: GameService) {
     this.getBoard();
+
   }
 
   ngOnInit() {
     this.gameService.getData();
+    TweenMax.to(this.container.nativeElement, 5, { opacity: 1 });
+
 
   }
   getBoard() {
@@ -21,6 +27,7 @@ export class BoardComponent implements OnInit {
       this.boardArray = data;
     });
   }
+
 
 }
 
