@@ -47,25 +47,24 @@ export class GameService {
     this.boardSubject.next(this.boardArray);
   }
   cetchOption(x, y) {
-    console.log(x, y);
+    // console.log(x, y);
   }
 
   getOptions(x, y, piece) {
     if (!this.optionsArray[0]) {
 
-      this.optionsArray = piece.moveOptions(x, y) || []
-      this.optionsSubject.next(this.optionsArray)
-      console.log(this.optionsArray)
-      console.log(x, y)
+      this.optionsArray = piece.moveOptions(x, y) || [];
+      this.optionsSubject.next(this.optionsArray);
+      // console.log(this.optionsArray);
+      // console.log(x, y);
+    } else {
+      this.optionsArray.splice(0, this.optionsArray.length);
+      this.optionsArray = piece.moveOptions(x, y) || [];
+      this.optionsSubject.next(this.optionsArray);
+      // console.log(this.optionsArray);
+      // console.log(x, y);
     }
-    else {
-      this.optionsArray.splice(0, this.optionsArray.length)
-      this.optionsArray = piece.moveOptions(x, y) || []
-      this.optionsSubject.next(this.optionsArray)
-      console.log(this.optionsArray)
-      console.log(x, y)
-    }
-    // console.log(this.boardArray) 
+    // console.log(this.boardArray)
     // this.deadArray.push(this.boardArray[y-2][x-1])
 
     // this.boardArray[y-2][x-1]=piece
