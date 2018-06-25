@@ -2,8 +2,8 @@ import { Piece } from './base-piece';
 import { GameService } from '../game.service';
 
 export class Knight extends Piece {
-    constructor(type, color) {
-        super();
+    constructor(type, color, gameService) {
+        super(type, color, gameService);
         this.type = type;
         this.color = color;
         this.b = 'https://cdn4.iconfinder.com/data/icons/chess-icons/200/chess_black_horse-512.png';
