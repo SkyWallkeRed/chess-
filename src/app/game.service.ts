@@ -22,7 +22,7 @@ export class GameService {
   public optionsObservable: Observable<any>;
   public optionsSubject: Subject<any>;
 
-  constructor() {
+  constructor() { 
     this.boardSubject = new Subject<any>();
     this.boardObservable = this.boardSubject.asObservable();
 
@@ -54,6 +54,9 @@ export class GameService {
     if (!this.optionsArray[0]) {
 
       this.optionsArray = piece.moveOptions(x, y) || []
+      if(piece.type == "pawn"){
+        this.pawnNoCollide(piece)
+      }
       this.optionsSubject.next(this.optionsArray)
       console.log(this.optionsArray)
       console.log(x, y)
@@ -61,6 +64,9 @@ export class GameService {
     else {
       this.optionsArray.splice(0, this.optionsArray.length)
       this.optionsArray = piece.moveOptions(x, y) || []
+      if(piece.type == "pawn"){
+        this.pawnNoCollide(piece)
+      }
       this.optionsSubject.next(this.optionsArray)
       console.log(this.optionsArray)
       console.log(x, y)
@@ -77,6 +83,17 @@ export class GameService {
     // this.boardArray[y-1][x-1].splice(0, 1)
 
   }
+  pawnNoCollide(piece){
+    for (let i = 0; i < this.optionsArray.length; i++){
+      let position = this.boardArray[this.optionsArray[i].myY][this.optionsArray[i].myX]
+      if(position){
+        if (position.color == piece.color) {
+        debugger
+          this.optionsArray.splice(i, 1)
+        }
+      }
+  }
+}
 
 }
 

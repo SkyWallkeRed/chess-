@@ -24,7 +24,6 @@ export class Piece {
         }
         else if (this.type == "bishop") {
             for (let i = 1; i < 8; i++) {
-                debugger;
             if (myX + i < 8 && myX + i >=0 && myY + i >=0 && myY + i < 8) {
                tempArray.push({myX: myX + i, myY: myY + i});
             }
@@ -38,7 +37,6 @@ export class Piece {
                 tempArray.push({myX: myX - i, myY: myY - i});
              }
             }
-            console.log(tempArray)
             return tempArray;
 
         }
