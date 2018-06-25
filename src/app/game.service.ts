@@ -47,7 +47,7 @@ export class GameService {
     this.boardSubject.next(this.boardArray);
   }
   cetchOption(x, y) {
-    // console.log(x, y);
+    console.log(x, y);
   }
 
   getOptions(x, y, piece) {
