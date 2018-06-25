@@ -46,29 +46,31 @@ export class GameService {
     ];
     this.boardSubject.next(this.boardArray);
   }
+  cetchOption(x, y) {
+    console.log(x, y);
+  }
 
-  getOptions(x, y, piece){
-    if(!this.optionsArray[0]){
-    this.optionsArray = piece.moveOptions(x, y)
-    this.optionsSubject.next(this.optionsArray)
-    console.log(this.optionsArray)
-    }
-    else{
-      this.optionsArray.splice(0, this.optionsArray.length)
-      this.optionsArray = piece.moveOptions(x, y)
-      this.optionsSubject.next(this.optionsArray)
-     console.log(this.optionsArray)      
+  getOptions(x, y, piece) {
+    if (!this.optionsArray[0]) {
+      this.optionsArray = piece.moveOptions(x, y);
+      this.optionsSubject.next(this.optionsArray);
+      console.log(this.optionsArray);
+    } else {
+      this.optionsArray.splice(0, this.optionsArray.length);
+      this.optionsArray = piece.moveOptions(x, y);
+      this.optionsSubject.next(this.optionsArray);
+      console.log(this.optionsArray);
 
     }
-    // console.log(this.boardArray)        
+    // console.log(this.boardArray)
     // this.boardArray[y-2][x-1]=piece
 
-    
+
     // this.boardArray[y-1][x-1] = null
     // console.log(piece)
-    // console.log(this.boardArray)    
+    // console.log(this.boardArray)
     // this.boardArray[y-1][x-1].splice(0, 1)
-    
+
   }
 
 
@@ -76,7 +78,6 @@ export class GameService {
 
 const Nb = new Knight('knight', 'black');
 const Rb = new Rook('rook', 'black');
-Rb.type = 'rook';
 const Kb = new King('king', 'black');
 const Bb = new Bishop('bishop', 'black');
 const Qb = new Queen('queen', 'black');
