@@ -21,6 +21,7 @@ export class CellComponent implements OnInit {
 
   ngOnInit() {
     this.cellColorF();
+
   }
   cellColorF() {
     const t = this.myX + this.myY;
@@ -29,12 +30,11 @@ export class CellComponent implements OnInit {
       return 'white';
     } else {
       this.cellColor = 'black';
-      return 'black';
+      return '#777777';
     }
   }
+
   getOptions(){
-    // this.myPiece.moveOptions()
-    // ADD SERVICE TO THIS COMPONENT?
     this.gameService.getOptions(this.myX, this.myY, this.myPiece)
   }
 
