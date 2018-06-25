@@ -52,17 +52,22 @@ export class GameService {
 
   getOptions(x, y, piece) {
     if (!this.optionsArray[0]) {
-      this.optionsArray = piece.moveOptions(x, y);
-      this.optionsSubject.next(this.optionsArray);
-      console.log(this.optionsArray);
-    } else {
-      this.optionsArray.splice(0, this.optionsArray.length);
-      this.optionsArray = piece.moveOptions(x, y);
-      this.optionsSubject.next(this.optionsArray);
-      console.log(this.optionsArray);
 
+      this.optionsArray = piece.moveOptions(x, y) || []
+      this.optionsSubject.next(this.optionsArray)
+      console.log(this.optionsArray)
+      console.log(x, y)
     }
-    // console.log(this.boardArray)
+    else {
+      this.optionsArray.splice(0, this.optionsArray.length)
+      this.optionsArray = piece.moveOptions(x, y) || []
+      this.optionsSubject.next(this.optionsArray)
+      console.log(this.optionsArray)
+      console.log(x, y)
+    }
+    // console.log(this.boardArray) 
+    // this.deadArray.push(this.boardArray[y-2][x-1])
+
     // this.boardArray[y-2][x-1]=piece
 
 
@@ -72,7 +77,6 @@ export class GameService {
     // this.boardArray[y-1][x-1].splice(0, 1)
 
   }
-
 
 }
 
