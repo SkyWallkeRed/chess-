@@ -10,16 +10,23 @@ export class CellComponent implements OnInit {
   // private colo = this.cellColorF();
   @Input() myX;
   @Input() myY;
+  @Input() myPiece;
+  piecee;
   // private cellColor = 'white';
   constructor() {
+
 
   }
 
   ngOnInit() {
     this.cellColorF();
-
+    this.piecee = JSON.stringify(this.myPiece);
+    if(this.myPiece) {
+    console.log(this.myPiece.type);
+    }
   }
   cellColorF() {
+    // console.log(this.myPiece);
     // debugger
     const t = this.myX + this.myY;
     if (t % 2 === 0) {
