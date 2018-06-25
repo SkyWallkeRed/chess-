@@ -22,23 +22,48 @@ export class CellComponent implements OnInit {
   }
   // tslint:disable-next-line:use-life-cycle-interface
   ngDoCheck() {
+    this.currentOption = false;
     for (let i = 0; i < this.optionsArray.length; i++) {
-      console.log(this.optionsArray);
       if (this.optionsArray[i].myX === this.myX) {
         if (this.optionsArray[i].myY === this.myY) {
-          this.cell.nativeElement.className === 'glow cell' ?
-            this.cell.nativeElement.className = ' cell' :
-            this.cell.nativeElement.className = 'glow cell';
-
+          this.cell.nativeElement.className = 'glow cell';
+          this.currentOption = true;
+        } else if (!this.currentOption) {
+          this.cell.nativeElement.className = ' cell';
         }
-      } else if (this.currentOption === true) {
-        this.cell.nativeElement.className = ' cell';
-        this.currentOption = false;
       }
-      
     }
-    this.currentOption = true;
+    if (!this.currentOption) {
+      this.cell.nativeElement.className = ' cell';
+
+    }
+
   }
+
+  checkValidOption() {
+    if (this.currentOption) {
+      this.gameService.cetchOption(this.myX, this.myY);
+  
+      
+
+    }
+  }
+  checkValidPiece() {
+    if (this.myPiece) {
+      this.gameService.getOptions(this.myX, this.myY, this.myPiece);
+
+    }
+  }
+ 
+
+  getOptions() {
+
+    this.ngDoCheck();
+    this.checkValidOption();
+    this.checkValidPiece();
+
+  }
+
   cellColorF() {
     const t = this.myX + this.myY;
     if (t % 2 === 0) {
@@ -49,25 +74,12 @@ export class CellComponent implements OnInit {
       return '#777777';
     }
   }
-
-  getOptions() {
-    this.ngDoCheck();
-    if (this.currentOption) {
-      console.log(this.myX, this.myY);
-      this.gameService.cetchOption(this.myX, this.myY);
-    }
-    // console.log(this.optionsArray);
-    if (this.myPiece) {
-      this.gameService.getOptions(this.myX, this.myY, this.myPiece);
-      this.cell.nativeElement.className === 'glow cell' ?
-        this.cell.nativeElement.className = ' cell' :
-        this.cell.nativeElement.className = 'glow cell';
-      this.currentOption = true;
-    } else if (this.currentOption === true) {
-      this.cell.nativeElement.className = ' cell';
-      this.currentOption = false;
-    }
-
-  }
 }
 
+
+
+
+// this.cell.nativeElement.className === 'glow cell' ?
+// this.cell.nativeElement.className = ' cell' :
+// this.cell.nativeElement.className = 'glow cell';
+// this.currentOption = false;
