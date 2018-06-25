@@ -23,7 +23,6 @@ export class CellComponent implements OnInit {
   // tslint:disable-next-line:use-life-cycle-interface
   ngDoCheck() {
     for (let i = 0; i < this.optionsArray.length; i++) {
-      console.log(this.optionsArray);
       if (this.optionsArray[i].myX === this.myX) {
         if (this.optionsArray[i].myY === this.myY) {
           this.cell.nativeElement.className === 'glow cell' ?

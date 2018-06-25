@@ -3,9 +3,9 @@ import { GameService } from '../game.service';
 
 export class Pawn extends Piece {
     // private white ;
-    constructor(type, color) {
+    constructor(type, color,gameService) {
 
-        super();
+        super(type, color,gameService);
         this.color = color;
 
 
@@ -16,6 +16,14 @@ export class Pawn extends Piece {
         // console.log(this.imgUrl);
         // this.moveOptions = this.moveOptions()
     }
+    moveOptions(myX, myY) {
+        let arr =[]
+        let optionsArr = arr.concat(this.run(0, -1, myX,myY)) 
+        if(myY == 6){
+            arr.concat(this.run(0, -2, myX,myY)) 
+        }
+        return optionsArr
+    }  
 
     // moveOptions(myX, myY) {
     //     if (myY == 2) {

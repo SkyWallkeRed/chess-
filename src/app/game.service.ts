@@ -21,8 +21,20 @@ export class GameService {
   public optionsArray: Array<any>;
   public optionsObservable: Observable<any>;
   public optionsSubject: Subject<any>;
+  public Nb
+  public Rb
+  public Kb
+  public Bb
+  public Qb
+  public Pb
+  public Nw
+  public Rw
+  public Kw
+  public Bw
+  public Qw
+  public Pw
 
-  constructor() { 
+  constructor() {
     this.boardSubject = new Subject<any>();
     this.boardObservable = this.boardSubject.asObservable();
 
@@ -30,18 +42,30 @@ export class GameService {
     this.optionsObservable = this.optionsSubject.asObservable();
     this.optionsArray = [];
     this.getData();
+     this.Nb = new Knight('knight', 'black', this);
+     this.Rb = new Rook('rook', 'black', this);
+     this.Kb = new King('king', 'black', this);
+     this.Bb = new Bishop('bishop', 'black', this);
+     this.Qb = new Queen('queen', 'black', this);
+     this.Pb = new Pawn('pawn', 'black', this);
+     this.Nw = new Knight('knight', 'white', this);
+     this.Rw = new Rook('rook', 'white', this);
+     this.Kw = new King('king', 'white', this);
+     this.Bw = new Bishop('bishop', 'white', this);
+     this.Qw = new Queen('queen', 'white', this);
+     this.Pw = new Pawn('pawn', 'white', this);
   }
   getData() {
     this.boardArray = [
 
-      [Rb, Nb, Bb, Qb, Kb, Bb, Nb, Rb],
-      [Pb, Pb, Pb, Pb, Pb, Pb, Pb, Pb],
+      [this.Rb, this.Nb, this.Bb, this.Qb, this.Kb, this.Bb, this.Nb, this.Rb],
+      [this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
-      [null, null, null, null, null, null, null, null],
-      [Pw, Pw, Pw, Pw, Pw, Pw, Pw, Pw],
-      [Rw, Nw, Bw, Qw, Kw, Bw, Nw, Rw]
+      [this.Pb, this.Pw, null, this.Rw, null, null, null, null],
+      [this.Rw, this.Pw, this.Rw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw],
+      [this.Rw, this.Nw, this.Bw, this.Qw, this.Kw, this.Bw, this.Nw, this.Rw]
 
     ];
     this.boardSubject.next(this.boardArray);
@@ -49,29 +73,21 @@ export class GameService {
   cetchOption(x, y) {
     // console.log(x, y);
   }
+  getPieceFromBoard(x, y) {
+    return this.boardArray[y][x]
+  }
 
   getOptions(x, y, piece) {
-    if (!this.optionsArray[0]) {
+    this.optionsArray.length = 0
+    this.optionsArray = piece.moveOptions(x, y) || []
+    if (piece.type == "pawn") {
+      this.pawnNoCollide(piece)
+    }
+    this.optionsSubject.next(this.optionsArray)
+    console.log(this.optionsArray)
+    console.log(x, y)
 
 
-      this.optionsArray = piece.moveOptions(x, y) || []
-      if(piece.type == "pawn"){
-        this.pawnNoCollide(piece)
-      }
-      this.optionsSubject.next(this.optionsArray)
-      console.log(this.optionsArray)
-      console.log(x, y)
-    }
-    else {
-      this.optionsArray.splice(0, this.optionsArray.length)
-      this.optionsArray = piece.moveOptions(x, y) || []
-      if(piece.type == "pawn"){
-        this.pawnNoCollide(piece)
-      }
-      this.optionsSubject.next(this.optionsArray)
-      console.log(this.optionsArray)
-      console.log(x, y)
-    }
     // console.log(this.boardArray) 
 
     // this.deadArray.push(this.boardArray[y-2][x-1])
@@ -85,29 +101,28 @@ export class GameService {
     // this.boardArray[y-1][x-1].splice(0, 1)
 
   }
-  pawnNoCollide(piece){
-    for (let i = 0; i < this.optionsArray.length; i++){
+  pawnNoCollide(piece) {
+    for (let i = 0; i < this.optionsArray.length; i++) {
       let position = this.boardArray[this.optionsArray[i].myY][this.optionsArray[i].myX]
-      if(position){
+      if (position) {
         if (position.color == piece.color) {
-        debugger
+          debugger
           this.optionsArray.splice(i, 1)
         }
       }
+    }
   }
-}
 
 }
 
-const Nb = new Knight('knight', 'black');
-const Rb = new Rook('rook', 'black');
-const Kb = new King('king', 'black');
-const Bb = new Bishop('bishop', 'black');
-const Qb = new Queen('queen', 'black');
-const Pb = new Pawn('pawn', 'black');
-const Nw = new Knight('knight', 'white');
-const Rw = new Rook('rook', 'white');
-const Kw = new King('king', 'white');
-const Bw = new Bishop('bishop', 'white');
-const Qw = new Queen('queen', 'white');
-const Pw = new Pawn('pawn', 'white');
+const eColors = {
+  black: 0,
+  white: 1
+}
+
+const eTypes = {
+  knight: 0,
+  king: 1
+}
+
+
