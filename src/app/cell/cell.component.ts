@@ -11,7 +11,9 @@ export class CellComponent implements OnInit {
   @Input() myX;
   @Input() myY;
   @Input() myPiece;
+
   piecee;
+
   // private cellColor = 'white';
   constructor() {
 
@@ -20,10 +22,12 @@ export class CellComponent implements OnInit {
 
   ngOnInit() {
     this.cellColorF();
+
     this.piecee = JSON.stringify(this.myPiece);
     if(this.myPiece) {
     console.log(this.myPiece.type);
     }
+
   }
   cellColorF() {
     // console.log(this.myPiece);
@@ -36,6 +40,11 @@ export class CellComponent implements OnInit {
       this.cellColor = 'black';
       return 'black';
     }
+  }
+  move(){
+    this.myPiece.moveOptions()
+    // ADD SERVICE TO THIS COMPONENT?
+    // this.gameService.move(myX, myY, myPiece)
   }
 
 }

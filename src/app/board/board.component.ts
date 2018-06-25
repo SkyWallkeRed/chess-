@@ -24,7 +24,6 @@ export class BoardComponent implements OnInit {
   }
   getBoard() {
     this.gameService.boardObservable.subscribe((data) => {
-      console.log('test');
       this.boardArray = data;
     });
   }

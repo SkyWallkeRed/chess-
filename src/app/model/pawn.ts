@@ -4,6 +4,8 @@ import { GameService } from '../game.service';
 export class Pawn extends Piece {
 constructor(type, color){
     super();
+    this.type = type;
+    this.color = color;
     // this.moveOptions = this.moveOptions()
 }
 
