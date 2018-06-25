@@ -1,11 +1,13 @@
-
+<!-- 
 <div *ngIf="!myPiece" class="cell" [style.background-color]="cellColorF()">
     {{myX}},{{myY}}
-</div>
+</div> -->
 
-<div *ngIf="myPiece" class="cell" (click)="getOptions()" [style.background-color]="cellColorF()">
-  <!-- <span>{{myX}},{{myY}}</span> -->
-    <img src="{{myPiece.imgUrl}}" alt="">    
+
+<div #cell class="cell" (click)="getOptions()" [style.background-color]="cellColorF()">
+    {{myX}},{{myY}} 
+    <img *ngIf="myPiece" src= "{{myPiece.imgUrl}}" alt="">    
+
 
 </div>
 

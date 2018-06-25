@@ -9,7 +9,9 @@ import { TweenMax } from 'gsap';
 })
 export class BoardComponent implements OnInit {
   boardArray: Array<any>;
-  optionsArray: Array<any> = []
+
+  optionsArray: Array<any> = [];
+
   @ViewChild('container') container: ElementRef;
 
   constructor(private gameService: GameService) {
@@ -26,10 +28,10 @@ export class BoardComponent implements OnInit {
       this.boardArray = data;
     });
   }
-  getOptionsArr(){
-    this.gameService.optionsObservable.subscribe((data)=>{
-      this.optionsArray = data
-    })
+  getOptionsArr() {
+    this.gameService.optionsObservable.subscribe((data) => {
+      this.optionsArray = data;
+    });
   }
 
 
