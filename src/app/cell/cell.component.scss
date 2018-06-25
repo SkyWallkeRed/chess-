@@ -7,6 +7,12 @@
     color :red;
     text-align: center;
     // padding-top: 40px;
+    // object-fit: scale-down
+}
+img{
+    max-width:100%;
+    max-height:100%;
+
 }
 // .glow{
 //     width: 100px;
@@ -18,7 +24,7 @@ background: white;
     
 }
 .black{
-    background: black;
+    background: #777777;
 }
 
 @keyframes glowing {

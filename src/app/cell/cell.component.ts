@@ -24,8 +24,8 @@ export class CellComponent implements OnInit {
     this.cellColorF();
 
     this.piecee = JSON.stringify(this.myPiece);
-    if(this.myPiece) {
-    console.log(this.myPiece.type);
+    if (this.myPiece) {
+      console.log(this.myPiece.type);
     }
 
   }
@@ -38,11 +38,11 @@ export class CellComponent implements OnInit {
       return 'white';
     } else {
       this.cellColor = 'black';
-      return 'black';
+      return '#777777';
     }
   }
-  move(){
-    this.myPiece.moveOptions()
+  move() {
+    this.myPiece.moveOptions();
     // ADD SERVICE TO THIS COMPONENT?
     // this.gameService.move(myX, myY, myPiece)
   }
