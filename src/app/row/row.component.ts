@@ -18,7 +18,7 @@ export class RowComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rows = this.gameService.boardArray[this.myY - 1];
+    this.rows = this.gameService.boardArray[this.myY];
   }
   getStyle() {
     // debugger
