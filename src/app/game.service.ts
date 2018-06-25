@@ -19,11 +19,15 @@ export class GameService {
   public boardObservable: Observable<any>;
   public boardSubject: Subject<any>;
   public optionsArray: Array<any>;
-
+  public optionsObservable: Observable<any>;
+  public optionsSubject: Subject<any>;
 
   constructor() {
     this.boardSubject = new Subject<any>();
     this.boardObservable = this.boardSubject.asObservable();
+
+    this.optionsSubject = new Subject<any>();
+    this.optionsObservable = this.optionsSubject.asObservable();
     this.optionsArray = [];
     this.getData();
   }
@@ -42,13 +46,29 @@ export class GameService {
     ];
     this.boardSubject.next(this.boardArray);
   }
-  move(x, y, piece) {
-    if (!this.optionsArray[0]) {
-      this.optionsArray.push(piece.moveOptions(this.boardArray, x, y));
-    } else {
-      this.optionsArray.splice(0, this.optionsArray.length);
-      this.optionsArray.push(piece.moveOptions(this.boardArray));
+
+  getOptions(x, y, piece){
+    if(!this.optionsArray[0]){
+    this.optionsArray = piece.moveOptions(x, y)
+    this.optionsSubject.next(this.optionsArray)
+    console.log(this.optionsArray)
     }
+    else{
+      this.optionsArray.splice(0, this.optionsArray.length)
+      this.optionsArray = piece.moveOptions(x, y)
+      this.optionsSubject.next(this.optionsArray)
+     console.log(this.optionsArray)      
+
+    }
+    // console.log(this.boardArray)        
+    // this.boardArray[y-2][x-1]=piece
+
+    
+    // this.boardArray[y-1][x-1] = null
+    // console.log(piece)
+    // console.log(this.boardArray)    
+    // this.boardArray[y-1][x-1].splice(0, 1)
+    
   }
 
 

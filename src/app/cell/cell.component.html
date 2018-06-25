@@ -2,8 +2,10 @@
 <div *ngIf="!myPiece" class="cell" [style.background-color]="cellColorF()">
     {{myX}},{{myY}}
 </div>
+
 <div *ngIf="myPiece" class="cell" (click)="move()" [style.background-color]="cellColorF()">
     <!-- {{myX}},{{myY}} <p>{{myPiece.type}}</p> -->
     <img src="{{myPiece.imgUrl}}" alt="">    
+
 </div>
 
