@@ -10,4 +10,18 @@ export class Queen extends Piece {
         this.w = 'http://icons.iconarchive.com/icons/icons-land/vista-chess/128/Queen-Yellow-icon.png';
         this.imgUrl = this.color === 'white' ? this.imgUrl = this.w : this.imgUrl = this.b;
     }
+    moveOptions(myX, myY) {
+        let arr =[]
+        let optionsArr = arr.concat(
+            this.run(0, -1, myX,myY), 
+            this.run(-1, 0, myX,myY), 
+            this.run(0, 1, myX,myY), 
+            this.run(1, 0, myX,myY), 
+            this.run(1, 1, myX,myY), 
+            this.run(-1, -1, myX,myY), 
+            this.run(1, -1, myX,myY), 
+            this.run(-1, 1, myX,myY),
+         ) 
+        return optionsArr
+    } 
 }

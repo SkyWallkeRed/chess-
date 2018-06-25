@@ -62,8 +62,8 @@ export class GameService {
       [this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
+      [null, null, null, this.Kw, null, null, null, null],
       [null, null, null, null, null, null, null, null],
-      [this.Pb, this.Pw, null, this.Rw, null, null, null, null],
       [this.Rw, this.Pw, this.Rw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw],
       [this.Rw, this.Nw, this.Bw, this.Qw, this.Kw, this.Bw, this.Nw, this.Rw]
 
@@ -74,15 +74,17 @@ export class GameService {
     // console.log(x, y);
   }
   getPieceFromBoard(x, y) {
-    return this.boardArray[y][x]
+    if(this.boardArray[y]){
+      return this.boardArray[y][x]
+    }
   }
 
   getOptions(x, y, piece) {
     this.optionsArray.length = 0
     this.optionsArray = piece.moveOptions(x, y) || []
-    if (piece.type == "pawn") {
-      this.pawnNoCollide(piece)
-    }
+    // if (piece.type == "pawn") {
+    //   this.pawnNoCollide(piece)
+    // }
     this.optionsSubject.next(this.optionsArray)
     console.log(this.optionsArray)
     console.log(x, y)

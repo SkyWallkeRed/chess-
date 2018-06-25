@@ -10,7 +10,18 @@ export class King extends Piece {
         this.imgUrl = this.color === 'white' ? this.w :  this.b;
     }
 
-    // moveOptions(){
-        
-    // }
+    moveOptions(myX, myY) {
+        let arr =[]
+        let optionsArr = arr.concat(
+            this.run(0, -1, myX,myY), 
+            this.run(-1, 0, myX,myY), 
+            this.run(0, 1, myX,myY), 
+            this.run(1, 0, myX,myY), 
+            this.run(1, 1, myX,myY), 
+            this.run(-1, -1, myX,myY), 
+            this.run(1, -1, myX,myY), 
+            this.run(-1, 1, myX,myY),
+         ) 
+        return optionsArr
+    }  
 }
