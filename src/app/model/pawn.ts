@@ -21,7 +21,7 @@ export class Pawn extends Piece {
         let optionsArr = arr.concat(this.run(0, -1, myX,myY)) 
         if(myY == 6){
             arr.concat(this.run(0, -2, myX,myY)) 
-        }
+        } 
         return optionsArr
     }  
 
