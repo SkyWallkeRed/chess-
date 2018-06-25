@@ -9,23 +9,27 @@ import { TweenMax } from 'gsap';
 })
 export class BoardComponent implements OnInit {
   boardArray: Array<any>;
+  optionsArray: Array<any>
   @ViewChild('container') container: ElementRef;
 
   constructor(private gameService: GameService) {
     this.getBoard();
-
+    this.getOptionsArr();
   }
 
   ngOnInit() {
     this.gameService.getData();
     TweenMax.to(this.container.nativeElement, 5, { opacity: 1 });
-
-
   }
   getBoard() {
     this.gameService.boardObservable.subscribe((data) => {
       this.boardArray = data;
     });
+  }
+  getOptionsArr(){
+    this.gameService.optionsObservable.subscribe((data)=>{
+      this.optionsArray = data
+    })
   }
 
 

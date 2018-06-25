@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-cell',
@@ -12,26 +13,16 @@ export class CellComponent implements OnInit {
   @Input() myY;
   @Input() myPiece;
 
-  piecee;
-
   // private cellColor = 'white';
-  constructor() {
+  constructor(private gameService : GameService) {
 
 
   }
 
   ngOnInit() {
     this.cellColorF();
-
-    this.piecee = JSON.stringify(this.myPiece);
-    if(this.myPiece) {
-    console.log(this.myPiece.type);
-    }
-
   }
   cellColorF() {
-    // console.log(this.myPiece);
-    // debugger
     const t = this.myX + this.myY;
     if (t % 2 === 0) {
       this.cellColor = 'white';
@@ -41,10 +32,10 @@ export class CellComponent implements OnInit {
       return 'black';
     }
   }
-  move(){
-    this.myPiece.moveOptions()
+  getOptions(){
+    // this.myPiece.moveOptions()
     // ADD SERVICE TO THIS COMPONENT?
-    // this.gameService.move(myX, myY, myPiece)
+    this.gameService.getOptions(this.myX, this.myY, this.myPiece)
   }
 
 }
