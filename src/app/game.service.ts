@@ -61,8 +61,8 @@ export class GameService {
       [this.Rb, this.Nb, this.Bb, this.Qb, this.Kb, this.Bb, this.Nb, this.Rb],
       [this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb],
       [null, null, null, null, null, null, null, null],
+      [null, null, null, this.Nw, null, null, null, null],
       [null, null, null, null, null, null, null, null],
-      [null, null, null, this.Kw, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [this.Rw, this.Pw, this.Rw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw],
       [this.Rw, this.Nw, this.Bw, this.Qw, this.Kw, this.Bw, this.Nw, this.Rw]
