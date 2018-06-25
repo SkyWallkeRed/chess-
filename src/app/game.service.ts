@@ -47,11 +47,12 @@ export class GameService {
     this.boardSubject.next(this.boardArray);
   }
   cetchOption(x, y) {
-    console.log(x, y);
+    // console.log(x, y);
   }
 
   getOptions(x, y, piece) {
     if (!this.optionsArray[0]) {
+
 
       this.optionsArray = piece.moveOptions(x, y) || []
       if(piece.type == "pawn"){
@@ -72,6 +73,7 @@ export class GameService {
       console.log(x, y)
     }
     // console.log(this.boardArray) 
+
     // this.deadArray.push(this.boardArray[y-2][x-1])
 
     // this.boardArray[y-2][x-1]=piece
