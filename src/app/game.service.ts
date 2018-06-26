@@ -24,19 +24,19 @@ export class GameService {
   public deadArray: Array<any>;
   public deadObservable: Observable<any>;
   public deadSubject: Subject<any>;
-  public clickedPiece
-  public Nb
-  public Rb
-  public Kb
-  public Bb
-  public Qb
-  public Pb
-  public Nw
-  public Rw
-  public Kw
-  public Bw
-  public Qw
-  public Pw
+  public clickedPiece;
+  public Nb;
+  public Rb;
+  public Kb;
+  public Bb;
+  public Qb;
+  public Pb;
+  public Nw;
+  public Rw;
+  public Kw;
+  public Bw;
+  public Qw;
+  public Pw;
 
   constructor() {
     this.boardSubject = new Subject<any>();
@@ -50,18 +50,18 @@ export class GameService {
     this.deadObservable = this.deadSubject.asObservable();
     this.deadArray = [];
     this.getData();
-     this.Nb = new Knight('knight', 'black', this);
-     this.Rb = new Rook('rook', 'black', this);
-     this.Kb = new King('king', 'black', this);
-     this.Bb = new Bishop('bishop', 'black', this);
-     this.Qb = new Queen('queen', 'black', this);
-     this.Pb = new Pawn('pawn', 'black', this);
-     this.Nw = new Knight('knight', 'white', this);
-     this.Rw = new Rook('rook', 'white', this);
-     this.Kw = new King('king', 'white', this);
-     this.Bw = new Bishop('bishop', 'white', this);
-     this.Qw = new Queen('queen', 'white', this);
-     this.Pw = new Pawn('pawn', 'white', this);
+    this.Nb = new Knight('knight', 'black', this);
+    this.Rb = new Rook('rook', 'black', this);
+    this.Kb = new King('king', 'black', this);
+    this.Bb = new Bishop('bishop', 'black', this);
+    this.Qb = new Queen('queen', 'black', this);
+    this.Pb = new Pawn('pawn', 'black', this);
+    this.Nw = new Knight('knight', 'white', this);
+    this.Rw = new Rook('rook', 'white', this);
+    this.Kw = new King('king', 'white', this);
+    this.Bw = new Bishop('bishop', 'white', this);
+    this.Qw = new Queen('queen', 'white', this);
+    this.Pw = new Pawn('pawn', 'white', this);
   }
   getData() {
     this.boardArray = [
@@ -79,32 +79,34 @@ export class GameService {
     this.boardSubject.next(this.boardArray);
   }
   catchOption(x, y) {
-    if(this.clickedPiece){
-      if(this.boardArray[y][x]){
-        this.deadArray.push(this.boardArray[y][x])
-        this.boardArray[y][x] = this.clickedPiece.myPiece
-        this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null
-      }
-      else{
-        this.boardArray[y][x] = this.clickedPiece.myPiece
-        this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null
+    if (this.clickedPiece) {
+      if (this.boardArray[y][x]) {
+        this.deadArray.push(this.boardArray[y][x]);
+        this.boardArray[y][x] = this.clickedPiece.myPiece;
+        this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
+      } else {
+        this.boardArray[y][x] = this.clickedPiece.myPiece;
+        this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
       }
     }
-    this.clickedPiece = null
+    this.clickedPiece = null;
+    this.optionsArray.length = 0;
+    this.optionsSubject.next([]);
+    
   }
   getPieceFromBoard(x, y) {
-    if(this.boardArray[y]){
-      return this.boardArray[y][x]
+    if (this.boardArray[y]) {
+      return this.boardArray[y][x];
     }
   }
 
   getOptions(x, y, piece) {
-    this.clickedPiece = {myX : x, myY : y, myPiece : piece}
-    this.optionsArray.length = 0
-    this.optionsArray = piece.moveOptions(x, y) || []
-    this.optionsSubject.next(this.optionsArray)
-    console.log(this.optionsArray)
-    console.log(x, y)
+    this.clickedPiece = { myX: x, myY: y, myPiece: piece };
+    this.optionsArray.length = 0;
+    this.optionsArray = piece.moveOptions(x, y) || [];
+    this.optionsSubject.next(this.optionsArray);
+    console.log(this.optionsArray);
+    console.log(x, y);
 
   }
 
@@ -113,11 +115,11 @@ export class GameService {
 const eColors = {
   black: 0,
   white: 1
-}
+};
 
 const eTypes = {
   knight: 0,
   king: 1
-}
+};
 
 

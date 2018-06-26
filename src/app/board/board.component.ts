@@ -22,6 +22,8 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
     this.gameService.getData();
     TweenMax.to(this.container.nativeElement, 5, { opacity: 1 });
+
+    // this.boardArray[this.optionsArray[0].myY][this.optionsArray[0].myX]
   }
   getBoard() {
     this.gameService.boardObservable.subscribe((data) => {

@@ -19,50 +19,48 @@ export class CellComponent implements OnInit {
   }
   ngOnInit() {
     this.cellColorF();
+    // this.currentOption = true;
+
+
   }
   // tslint:disable-next-line:use-life-cycle-interface
-  ngDoCheck() {
+  ngOnChanges() {
     this.currentOption = false;
+    // debugger
     for (let i = 0; i < this.optionsArray.length; i++) {
       if (this.optionsArray[i].myX === this.myX) {
         if (this.optionsArray[i].myY === this.myY) {
           this.cell.nativeElement.className = 'glow cell';
           this.currentOption = true;
-        } else if (!this.currentOption) {
-          this.cell.nativeElement.className = ' cell';
         }
       }
     }
     if (!this.currentOption) {
       this.cell.nativeElement.className = ' cell';
-
+      this.currentOption = false;
     }
-
   }
+
 
   checkValidOption() {
     if (this.currentOption) {
-
       this.gameService.catchOption(this.myX, this.myY);
-  
-
-
+      // this.of();
     }
+
+
   }
   checkValidPiece() {
     if (this.myPiece) {
       this.gameService.getOptions(this.myX, this.myY, this.myPiece);
 
+
     }
   }
 
-
   getOptions() {
-
-    this.ngDoCheck();
     this.checkValidOption();
     this.checkValidPiece();
-
   }
 
   cellColorF() {
