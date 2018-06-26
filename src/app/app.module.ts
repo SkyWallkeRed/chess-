@@ -11,13 +11,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { BoardComponent } from './board/board.component';
 import { RowComponent } from './row/row.component';
 import { CellComponent } from './cell/cell.component';
+import { PregameComponent } from './pregame/pregame.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     RowComponent,
-    CellComponent
+    CellComponent,
+    PregameComponent
   ],
   imports: [
     BrowserModule,

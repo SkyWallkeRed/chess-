@@ -26,7 +26,7 @@ export class Piece {
             for (let i = 0; i < 2; i++) {
                 currX += xMovment;
                 currY += yMovment;
-        
+
                 currPiece = this.gameService.getPieceFromBoard(currX, currY);
                 if (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
                     options.push({ myX: currX, myY: currY });
@@ -41,7 +41,7 @@ export class Piece {
             for (let i = 0; i < 1; i++) {
                 currX += xMovment;
                 currY += yMovment;
-        
+
                 currPiece = this.gameService.getPieceFromBoard(currX, currY);
                 if (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
                     options.push({ myX: currX, myY: currY });
@@ -56,12 +56,12 @@ export class Piece {
             while (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
                 currX += xMovment;
                 currY += yMovment;
-        
+
                 currPiece = this.gameService.getPieceFromBoard(currX, currY);
                 if (currPiece && currPiece.color != this.color) {
                     options.push({ myX: currX, myY: currY });
                 }
-                else if(!currPiece){
+                else if (!currPiece) {
                     options.push({ myX: currX, myY: currY });
                 }
             }
