@@ -6,8 +6,10 @@ export class Rook extends Piece {
         super(type, color, gameService);
         this.type = type;
         this.color = color;
+
         this.b = '../../assets/pieces_B/Rook-Yellow-icon-75.png';
         this.w = '../../assets/pieces_Y/Rook-Yellow-icon.png';
+
         this.imgUrl = this.color === 'white' ? this.imgUrl = this.w : this.imgUrl = this.b;
     }
     moveOptions(myX, myY) {

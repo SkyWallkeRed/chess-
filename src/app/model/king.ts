@@ -5,9 +5,11 @@ export class King extends Piece {
     constructor(type, color, gameService) {
         super(type, color, gameService);
 
+
         this.b = '../../assets/pieces_B/King-Yellow-icon-75.png';
         this.w = '../../assets/pieces_Y/King-Yellow-icon.png';
         this.imgUrl = this.color === 'white' ? this.w : this.b;
+
     }
 
     moveOptions(myX, myY) {
