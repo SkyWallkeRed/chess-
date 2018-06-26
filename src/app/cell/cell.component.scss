@@ -1,10 +1,45 @@
+@media screen and (min-width : 100px)and (max-width: 400px) {
+  
+   .cell{
+    width: 40px !important;
+    height: 40px !important;
+
+   }
+}
+@media screen and (min-width : 401px)and (max-width: 650px) {
+  
+  .cell{
+   width: 70px !important;
+   height: 70px !important;
+
+  }
+}
+@media screen and (min-width : 651px)and (max-width: 850px) {
+  
+  .cell{
+   width: 90px !important;
+   height: 90px !important;
+
+  }
+}
+@media screen and (min-width : 851px)and (max-width: 1250px) {
+  
+  .cell{
+   width: 100px !important;
+   height: 100px !important;
+
+  }
+}
+
+  
 .cell{
     width: 100px;
     height: 100px;
+   
     // border: 2px solid black;
     box-sizing: border-box;
     display: inline-block;
-    color :red;
+    // color :red;
     text-align: center;
     // padding-top: 40px;
     // object-fit: scale-down
