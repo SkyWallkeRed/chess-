@@ -1,0 +1,135 @@
+*{
+    position: absolute;
+    
+}
+
+.container{
+    
+    position: absolute;
+    box-sizing: border-box;
+
+    margin: auto;   
+    // border: 2px solid black;
+    width: 99%;
+    height: 700px;
+}
+.textLeft{
+    // border: 2px solid green;   
+    font-size: 5em;
+    font-family: 'Anton', sans-serif;
+    width: 600px;
+    height: 200px; 
+    opacity: 0;
+}
+.textRight{
+    // border: 2px solid pink;
+    font-size: 5em;
+    font-family: 'Indie Flower', cursive;
+    width: 600px;
+    height: 200px;
+    opacity: 0;
+}
+.animationBox{
+    // border: 2px solid red;
+    width: 600px;
+    height: 600px;
+    opacity: 0;
+}
+.play{
+    // border: 2px solid steelblue;    
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    box-sizing: border-box;
+    object-fit: contain;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+.loginF{
+    // border: 2px solid rgb(158, 70, 180);
+    color:#30477D ;    
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    box-sizing: border-box;
+    object-fit: contain;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+.btn1{
+    // border: 2px solid steelblue;
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+.btn2{
+    // border: 2px solid steelblue;
+    
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+.btn3{
+    // border: 2px solid steelblue;
+    
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+.blood{
+    opacity: 0.9;
+// display: inline-block;
+// padding-right: 300px;
+z-index: 2;
+margin-left: -150px;
+margin-top:  -150px;
+
+}
+.k{
+  z-index: 1000;
+}
+.k-container{
+    // z-index: 1;
+    box-sizing: border-box;
+    // align-content: center;
+    padding-left: 40%;
+    padding-top: 40%;    
+}
+.piece1{
+    // border: 2px solid steelblue;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+.piece2{
+    // border: 2px solid steelblue;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+.piece3{
+    // border: 2px solid steelblue;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+.gitHub{
+    // border: 2px solid steelblue;
+    width: 200px;
+    height: 50px;
+    opacity: 0; 
+}
+.bloodMark2{
+opacity: 0.5;
+}

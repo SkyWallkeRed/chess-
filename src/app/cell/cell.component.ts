@@ -42,9 +42,10 @@ export class CellComponent implements OnInit {
 
   checkValidOption() {
     if (this.currentOption) {
+
       this.gameService.catchOption(this.myX, this.myY);
   
-      
+
 
     }
   }
@@ -54,7 +55,7 @@ export class CellComponent implements OnInit {
 
     }
   }
- 
+
 
   getOptions() {
 

@@ -6,22 +6,24 @@ export class Queen extends Piece {
         super(type, color, gameService);
         this.type = type;
         this.color = color;
-        this.b = 'https://i.imgur.com/jlqOXYr.png';
-        this.w = 'http://icons.iconarchive.com/icons/icons-land/vista-chess/128/Queen-Yellow-icon.png';
+
+        this.b = '../../assets/pieces_B/Queen-Yellow-icon-75.png';
+        this.w = '../../assets/pieces_Y/Queen-Yellow-icon.png';
+
         this.imgUrl = this.color === 'white' ? this.imgUrl = this.w : this.imgUrl = this.b;
     }
     moveOptions(myX, myY) {
-        let arr =[]
-        let optionsArr = arr.concat(
-            this.run(0, -1, myX,myY), 
-            this.run(-1, 0, myX,myY), 
-            this.run(0, 1, myX,myY), 
-            this.run(1, 0, myX,myY), 
-            this.run(1, 1, myX,myY), 
-            this.run(-1, -1, myX,myY), 
-            this.run(1, -1, myX,myY), 
-            this.run(-1, 1, myX,myY),
-         ) 
-        return optionsArr
-    } 
+        const arr = [];
+        const optionsArr = arr.concat(
+            this.run(0, -1, myX, myY),
+            this.run(-1, 0, myX, myY),
+            this.run(0, 1, myX, myY),
+            this.run(1, 0, myX, myY),
+            this.run(1, 1, myX, myY),
+            this.run(-1, -1, myX, myY),
+            this.run(1, -1, myX, myY),
+            this.run(-1, 1, myX, myY),
+        );
+        return optionsArr;
+    }
 }

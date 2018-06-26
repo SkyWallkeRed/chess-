@@ -1,0 +1,51 @@
+<div #container class="container">
+  <div #header class="header">
+    <div #textLeft class="textLeft">same old chess</div>
+    <div #textRight class="textRight">with a twist</div>
+    <div #btn1 class="btn1">btn1</div>
+    <div #btn2 class="btn2">btn2</div>
+    <div #btn3 class="btn3">btn3</div>
+    <div #loginF class="loginF">loginF
+      <!-- <div #pg13 class="pg13">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/RATED_PG-13.svg/64px-RATED_PG-13.svg.png" alt="">
+      </div> -->
+      <div #gitHub class="gitHub">
+        gitHub
+        <img src="https://clipart.info/github-logo-png-4934" alt="">
+      </div>
+      <div #piece1 class="piece1">
+        <img src="../../assets/pieces_B/Pawn-Yellow-icon-75.png" alt="">
+      </div>
+      <div #piece2 class="piece2">
+        <img src="../../assets/pieces_Y/Knight-Yellow-icon.png" alt="">
+      </div>
+      <div #piece3 class="piece3">
+        <img src="../../assets/pieces_W/Bishop-Yellow-icon_0_80.png" alt="">
+      </div>
+
+
+    </div>
+
+    <div #play class="play">play
+    </div>
+  </div>
+  <div #animationBox class="animationBox">
+    <div class="k-container drag">
+      <div class="k " #k >
+
+        <img class="glow" [ngClass]="{'glowAttack': isActive}" (click)="isActive = !isActive" src="../../assets/pieces_Y/King-Yellow-icon.png"
+          alt="">
+        <div class="wep" #wep>
+          <img *ngIf='axe' src="http://icons.iconarchive.com/icons/chrisl21/minecraft/96/Diamond-Axe-icon.png" alt="">
+        </div>
+        <img *ngIf='bloodMark' class='blood' #blood src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png"
+          alt="">
+        <img class="bloodMark2" *ngIf='bloodMark2' src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png"
+          alt="">
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
