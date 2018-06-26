@@ -15,8 +15,17 @@ export class Bishop extends Piece {
     moveOptions(myX, myY) {
         const arr = [];
         const optionsArr = arr.concat(this.run(1, 1, myX, myY),
-            this.run(-1, -1, myX, myY), this.run(1, -1, myX, myY),
+            this.run(-1, -1, myX, myY), 
+            this.run(1, -1, myX, myY),
             this.run(-1, 1, myX, myY));
+        return optionsArr;
+    }
+    unfilteredMoveOptions(myX, myY) {
+        const arr = [];
+        const optionsArr = arr.concat(this.unfilteredOptions(1, 1, myX, myY),
+            this.unfilteredOptions(-1, -1, myX, myY), 
+            this.unfilteredOptions(1, -1, myX, myY),
+            this.unfilteredOptions(-1, 1, myX, myY));
         return optionsArr;
     }
 }

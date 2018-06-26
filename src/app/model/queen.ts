@@ -26,4 +26,18 @@ export class Queen extends Piece {
         );
         return optionsArr;
     }
+    unfilteredMoveOptions(myX, myY) {
+        const arr = [];
+        const optionsArr = arr.concat(
+            this.unfilteredOptions(0, -1, myX, myY),
+            this.unfilteredOptions(-1, 0, myX, myY),
+            this.unfilteredOptions(0, 1, myX, myY),
+            this.unfilteredOptions(1, 0, myX, myY),
+            this.unfilteredOptions(1, 1, myX, myY),
+            this.unfilteredOptions(-1, -1, myX, myY),
+            this.unfilteredOptions(1, -1, myX, myY),
+            this.unfilteredOptions(-1, 1, myX, myY),
+        )
+        return optionsArr;
+    }
 }

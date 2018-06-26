@@ -25,5 +25,19 @@ export class Knight extends Piece {
             this.run(1, 2, myX, myY));
         return optionsArr;
     }
+    unfilteredMoveOptions(myX, myY) {
+        const arr = [];
+        const optionsArr = arr.concat(
+            this.unfilteredOptions(2, 1, myX, myY),
+            this.unfilteredOptions(2, -1, myX, myY),
+            this.unfilteredOptions(-2, 1, myX, myY),
+            this.unfilteredOptions(-2, -1, myX, myY),
+            this.unfilteredOptions(-1, -2, myX, myY),
+            this.unfilteredOptions(1, -2, myX, myY),
+            this.unfilteredOptions(-1, 2, myX, myY),
+            this.unfilteredOptions(1, 2, myX, myY)
+        )
+        return optionsArr;
+    }
 
 }

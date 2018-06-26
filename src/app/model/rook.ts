@@ -18,9 +18,15 @@ export class Rook extends Piece {
             this.run(-1, 0, myX, myY),
             this.run(0, 1, myX, myY),
             this.run(0, -1, myX, myY));
-        // arr.concat(this.run(-1, 0, myX,myY))
-        // arr.concat(this.run(0, 1, myX,myY))
-        // arr.concat(this.run(0, -1, myX,myY))
+        return optionsArr;
+    }
+    unfilteredMoveOptions(myX, myY) {
+        const arr = [];
+        const optionsArr = arr.concat(this.unfilteredOptions(1, 0, myX, myY),
+            this.unfilteredOptions(-1, 0, myX, myY),
+            this.unfilteredOptions(0, 1, myX, myY),
+            this.unfilteredOptions(0, -1, myX, myY)
+        )
         return optionsArr;
     }
 }

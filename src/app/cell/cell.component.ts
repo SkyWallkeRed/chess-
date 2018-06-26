@@ -42,11 +42,7 @@ export class CellComponent implements OnInit {
 
   checkValidOption() {
     if (this.currentOption) {
-
       this.gameService.catchOption(this.myX, this.myY);
-  
-
-
     }
   }
   checkValidPiece() {
@@ -74,6 +70,9 @@ export class CellComponent implements OnInit {
       this.cellColor = 'black';
       return '#777777';
     }
+  }
+  test(){
+    this.gameService.getUnfilteredEnemyOptions(this.myPiece)
   }
 }
 

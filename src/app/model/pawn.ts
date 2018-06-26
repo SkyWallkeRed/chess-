@@ -38,5 +38,24 @@ export class Pawn extends Piece {
 
         return optionsArr
     }
+    unfilteredMoveOptions(myX, myY) {
+        let tempArr = []
+        let optionsArr = []
+       
+        if (this.gameService.getPieceFromBoard(myX - 1, myY - 1) && this.gameService.getPieceFromBoard(myX - 1, myY - 1).color !== this.color) {
+            optionsArr = optionsArr.concat(this.unfilteredOptions(-1, -1, myX, myY))
+        }
+        if (this.gameService.getPieceFromBoard(myX + 1, myY - 1) && this.gameService.getPieceFromBoard(myX + 1, myY - 1).color !== this.color) {
+            optionsArr = optionsArr.concat(this.unfilteredOptions(1, -1, myX, myY))
+        }
+
+        optionsArr = optionsArr.concat(this.unfilteredOptions(0, -1, myX, myY))
+        if (myY == 6) {
+            optionsArr = optionsArr.concat(this.unfilteredOptions(0, -2, myX, myY))
+        }
+
+
+        return optionsArr
+    }
 
 }
