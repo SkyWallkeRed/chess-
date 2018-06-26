@@ -21,6 +21,10 @@ export class GameService {
   public optionsArray: Array<any>;
   public optionsObservable: Observable<any>;
   public optionsSubject: Subject<any>;
+  public deadArray: Array<any>;
+  public deadObservable: Observable<any>;
+  public deadSubject: Subject<any>;
+  public clickedPiece
   public Nb
   public Rb
   public Kb
@@ -41,6 +45,10 @@ export class GameService {
     this.optionsSubject = new Subject<any>();
     this.optionsObservable = this.optionsSubject.asObservable();
     this.optionsArray = [];
+
+    this.deadSubject = new Subject<any>();
+    this.deadObservable = this.deadSubject.asObservable();
+    this.deadArray = [];
     this.getData();
      this.Nb = new Knight('knight', 'black', this);
      this.Rb = new Rook('rook', 'black', this);
@@ -61,17 +69,28 @@ export class GameService {
       [this.Rb, this.Nb, this.Bb, this.Qb, this.Kb, this.Bb, this.Nb, this.Rb],
       [this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb],
       [null, null, null, null, null, null, null, null],
-      [null, null, null, this.Nw, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
-      [this.Rw, this.Pw, this.Rw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw],
+      [null, null, null, null, null, null, null, null],
+      [this.Pw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw],
       [this.Rw, this.Nw, this.Bw, this.Qw, this.Kw, this.Bw, this.Nw, this.Rw]
 
     ];
     this.boardSubject.next(this.boardArray);
   }
-  cetchOption(x, y) {
-    console.log(x, y);
+  catchOption(x, y) {
+    if(this.clickedPiece){
+      if(this.boardArray[y][x]){
+        this.deadArray.push(this.boardArray[y][x])
+        this.boardArray[y][x] = this.clickedPiece.myPiece
+        this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null
+      }
+      else{
+        this.boardArray[y][x] = this.clickedPiece.myPiece
+        this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null
+      }
+    }
+    this.clickedPiece = null
   }
   getPieceFromBoard(x, y) {
     if(this.boardArray[y]){
@@ -80,39 +99,13 @@ export class GameService {
   }
 
   getOptions(x, y, piece) {
+    this.clickedPiece = {myX : x, myY : y, myPiece : piece}
     this.optionsArray.length = 0
     this.optionsArray = piece.moveOptions(x, y) || []
-    // if (piece.type == "pawn") {
-    //   this.pawnNoCollide(piece)
-    // }
     this.optionsSubject.next(this.optionsArray)
     console.log(this.optionsArray)
     console.log(x, y)
 
-
-    // console.log(this.boardArray) 
-
-    // this.deadArray.push(this.boardArray[y-2][x-1])
-
-    // this.boardArray[y-2][x-1]=piece
-
-
-    // this.boardArray[y-1][x-1] = null
-    // console.log(piece)
-    // console.log(this.boardArray)
-    // this.boardArray[y-1][x-1].splice(0, 1)
-
-  }
-  pawnNoCollide(piece) {
-    for (let i = 0; i < this.optionsArray.length; i++) {
-      let position = this.boardArray[this.optionsArray[i].myY][this.optionsArray[i].myX]
-      if (position) {
-        if (position.color == piece.color) {
-          debugger
-          this.optionsArray.splice(i, 1)
-        }
-      }
-    }
   }
 
 }

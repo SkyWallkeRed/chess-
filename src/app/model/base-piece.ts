@@ -7,7 +7,7 @@ export class Piece {
     public b?: string;
     public w?: string;
 
-    constructor(type, color, private gameService: GameService) {
+    constructor(type, color, public gameService: GameService) {
 
         this.type = type;
         this.color = color;
@@ -23,17 +23,27 @@ export class Piece {
         // currPiece = this.gameService.getPieceFromBoard(currX, currY);
 
         if (this.type == 'pawn') {
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 1; i++) {
                 currX += xMovment;
                 currY += yMovment;
         
                 currPiece = this.gameService.getPieceFromBoard(currX, currY);
+
+
                 if (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
                     options.push({ myX: currX, myY: currY });
 
                     // currX = currX + xMovment;
                     // currY = currY + yMovment;
                     // currPiece = this.gameService.getPieceFromBoard(currX, currY);
+                }
+                else{
+                    if (currPiece.color != this.color && (xMovment === -1 && yMovment === -1) || (xMovment === 1 && yMovment === -1)) {
+                        options.push({ myX: currX, myY: currY });
+                    }
+                    else{
+                        return []
+                    }
                 }
             }
         }
