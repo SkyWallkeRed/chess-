@@ -9,6 +9,7 @@ import { GameService } from '../game.service';
 export class RowComponent implements OnInit {
   @Input() myY: number;
   @Input() optionsArray;
+
   private rows;
   private cellColor = this.getStyle();
   // @Output() cellColorOutPut: EventEmitter<any> = new EventEmitter();

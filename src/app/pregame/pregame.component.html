@@ -1,7 +1,7 @@
 <div #container class="container">
   <div #header class="header">
     <div #textLeft class="textLeft">same old chess</div>
-    <div #textRight class="textRight">with a twist</div>
+    <div #textRight class="textRight ">with a twist</div>
     <div #btn1 class="btn1">btn1</div>
     <div #btn2 class="btn2">btn2</div>
     <div #btn3 class="btn3">btn3</div>
@@ -26,7 +26,8 @@
 
     </div>
 
-    <div #play class="play swing">play
+    <div #play class="play swing"[routerLink]="['/play']" >play
+    
     </div>
   </div>
   <div #animationBox class="animationBox">

@@ -37,8 +37,15 @@ export class GameService {
   public Bw;
   public Qw;
   public Pw;
-
+  // ANIMATION BOOLS
+  public kill = false;
+  public killObservable: Observable<any>;
+  public killSubject: Subject<any>;
+// END ANIMATION BOOLS
   constructor() {
+    this.killSubject = new Subject<any>();
+    this.killObservable = this.killSubject.asObservable();
+
     this.boardSubject = new Subject<any>();
     this.boardObservable = this.boardSubject.asObservable();
 
@@ -82,7 +89,12 @@ export class GameService {
     if (this.clickedPiece) {
       if (this.boardArray[y][x]) {
         this.deadArray.push(this.boardArray[y][x]);
+        console.log(this.deadArray);
+        this.kill = true;
+        this.killSubject.next(this.kill); // ANIMATION
+        this.deadSubject.next(this.deadArray);
         this.boardArray[y][x] = this.clickedPiece.myPiece;
+
         this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
       } else {
         this.boardArray[y][x] = this.clickedPiece.myPiece;
@@ -90,9 +102,9 @@ export class GameService {
       }
     }
     this.clickedPiece = null;
-    this.optionsArray.length = 0;
-    this.optionsSubject.next([]);
-    
+    this.optionsArray.length = 0; // ANIMATION
+    this.optionsSubject.next([]); // ANIMATION
+
   }
   getPieceFromBoard(x, y) {
     if (this.boardArray[y]) {
@@ -105,8 +117,8 @@ export class GameService {
     this.optionsArray.length = 0;
     this.optionsArray = piece.moveOptions(x, y) || [];
     this.optionsSubject.next(this.optionsArray);
-    console.log(this.optionsArray);
-    console.log(x, y);
+    // console.log(this.optionsArray);
+    // console.log(x, y);
 
   }
 
