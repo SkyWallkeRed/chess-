@@ -128,16 +128,14 @@ export class GameService {
       // for(let index =0; index < illegalMoves.length; index++){
       //   if (illegalMoves[index].myX == this.clickedPiece.myX && illegalMoves[index].myY == this.clickedPiece.myY){
       // }
-      for(let index =0; index < illegalMoves.length; index++){
-        console.log('test')
-        console.log(illegalMoves[index])
-        if (illegalMoves[index].myX == this.clickedPiece.myX && illegalMoves[index].myY == this.clickedPiece.myY){
-          this.optionsArray.length = 0
-        }
-      }
+      // for(let index =0; index < illegalMoves.length; index++){
+      //   if (illegalMoves[index].myX == this.clickedPiece.myX && illegalMoves[index].myY == this.clickedPiece.myY){
+      //     this.optionsArray.length = 0
+      //   }
+      // }
       for(let i=0; i<this.optionsArray.length; i++){
         for(let j=0; j<illegalMoves.length; j++){
-          if(this.optionsArray[i].myX == illegalMoves[j].myX && this.optionsArray[i].myY == illegalMoves[j].myY ){
+          if(this.optionsArray[i] && this.optionsArray[i].myX !== illegalMoves[j].myX && this.optionsArray[i].myY !== illegalMoves[j].myY ){
             this.optionsArray.splice(1, i)
           }
         }
@@ -172,19 +170,37 @@ export class GameService {
   }
 
   validateOptions(x, y, piece){
-    // let myTeamsOptions = this.getMyTeamsOptions(piece)
+    let myTeamsOptions = this.getFilteredOptions(x, y, piece)
     let unfilteredEnemiesOptions = this.getUnfilteredEnemyOptions(piece)
-    let filteredEnemiesOptions = this.getFilteredEnemyOptions(piece)
-    let illegalMoves = []
+    let filteredEnemiesOptions = []    
+    let legalMoves = []
+    let tempArr = []
     for (let i=0; i<unfilteredEnemiesOptions.length; i++){
         if(this.whiteKingPosition.myX === unfilteredEnemiesOptions[i].myX && this.whiteKingPosition.myY === unfilteredEnemiesOptions[i].myY){
+        filteredEnemiesOptions = filteredEnemiesOptions.concat(this.getFilteredEnemyOptions(unfilteredEnemiesOptions[i])) 
+        filteredEnemiesOptions.push({myX : unfilteredEnemiesOptions[i].myX, myY : unfilteredEnemiesOptions[i].myY})         
+          for(let j = 0; j<filteredEnemiesOptions.length; j++){
+            for (let index = 0; index < myTeamsOptions.length; index++){
+              if(myTeamsOptions[index] && filteredEnemiesOptions[j].myX == myTeamsOptions[index].myX && filteredEnemiesOptions[j].myY == myTeamsOptions[index].myY ){
+                legalMoves.push(filteredEnemiesOptions[j])
+                console.log(unfilteredEnemiesOptions[i])
+                legalMoves.push(unfilteredEnemiesOptions[i])
+                // legalMoves = legalMoves.concat(tempArr)
+              }
+            }
+            // if(filteredEnemiesOptions[j].myX === unfilteredEnemiesOptions[i].myX && filteredEnemiesOptions[j].myY === unfilteredEnemiesOptions[i].myY){
+              // tempArr.push(filteredEnemiesOptions[j])
+              // legalMoves = legalMoves.concat(tempArr)
+            // }
+          }
           //compare to filteredOptions
           //SUBTRACK THE FILTERED FROM THE UNFILTERED AND THE REMAINING IS THE LEAGAL MOVES!!!!
           //IF THE UNFILTERED ARAY INCLUDES THE KNG SO ONLY THE FILTERED ARRAY = THE LEGAL MOVES
-          illegalMoves = illegalMoves.concat(filteredEnemiesOptions)
         }
       }
-      return illegalMoves
+      console.log('legal moves:')
+      console.log(legalMoves)
+      return legalMoves
     }
 
   
@@ -218,11 +234,10 @@ export class GameService {
     for(let y=0; y<this.boardArray.length; y++){
       for(let x =0; x<this.boardArray[y].length; x++){
           if(this.boardArray[y][x] && this.boardArray[y][x].color == piece.color){
-            myTeamsOptions = myTeamsOptions.concat(this.getOptions(x, y, this.boardArray[y][x]))
+            myTeamsOptions = myTeamsOptions.concat(this.getFilteredOptions(x, y, this.boardArray[y][x]))
           }
       }
     }
-    console.log(myTeamsOptions)
     return myTeamsOptions
   }
   getKingsOptions(){
