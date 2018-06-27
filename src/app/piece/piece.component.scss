@@ -1,0 +1,75 @@
+*{
+    position: absolute;
+    
+}
+
+.blood{
+    opacity: 0.8;
+// display: inline-block;
+// padding-right: 300px;
+z-index: 2;
+margin-left: -150px;
+margin-top:  -150px;
+
+}
+.piece{
+  z-index: 100;
+//   width: 20%;
+bottom: -50px;
+}
+.piece-container{
+    // z-index: 1;
+    box-sizing: border-box;
+    // align-content: center;
+    margin-left: -10px;
+}
+
+// button {
+//     margin: 12px;
+//   }
+  .default {
+    background-color: #000;
+    color: #ffe100;
+  }
+  .primary {
+    background-color:
+      #ffe100;
+    color: #000;
+  }
+  
+  @keyframes glowing {
+    0% { box-shadow: 0 0 -20px #2CD3D4;}
+    20% {background-color: #2CD3D4}
+    40% { box-shadow: 0 0 30px #2CD3D4; }
+    // 50% {background-color: #2CD3D4;}
+    60% { box-shadow: 0 0 30px #2CD3D4; }
+    100% { box-shadow: 0 0 -20px #2CD3D4; }
+
+  }
+  @keyframes glowingAttack {
+    0% { box-shadow: 0 0 -30px #C60E33;}
+    // 20% {background-color: #C60E33}
+    40% { box-shadow: 0 0 40px #C60E33; }
+    50% {background-color: #C60E33;}
+    60% { box-shadow: 0 0 40px #C60E33; }
+    100% { box-shadow: 0 0 -30px #C60E33; }
+
+  }
+
+  .glow:hover{
+    animation: glowing 2000ms infinite;
+    
+  }
+  
+//   .glowAttack {
+//     animation: glowingAttack 2000ms infinite;
+//     // animation: fillGlow 2000ms infinite;
+    
+    
+   
+//   }
+  
+
+  .btn{
+      z-index: 1000;
+  }

@@ -30,12 +30,21 @@
 
   }
 }
+.wep{
+  position: absolute;
+  // top:40px;
+  // left: 40px;
+  height: 7%;
+  width: 7%;
 
+}
+.piece{
+  box-sizing: border-box;
+}
   
 .cell{
     width: 100px;
     height: 100px;
-   
     // border: 2px solid black;
     box-sizing: border-box;
     display: inline-block;
@@ -43,10 +52,13 @@
     text-align: center;
     // padding-top: 40px;
     // object-fit: scale-down
+    // position: absolute;
 }
 img{
     max-width:100%;
     max-height:100%;
+    // position: relative;
+    // position: absolute;
 
 }
 // .glow{
@@ -83,7 +95,6 @@ background: white;
 
   .glow{
     animation: glowing 2000ms infinite;
-    
   }
   
   .glowAttack {

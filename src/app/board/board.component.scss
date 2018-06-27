@@ -3,7 +3,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(8);
-
+position: absolute;
     
     
     // grid-gap: 10px;
@@ -16,6 +16,14 @@
 .row{
     box-sizing: border-box;
     margin-bottom: -4px;
+    display: inline-block;
+}
+.deadPieses{
+    // float: left;
+    // position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid blue;
 }
 
   

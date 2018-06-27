@@ -36,6 +36,7 @@
     opacity: 0;
 }
 .play{
+    z-index: 2000;
     // border: 2px solid steelblue;    
     font-family: 'Indie Flower', cursive;
     font-size: 3em;
@@ -55,8 +56,8 @@
     100% { transform: rotate(4deg); }
 }
 @keyframes swing2 {
-    0% { transform: rotate(10deg); }
-    100% { transform: rotate(-10deg); }
+    0% { transform: rotate(30deg); }
+    100% { transform: rotate(-30deg); }
 }
 @keyframes swing3 {
     0% { transform: rotate(-5deg); }
@@ -90,8 +91,8 @@
     // box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 .swing2 {
-    animation: jump1 ease-in-out 0.2s infinite alternate;
-    transform-origin: center 5px;
+    animation: swing ease-in-out 3s infinite alternate;
+    transform-origin: center -10px;
     float:left;
     // box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }

@@ -12,6 +12,7 @@ import { BoardComponent } from './board/board.component';
 import { RowComponent } from './row/row.component';
 import { CellComponent } from './cell/cell.component';
 import { PregameComponent } from './pregame/pregame.component';
+import { PieceComponent } from './piece/piece.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PregameComponent } from './pregame/pregame.component';
     BoardComponent,
     RowComponent,
     CellComponent,
-    PregameComponent
+    PregameComponent,
+    PieceComponent
   ],
   imports: [
     BrowserModule,

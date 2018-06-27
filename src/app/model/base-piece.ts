@@ -11,7 +11,7 @@ export class Piece {
 
         this.type = type;
         this.color = color;
-        this.gameService = gameService
+        this.gameService = gameService;
     }
 
     run(xMovment, yMovment, currX, currY) {
@@ -37,11 +37,11 @@ export class Piece {
                     // currY = currY + yMovment;
                     // currPiece = this.gameService.getPieceFromBoard(currX, currY);
                 }
-                else{
+                else {
                     if (currPiece.color != this.color && (xMovment === -1 && yMovment === -1) || (xMovment === 1 && yMovment === -1)) {
                         options.push({ myX: currX, myY: currY });
                     }
-                    else{
+                    else {
                         return []
                     }
                 }

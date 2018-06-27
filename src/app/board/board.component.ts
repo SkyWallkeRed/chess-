@@ -37,6 +37,7 @@ export class BoardComponent implements OnInit {
 
     this.gameService.deadObservable.subscribe((data) => {
       this.deadArray = data;
+      console.log(this.deadArray)
     });
   }
 
