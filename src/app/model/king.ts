@@ -40,4 +40,27 @@ export class King extends Piece {
         )
         return optionsArr;
     }
+
+    
+
+    run(xMovment, yMovment, currX, currY) {
+        let options = [];
+        let currPiece;
+      
+            for (let i = 0; i < 1; i++) {
+                currX += xMovment;
+                currY += yMovment;
+
+                currPiece = this.gameService.getPieceFromBoard(currX, currY);
+                if (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
+                    options.push({ myX: currX, myY: currY });
+                }
+            }
+
+            if (currPiece && currPiece.color != this.color) {
+                options.push({ myX: currX, myY: currY });
+            }
+
+            return options;
+    }
 }

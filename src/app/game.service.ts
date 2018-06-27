@@ -15,6 +15,9 @@ import { Observable, Subject } from 'rxjs';
 })
 export class GameService {
 
+    getCopyOfBoard(): any {
+        throw new Error("Method not implemented.");
+    }
   public boardArray: Array<any>;
   public boardObservable: Observable<any>;
   public boardSubject: Subject<any>;
@@ -75,12 +78,12 @@ export class GameService {
 
       [this.Rb, this.Nb, this.Bb, this.Qb, this.Kb, this.Bb, this.Nb, this.Rb],
       [this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb],
-      [null, this.Bb, null, null, null, null, null, this.Bb],
       [null, null, null, null, null, null, null, null],
-      [null, null, null, this.Bw, null, this.Pw, null, null],
-      [null, null, null, null, this.Kw, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
       [this.Pw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw],
-      [this.Rw, this.Nw, this.Bw, this.Qw, null, this.Bw, this.Nw, this.Rw]
+      [this.Rw, this.Nw, this.Bw, this.Qw, this.Kw, this.Bw, this.Nw, this.Rw]
 
     ];
     this.boardSubject.next(this.boardArray);
@@ -153,7 +156,7 @@ export class GameService {
     }
     debugger
     for(let idx = 0; idx<this.enemiesPieces.length; idx++){
-      finalOptionsArray .push(this.enemiesPieces[idx])
+      finalOptionsArray.push(this.enemiesPieces[idx])
     }
     
     this.optionsArray = finalOptionsArray   
@@ -185,6 +188,39 @@ export class GameService {
     }
 
   }
+  validateisKingVulnerable(tempBoard){
+   for (let x in tempBoard){
+     for (let y in tempBoard){
+       if (tempBoard[x][y] && tempBoard[x][y].color === "black"){
+          const soldierOptions = tempBoard[x][y].moveOptions(x,y);
+          for(let option of soldierOptions){
+            if (this.boardArray[option.myX][option.myY]  === this.Kw){
+              return false;
+            }
+          }
+       }
+     }
+   }
+    return true;
+ }
+
+ validateOoptionsArray(optionsArray , piece, x, y){
+
+  let tempBoard = this.getCopyOfBoard()
+   for (let option in optionsArray){
+
+    tempBoard[ option.myX][ option.myY] = piece;
+    tempBoard[x][y] = null;
+
+     if (!this.validateisKingVulnerable(tempBoard)){
+        // rempve option from the array
+     }
+
+     
+    tempBoard[ option.myX][ option.myY] =null ;
+    tempBoard[x][y] = piece;
+   }
+ }
 
   validateOptions(x, y, piece){
     let legalMovesBoolean = false
