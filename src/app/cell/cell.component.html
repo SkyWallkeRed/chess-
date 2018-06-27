@@ -9,7 +9,7 @@
 
 
 <div #cell class="cell" (click)="getOptions()" [style.background-color]="cellColorF()" >
-    <app-piece [myPiece]='myPiece' [killActive]='killActive' (bloodMarkCell)='thisCellBloodMark($event)'></app-piece>
-    <img *ngIf='bloodMarkCell' class='blood' #blood src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png"
-        alt="">
+    <app-piece [animateKill]='animateKill' [myPiece]='myPiece' (bloodMarkCell)='thisCellBloodMark($event)'></app-piece>
+    <!-- <img *ngIf='bloodMarkCell' class='blood' #blood src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png" -->
+        <!-- alt=""> -->
 </div>

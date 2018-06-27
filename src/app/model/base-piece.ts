@@ -6,16 +6,19 @@ export class Piece {
     public imgUrl?: string;
     public b?: string;
     public w?: string;
+    public T?: string;
+
 
     constructor(type, color, public gameService: GameService) {
 
         this.type = type;
         this.color = color;
         this.gameService = gameService;
+
     }
 
     run(xMovment, yMovment, currX, currY) {
-        let options = [];
+        const options = [];
         let currPiece;
         // currX += xMovment;
         // currY += yMovment;
@@ -42,7 +45,7 @@ export class Piece {
                         options.push({ myX: currX, myY: currY });
                     }
                     else {
-                        return []
+                        return [];
                     }
                 }
             }

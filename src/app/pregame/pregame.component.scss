@@ -9,12 +9,12 @@
     box-sizing: border-box;
 
     margin: auto;   
-    // border: 2px solid black;
+    // border: 2px solid black; //######################################
     width: 99%;
     height: 700px;
 }
 .textLeft{
-    // border: 2px solid green;   
+    // border: 2px solid green;   // ###################################
     font-size: 5em;
     font-family: 'Anton', sans-serif;
     width: 600px;
@@ -22,7 +22,7 @@
     opacity: 0;
 }
 .textRight{
-    // border: 2px solid pink;
+    // border: 2px solid pink; // #######################################
     font-size: 5em;
     font-family: 'Indie Flower', cursive;
     width: 600px;
@@ -30,14 +30,14 @@
     opacity: 0;
 }
 .animationBox{
-    // border: 2px solid red;
+    // border: 2px solid red; //##########################################
     width: 600px;
     height: 600px;
     opacity: 0;
 }
 .play{
     z-index: 2000;
-    // border: 2px solid steelblue;    
+    // border: 2px solid steelblue;    //###################################
     font-family: 'Indie Flower', cursive;
     font-size: 3em;
     text-align: center;

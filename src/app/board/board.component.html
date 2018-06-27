@@ -1,9 +1,45 @@
 <div class="container" #container>
+  <div id="leaves">
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+  </div>
+  
+  <span #home class="home" [routerLink]="['/home']">Home</span>
 
   <app-row [optionsArray]='optionsArray' class="row" *ngFor='let row of boardArray; let idx = index' [myY]="idx"></app-row>
-  <div class="deadPieses" *ngFor='let dead of deadArray'>
+  <div class="deadPieses">
+    <img src="http://icons.iconarchive.com/icons/aha-soft/desktop-halloween/128/Tomb-icon.png" alt="">
+
     <!-- <img  src= "" alt="">  -->
-    <img src="{{dead.imgUrl}}" alt="">
+
+
+    <img *ngFor='let dead of deadArray' class="deadPiece" src="{{dead.imgUrl}}" alt="">
+    <!-- <img *ngFor='let dead of deadArray' src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png" alt=""> -->
+
     <!-- {{deadArray[0].type.color}} -->
   </div>
+
 </div>
+
+<!-- <div class="book">
+  <img src="../../assets/logos/if_Book_185628.png" alt="">
+</div> -->
+<!-- <div class="tree">
+  <img src="../../assets/logos/if_3D_Tree_185594.png" alt="">
+</div>
+<div class="rock">
+  <img src="../../assets/logos/if_Coal_185596.png" alt="">
+</div> -->
