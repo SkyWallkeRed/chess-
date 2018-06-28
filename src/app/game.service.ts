@@ -25,6 +25,7 @@ export class GameService {
   public deadObservable: Observable<any>;
   public deadSubject: Subject<any>;
   public clickedPiece;
+  public currentTurn
   public Nb;
   public Rb;
   public Kb;
@@ -56,31 +57,32 @@ export class GameService {
     this.deadSubject = new Subject<any>();
     this.deadObservable = this.deadSubject.asObservable();
     this.deadArray = [];
+    this.currentTurn = 'white'
     this.getData();
-    this.Nb = new Knight('knight', 'black', this);
-    this.Rb = new Rook('rook', 'black', this);
+    // this.Nb = new Knight('knight', 'black', this);
+    // this.Rb = new Rook('rook', 'black', this);
     this.Kb = new King('king', 'black', this);
-    this.Bb = new Bishop('bishop', 'black', this);
+    // this.Bb = new Bishop('bishop', 'black', this);
     this.Qb = new Queen('queen', 'black', this);
-    this.Pb = new Pawn('pawn', 'black', this);
-    this.Nw = new Knight('knight', 'white', this);
-    this.Rw = new Rook('rook', 'white', this);
+    // this.Pb = new Pawn('pawn', 'black', this);
+    // this.Nw = new Knight('knight', 'white', this);
+    // this.Rw = new Rook('rook', 'white', this);
     this.Kw = new King('king', 'white', this);
-    this.Bw = new Bishop('bishop', 'white', this);
+    // this.Bw = new Bishop('bishop', 'white', this);
     this.Qw = new Queen('queen', 'white', this);
-    this.Pw = new Pawn('pawn', 'white', this);
+    // this.Pw = new Pawn('pawn', 'white', this);
   }
   getData() {
     this.boardArray = [
 
-      [this.Rb, this.Nb, this.Bb, this.Qb, this.Kb, this.Bb, this.Nb, this.Rb],
-      [this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb, this.Pb],
+      [new Rook('rook', 'black', this), new Knight('knight', 'black', this), new Bishop('bishop', 'black', this), this.Qb, this.Kb, new Bishop('bishop', 'black', this), new Knight('knight', 'black', this), new Rook('rook', 'black', this)],
+      [new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this),  new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this)],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
-      [this.Pw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw, this.Pw],
-      [this.Rw, this.Nw, this.Bw, this.Qw, this.Kw, this.Bw, this.Nw, this.Rw]
+      [new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this)],
+      [new Rook('rook', 'white', this), new Knight('knight', 'white', this), new Bishop('bishop', 'white', this), this.Qw, this.Kw, new Bishop('bishop', 'white', this), new Knight('knight', 'white', this), new Rook('rook', 'white', this)]
 
     ];
     this.boardSubject.next(this.boardArray);
@@ -101,26 +103,36 @@ export class GameService {
         this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
       }
     }
-    this.clickedPiece = null;
+    this.switchTurns()    
+    // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION
-
   }
   getPieceFromBoard(x, y) {
     if (this.boardArray[y]) {
       return this.boardArray[y][x];
     }
   }
+  switchTurns(){
+    if(this.currentTurn == 'white'){
+      this.currentTurn = 'black';
+    } else if(this.currentTurn == 'black'){
+      this.currentTurn = 'white'
+    }
+  }
 
   getOptions(x, y, piece) {
+    if(!this.deadArray.includes(piece) && piece.color == this.currentTurn){
+    // if( piece.color == this.currentTurn){
     this.clickedPiece = { myX: x, myY: y, myPiece: piece };
     this.optionsArray.length = 0;
     this.optionsArray = piece.moveOptions(x, y) || [];
     this.optionsSubject.next(this.optionsArray);
     // console.log(this.optionsArray);
     // console.log(x, y);
-
+    }
   }
+// }
 
 }
 

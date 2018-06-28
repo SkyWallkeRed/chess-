@@ -20,6 +20,7 @@
   <span #home class="home" [routerLink]="['/home']">Home</span>
 
   <app-row [optionsArray]='optionsArray' class="row" *ngFor='let row of boardArray; let idx = index' [myY]="idx"></app-row>
+
   <div class="deadPieses">
     <img src="http://icons.iconarchive.com/icons/aha-soft/desktop-halloween/128/Tomb-icon.png" alt="">
 
@@ -43,3 +44,4 @@
 <div class="rock">
   <img src="../../assets/logos/if_Coal_185596.png" alt="">
 </div> -->
+
