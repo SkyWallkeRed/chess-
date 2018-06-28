@@ -60,6 +60,13 @@ export class GameService {
     this.deadArray = [];
     this.currentTurn = 'white'
     this.getData();
+    this.gameSocket.messages.subscribe((stringifiedMove)=>{
+      let move = JSON.parse(stringifiedMove)
+      this.boardArray = move.board;
+      this.boardSubject.next(this.boardArray);
+      this.currentTurn = move.turn;
+      console.log(this.currentTurn)
+    })
     // this.Nb = new Knight('knight', 'black', this);
     // this.Rb = new Rook('rook', 'black', this);
     this.Kb = new King('king', 'black');
@@ -72,6 +79,7 @@ export class GameService {
     // this.Bw = new Bishop('bishop', 'white');
     this.Qw = new Queen('queen', 'white');
     // this.Pw = new Pawn('pawn', 'white');
+    
   }
   getData() {
     this.boardArray = [
@@ -89,7 +97,7 @@ export class GameService {
     this.boardSubject.next(this.boardArray);
   }
   sendMsg(){
-    this.gameSocket.sendMsg(this.boardArray)
+    this.gameSocket.sendMsg({board : this.boardArray, turn : this.currentTurn})
   }
   catchOption(x, y) {
     if (this.clickedPiece) {

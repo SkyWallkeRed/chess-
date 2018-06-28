@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('message', (board) => {
-        console.log(board);
+        socket.broadcast.emit('message', board)
     });
 });
 

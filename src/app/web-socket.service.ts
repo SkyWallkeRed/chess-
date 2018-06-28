@@ -19,7 +19,7 @@ export class WebSocketService {
 
     let observable = new Observable(observer => {
       this.socket.on('message', (data) => {
-        console.log('Recieved message');
+        // console.log(data);
         observer.next(data);
       });
       return () => {
@@ -30,6 +30,7 @@ export class WebSocketService {
     let observer = {
       next : (data : Object) => {
         this.socket.emit('message', JSON.stringify(data));
+        console.log(JSON.stringify(data))
       },
     };
 
