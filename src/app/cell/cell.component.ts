@@ -181,6 +181,7 @@ export class CellComponent implements OnInit {
       // TweenMax.to(this.piece.nativeElement, 1, { bottom: 1000 });
       // SEND THE NEW POSITION TO SERVICE AND CHANGES THE BOARD
       this.gameService.catchOption(this.myX, this.myY);
+      this.gameService.sendMsg(this.myX, this.myY)
       // setTimeout(() => {
       //   this.killActive = false;
       // }, 2000);

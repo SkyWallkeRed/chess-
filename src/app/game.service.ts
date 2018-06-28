@@ -27,6 +27,7 @@ export class GameService {
   public deadSubject: Subject<any>;
   public clickedPiece;
   public currentTurn
+  public myColor
   public Nb;
   public Rb;
   public Kb;
@@ -59,13 +60,15 @@ export class GameService {
     this.deadObservable = this.deadSubject.asObservable();
     this.deadArray = [];
     this.currentTurn = 'white'
+    this.myColor = 'white'
     this.getData();
     this.gameSocket.messages.subscribe((stringifiedMove)=>{
       let move = JSON.parse(stringifiedMove)
-      this.boardArray = move.board;
-      this.boardSubject.next(this.boardArray);
+      this.myColor = move.myColor
+      this.clickedPiece = move.piece
+      this.catchOption(move.x, move.y)
+      // this.boardSubject.next(this.boardArray);
       this.currentTurn = move.turn;
-      console.log(this.currentTurn)
     })
     // this.Nb = new Knight('knight', 'black', this);
     // this.Rb = new Rook('rook', 'black', this);
@@ -96,8 +99,12 @@ export class GameService {
     ];
     this.boardSubject.next(this.boardArray);
   }
-  sendMsg(){
-    this.gameSocket.sendMsg({board : this.boardArray, turn : this.currentTurn})
+  sendMsg(x, y){
+    if(this.myColor == 'white'){
+      this.gameSocket.sendMsg({x : x, y : y, piece : this.clickedPiece, turn : this.currentTurn, myColor : 'black'})
+      return
+    }
+    this.gameSocket.sendMsg({x : x, y : y, piece : this.clickedPiece, turn : this.currentTurn, myColor : 'white'})
   }
   catchOption(x, y) {
     if (this.clickedPiece) {
@@ -119,7 +126,6 @@ export class GameService {
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION
-    this.sendMsg()
   }
   getPieceFromBoard(x, y) {
     if (this.boardArray[y]) {
@@ -135,14 +141,16 @@ export class GameService {
   }
 
   getOptions(x, y, piece) {
-    if(!this.deadArray.includes(piece) && piece.color == this.currentTurn){
+    if(!this.deadArray.includes(piece) && piece.color == this.currentTurn ){
     // if( piece.color == this.currentTurn){
     this.clickedPiece = { myX: x, myY: y, myPiece: piece };
     this.optionsArray.length = 0;
+    if(this.clickedPiece.myPiece.color == this.myColor){
     this.optionsArray = piece.moveOptions(x, y, this) || [];
     this.optionsSubject.next(this.optionsArray);
     // console.log(this.optionsArray);
     // console.log(x, y);
+    }
     }
   }
 // }
