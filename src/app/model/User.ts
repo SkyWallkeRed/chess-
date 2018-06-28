@@ -11,5 +11,4 @@ export class User {
         this.userImg = userImg;
         this.userProvider = userProvider;
     }
-
 }

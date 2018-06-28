@@ -21,14 +21,18 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from 'angular-6-social-login';
+import { LobbyComponent } from './lobby/lobby.component';
+import { AboutComponent } from './about/about.component';
+import { TechComponent } from './tech/tech.component';
+import { ContributorsComponent } from './contributors/contributors.component';
 // Configs .
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
     [
-      {
-        id: FacebookLoginProvider.PROVIDER_ID,
-        provider: new FacebookLoginProvider('Your-Facebook-app-id')
-      },
+      // {
+      //   id: FacebookLoginProvider.PROVIDER_ID,
+      //   provider: new FacebookLoginProvider('Your-Facebook-app-id')
+      // },
       {
         id: GoogleLoginProvider.PROVIDER_ID,
         provider: new GoogleLoginProvider('414685811338-lrrjq10n885klsgag1iacamieedf8ar9.apps.googleusercontent.com')
@@ -46,7 +50,11 @@ export function getAuthServiceConfigs() {
     CellComponent,
     PregameComponent,
     PieceComponent,
-    LoginComponent
+    LoginComponent,
+    LobbyComponent,
+    AboutComponent,
+    TechComponent,
+    ContributorsComponent
   ],
   imports: [
     BrowserModule,

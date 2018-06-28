@@ -1,0 +1,27 @@
+img{
+    // background-color: red;
+    // border: none;
+    z-index: 10000;
+}
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+@keyframes swing1 {
+    0% { transform: rotate(-4deg); }
+    100% { transform: rotate(4deg); }
+}
+@keyframes swing2 {
+    0% { transform: rotate(30deg); }
+    100% { transform: rotate(-30deg); }
+}
+@keyframes swing3 {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+.swing2 {
+    animation: swing ease-in-out 3s infinite alternate;
+    transform-origin: center -60px;
+    float:left;
+    // box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
