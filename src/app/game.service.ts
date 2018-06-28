@@ -62,28 +62,28 @@ export class GameService {
     this.getData();
     // this.Nb = new Knight('knight', 'black', this);
     // this.Rb = new Rook('rook', 'black', this);
-    this.Kb = new King('king', 'black', this);
+    this.Kb = new King('king', 'black');
     // this.Bb = new Bishop('bishop', 'black', this);
-    this.Qb = new Queen('queen', 'black', this);
+    this.Qb = new Queen('queen', 'black');
     // this.Pb = new Pawn('pawn', 'black', this);
     // this.Nw = new Knight('knight', 'white', this);
     // this.Rw = new Rook('rook', 'white', this);
-    this.Kw = new King('king', 'white', this);
+    this.Kw = new King('king', 'white');
     // this.Bw = new Bishop('bishop', 'white', this);
-    this.Qw = new Queen('queen', 'white', this);
+    this.Qw = new Queen('queen', 'white');
     // this.Pw = new Pawn('pawn', 'white', this);
   }
   getData() {
     this.boardArray = [
 
-      [new Rook('rook', 'black', this), new Knight('knight', 'black', this), new Bishop('bishop', 'black', this), this.Qb, this.Kb, new Bishop('bishop', 'black', this), new Knight('knight', 'black', this), new Rook('rook', 'black', this)],
-      [new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this),  new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this)],
+      [new Rook('rook', 'black'), new Knight('knight', 'black'), new Bishop('bishop', 'black'), this.Qb, this.Kb, new Bishop ('bishop', 'black'), new Knight('knight', 'black'), new Rook('rook', 'black')],
+      [new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black')],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
-      [new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this)],
-      [new Rook('rook', 'white', this), new Knight('knight', 'white', this), new Bishop('bishop', 'white', this), this.Qw, this.Kw, new Bishop('bishop', 'white', this), new Knight('knight', 'white', this), new Rook('rook', 'white', this)]
+      [new Pawn('pawn', 'white'), new Pawn('pawn', 'white'), new Pawn('pawn', 'white'), new Pawn('pawn', 'white'), new Pawn('pawn', 'white'), new Pawn('pawn', 'white'), new Pawn('pawn', 'white'), new Pawn('pawn', 'white')],
+      [new Rook('rook', 'white'), new Knight('knight', 'white'), new Bishop('bishop', 'white'), this.Qw, this.Kw, new Bishop('bishop', 'white'), new Knight('knight', 'white'), new Rook('rook', 'white')]
 
     ];
     this.boardSubject.next(this.boardArray);
@@ -105,11 +105,13 @@ export class GameService {
         this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
       }
     }
-    this.switchTurns()    
+    this.switchTurns()
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // 
-    this.http.post<any>('/api', {boardArray: this.boardArray}).subscribe((data) => {console.log("http posted")})
+    this.http.post<any>('/api', { boardArray: this.boardArray }).subscribe((data) => { 
+      console.log("http posted") 
+    })
   }
 
   getPieceFromBoard(x, y) {
@@ -117,26 +119,26 @@ export class GameService {
       return this.boardArray[y][x];
     }
   }
-  switchTurns(){
-    if(this.currentTurn == 'white'){
+  switchTurns() {
+    if (this.currentTurn == 'white') {
       this.currentTurn = 'black';
-    } else if(this.currentTurn == 'black'){
+    } else if (this.currentTurn == 'black') {
       this.currentTurn = 'white'
     }
   }
 
   getOptions(x, y, piece) {
-    if(!this.deadArray.includes(piece) && piece.color == this.currentTurn){
-    // if( piece.color == this.currentTurn){
-    this.clickedPiece = { myX: x, myY: y, myPiece: piece };
-    this.optionsArray.length = 0;
-    this.optionsArray = piece.moveOptions(x, y) || [];
-    this.optionsSubject.next(this.optionsArray);
-    // console.log(this.optionsArray);
-    // console.log(x, y);
+    if (!this.deadArray.includes(piece) && piece.color == this.currentTurn) {
+      // if( piece.color == this.currentTurn){
+      this.clickedPiece = { myX: x, myY: y, myPiece: piece };
+      this.optionsArray.length = 0;
+      this.optionsArray = piece.moveOptions(x, y, this) || [];
+      this.optionsSubject.next(this.optionsArray);
+      // console.log(this.optionsArray);
+      // console.log(x, y);
     }
   }
-// }
+  // }
 
 }
 

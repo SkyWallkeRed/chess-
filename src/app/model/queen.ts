@@ -2,8 +2,8 @@ import { Piece } from './base-piece';
 import { GameService } from '../game.service';
 
 export class Queen extends Piece {
-    constructor(type, color, gameService) {
-        super(type, color, gameService);
+    constructor(type, color) {
+        super(type, color);
         this.type = type;
         this.color = color;
 
@@ -12,17 +12,17 @@ export class Queen extends Piece {
 
         this.imgUrl = this.color === 'white' ? this.imgUrl = this.w : this.imgUrl = this.b;
     }
-    moveOptions(myX, myY) {
+    moveOptions(myX, myY, gameService) {
         const arr = [];
         const optionsArr = arr.concat(
-            this.run(0, -1, myX, myY),
-            this.run(-1, 0, myX, myY),
-            this.run(0, 1, myX, myY),
-            this.run(1, 0, myX, myY),
-            this.run(1, 1, myX, myY),
-            this.run(-1, -1, myX, myY),
-            this.run(1, -1, myX, myY),
-            this.run(-1, 1, myX, myY),
+            this.run(0, -1, myX, myY, gameService),
+            this.run(-1, 0, myX, myY, gameService),
+            this.run(0, 1, myX, myY, gameService),
+            this.run(1, 0, myX, myY, gameService),
+            this.run(1, 1, myX, myY, gameService),
+            this.run(-1, -1, myX, myY, gameService),
+            this.run(1, -1, myX, myY, gameService),
+            this.run(-1, 1, myX, myY, gameService),
         );
         return optionsArr;
     }

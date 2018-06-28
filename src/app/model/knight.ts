@@ -2,8 +2,8 @@ import { Piece } from './base-piece';
 import { GameService } from '../game.service';
 
 export class Knight extends Piece {
-    constructor(type, color, gameService) {
-        super(type, color, gameService);
+    constructor(type, color) {
+        super(type, color);
         this.type = type;
         this.color = color;
 
@@ -13,7 +13,7 @@ export class Knight extends Piece {
         this.imgUrl = this.color === 'white' ? this.imgUrl = this.w : this.imgUrl = this.b;
     }
 
-    run(xMovment, yMovment, currX, currY) {
+    run(xMovment, yMovment, currX, currY, gameService) {
         let options = [];
         let currPiece;
       
@@ -21,7 +21,7 @@ export class Knight extends Piece {
                 currX += xMovment;
                 currY += yMovment;
 
-                currPiece = this.gameService.getPieceFromBoard(currX, currY);
+                currPiece = gameService.getPieceFromBoard(currX, currY);
                 if (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
                     options.push({ myX: currX, myY: currY });
                 }
@@ -34,17 +34,17 @@ export class Knight extends Piece {
             return options;
     }
 
-    moveOptions(myX, myY) {
+    moveOptions(myX, myY, gameService) {
         const arr = [];
         const optionsArr = arr.concat(
-            this.run(2, 1, myX, myY),
-            this.run(2, -1, myX, myY),
-            this.run(-2, 1, myX, myY),
-            this.run(-2, -1, myX, myY),
-            this.run(-1, -2, myX, myY),
-            this.run(1, -2, myX, myY),
-            this.run(-1, 2, myX, myY),
-            this.run(1, 2, myX, myY));
+            this.run(2, 1, myX, myY, gameService),
+            this.run(2, -1, myX, myY, gameService),
+            this.run(-2, 1, myX, myY, gameService),
+            this.run(-2, -1, myX, myY, gameService),
+            this.run(-1, -2, myX, myY, gameService),
+            this.run(1, -2, myX, myY, gameService),
+            this.run(-1, 2, myX, myY, gameService),
+            this.run(1, 2, myX, myY, gameService));
         return optionsArr;
     }
 

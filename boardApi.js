@@ -1,9 +1,9 @@
 const express = require('express')
-const router = express.Router()
-const Board = require('./boardModel').Board;
+const router = express.Router();
+const Board = require('./boardModel');
 const mongoose = require('mongoose');
 
-router.get('/board', (req, res) => {
+router.get('/', (req, res) => {
     Board.find().exec().then((data) => {
        res.send(JSON.stringify(data));
     }, (err) => {
@@ -11,7 +11,7 @@ router.get('/board', (req, res) => {
     });
   })
 
-  router.post('/board', (req, res) => {
+  router.post('/', (req, res) => {
       console.log("here")
       console.log(req.body)
     let boardArray = req.body.boardArray
