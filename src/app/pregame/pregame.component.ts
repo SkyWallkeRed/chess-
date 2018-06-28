@@ -45,9 +45,9 @@ export class PregameComponent implements OnInit {
     this.tl.to(this.textRight.nativeElement, 0.1, { bottom: 200 }).
       to(this.textRight.nativeElement, 0.8, { top: 0, left: 350 }).
       to(this.textRight.nativeElement, 1, { top: 330, opacity: 1, left: 350, rotation: '20_w' }).
-      to(this.animationBox.nativeElement, 1, { top: 80, opacity: 1, left: 350 }).
-      to(this.textLeft.nativeElement, 0.5, { left: 50, opacity: 1, top: 50 }).
-      to(this.textRight.nativeElement, 0.5, { left: 50, opacity: 1, top: 200, rotation: '10_W' });
+      to(this.animationBox.nativeElement, 1, { top: 140, opacity: 1, left: 600 }).
+      to(this.textLeft.nativeElement, 0.5, { left: 450, opacity: 1, top: 50 }).
+      to(this.textRight.nativeElement, 0.5, { left: 450, opacity: 1, top: 200, rotation: '10_W' });
     setTimeout(() => {
       this.animate();
       setTimeout(() => {
@@ -61,9 +61,9 @@ export class PregameComponent implements OnInit {
       to(this.btn1.nativeElement, 0.3, { left: 1100, opacity: 1, top: 100 }).
       to(this.btn2.nativeElement, 0.3, { left: 1100, opacity: 1, top: 200 }).
       to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 300 }).
-      to(this.piece1.nativeElement, 0.2, { left: 400, top: 200, opacity: 1 }).
-      to(this.piece2.nativeElement, 0.2, { left: 450, top: 200, opacity: 1 }).
-      to(this.piece3.nativeElement, 0.2, { left: 500, top: 200, opacity: 1 });
+      to(this.piece1.nativeElement, 0.2, { left: -440, top: 200, opacity: 1 }).
+      to(this.piece2.nativeElement, 0.2, { left: -500, top: 200, opacity: 1 }).
+      to(this.piece3.nativeElement, 0.2, { left: -550, top: 200, opacity: 1 });
     this.tlLoop.to(this.play.nativeElement, 0.5, { rotation: 10 }).
       to(this.play.nativeElement, 0.5, { rotation: 10 });
     // this.tlLoop.to(this.piece1.nativeElement, 1, { bottom: 5 }).

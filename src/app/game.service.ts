@@ -42,7 +42,7 @@ export class GameService {
   public kill = false;
   public killObservable: Observable<any>;
   public killSubject: Subject<any>;
-// END ANIMATION BOOLS
+  // END ANIMATION BOOLS
   constructor() {
     this.killSubject = new Subject<any>();
     this.killObservable = this.killSubject.asObservable();
@@ -91,9 +91,9 @@ export class GameService {
     if (this.clickedPiece) {
       if (this.boardArray[y][x]) {
         this.deadArray.push(this.boardArray[y][x]);
-        console.log(this.deadArray);
-        this.kill = true;
+        this.kill = true; // ANIMATION.
         this.killSubject.next(this.kill); // ANIMATION
+        console.log(this.kill);
         this.deadSubject.next(this.deadArray);
         this.boardArray[y][x] = this.clickedPiece.myPiece;
 

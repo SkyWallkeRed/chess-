@@ -120,7 +120,8 @@ export class CellComponent implements OnInit {
   @ViewChild('cell') cell: ElementRef;
   @ViewChild('piece') piece: ElementRef;
   // ANIMATION BOOLS
-  killActive = false;
+  public animateKill = false;
+  public killActive;
   private bloodMarkCell = false;
   private wep = false;
   private rect;
@@ -129,9 +130,8 @@ export class CellComponent implements OnInit {
   }
   ngOnInit() {
     this.cellColorF();
-    this.gameService.killObservable.subscribe((data) => {
-      this.killActive = data;
-    });
+
+
   }
   sendAnimationData() {
     this.rect = this.cell.nativeElement.getBoundingClientRect();
@@ -174,11 +174,18 @@ export class CellComponent implements OnInit {
         bottom: Math.floor(this.rect.bottom),
         left: Math.floor(this.rect.left)
       });
-      console.log('animate');
+      // console.log('animate');
       // console.log(this.piece)
       // TweenMax.to(this.piece.nativeElement, 0.5, { rotationX: '360_w' });
       // TweenMax.to(this.piece.nativeElement, 1, { bottom: 1000 });
       // SEND THE NEW POSITION TO SERVICE AND CHANGES THE BOARD
+      // this.wep = true;
+
+      // this.animateKill = true; // bubblwe down to Piece comp to do kill animation only when a move is chosen.
+      // setTimeout(() => { // after timeOut turn bkill affect off.
+      //   this.animateKill = false;
+      //   console.log(this.animateKill)
+      // }, 1000);
       this.gameService.catchOption(this.myX, this.myY);
       // setTimeout(() => {
       //   this.killActive = false;
@@ -197,7 +204,8 @@ export class CellComponent implements OnInit {
   }
 
   getOptions() {
-    this.wep = true;
+
+    // this.wep = true;
     // console.log(this.piece.nativeElement);
     // this.ngDoCheck();
     this.checkValidOption();
@@ -217,7 +225,7 @@ export class CellComponent implements OnInit {
   thisCellBloodMark($event) {
     // console.log($event);
     if ($event) {
-       // ANIMATION CELL BLOOD MARK PROBLEM = MARK ALL CELLS NEED FIX.
+      // ANIMATION CELL BLOOD MARK PROBLEM = MARK ALL CELLS NEED FIX.
       // this.bloodMarkCell = true;
     }
   }

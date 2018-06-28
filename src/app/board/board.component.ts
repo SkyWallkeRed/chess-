@@ -11,6 +11,7 @@ export class BoardComponent implements OnInit {
   boardArray: Array<any>;
   optionsArray: Array<any> = [];
   deadArray: Array<any> = [];
+  @ViewChild('home') home: ElementRef;
 
   @ViewChild('container') container: ElementRef;
 
@@ -37,7 +38,6 @@ export class BoardComponent implements OnInit {
 
     this.gameService.deadObservable.subscribe((data) => {
       this.deadArray = data;
-      console.log(this.deadArray)
     });
   }
 

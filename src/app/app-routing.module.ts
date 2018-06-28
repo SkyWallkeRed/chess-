@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: '',
     component: PregameComponent
+  },
+  {
+    path: 'home',
+    component: PregameComponent
   }
 ];
 
