@@ -13,6 +13,9 @@ import { RowComponent } from './row/row.component';
 import { CellComponent } from './cell/cell.component';
 import { PregameComponent } from './pregame/pregame.component';
 import { PieceComponent } from './piece/piece.component';
+import { LoginComponent } from './login/login.component';
+import { LobbyComponent } from './lobby/lobby.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { PieceComponent } from './piece/piece.component';
     RowComponent,
     CellComponent,
     PregameComponent,
-    PieceComponent
+    PieceComponent,
+    LoginComponent,
+    LobbyComponent
   ],
   imports: [
     BrowserModule,
