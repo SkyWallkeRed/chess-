@@ -7,13 +7,37 @@ import { AppComponent } from './app.component';
 import { AccordionModule } from 'primeng/accordion';     // accordion and accordion tab
 import { MenuItem } from 'primeng/api';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BoardComponent } from './board/board.component';
 import { RowComponent } from './row/row.component';
 import { CellComponent } from './cell/cell.component';
 import { PregameComponent } from './pregame/pregame.component';
 import { PieceComponent } from './piece/piece.component';
+import { LoginComponent } from './login/login.component';
 
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from 'angular-6-social-login';
+// Configs .
+export function getAuthServiceConfigs() {
+  const config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider('Your-Facebook-app-id')
+      },
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('414685811338-lrrjq10n885klsgag1iacamieedf8ar9.apps.googleusercontent.com')
+      },
+
+    ]
+  );
+  return config;
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,16 +45,23 @@ import { PieceComponent } from './piece/piece.component';
     RowComponent,
     CellComponent,
     PregameComponent,
-    PieceComponent
+    PieceComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AccordionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SocialLoginModule
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
