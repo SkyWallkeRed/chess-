@@ -3,9 +3,9 @@ import { GameService } from '../game.service';
 
 export class Pawn extends Piece {
     // private white ;
-    constructor(type, color, gameService) {
+    constructor(type, color) {
 
-        super(type, color, gameService);
+        super(type, color);
         this.color = color;
 
 
@@ -19,14 +19,14 @@ export class Pawn extends Piece {
         // this.moveOptions = this.moveOptions()
     }
 
-    run(xMovment, yMovment, currX, currY) {
+    run(xMovment, yMovment, currX, currY, gameService) {
         let options = [];
         let currPiece;
             for (let i = 0; i < 1; i++) {
                 currX += xMovment;
                 currY += yMovment;
 
-                currPiece = this.gameService.getPieceFromBoard(currX, currY);
+                currPiece = gameService.getPieceFromBoard(currX, currY);
 
 
                 if (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
@@ -57,34 +57,34 @@ export class Pawn extends Piece {
     
             return options;
     }
-    moveOptions(myX, myY) {
+    moveOptions(myX, myY, gameService) {
 
         let tempArr = []
         let optionsArr = []
        if(this.color == "white"){
-        if (this.gameService.getPieceFromBoard(myX - 1, myY - 1) && this.gameService.getPieceFromBoard(myX - 1, myY - 1).color !== this.color) {
-            optionsArr = optionsArr.concat(this.run(-1, -1, myX, myY))
+        if (gameService.getPieceFromBoard(myX - 1, myY - 1) && gameService.getPieceFromBoard(myX - 1, myY - 1).color !== this.color) {
+            optionsArr = optionsArr.concat(this.run(-1, -1, myX, myY, gameService))
         }
-        if (this.gameService.getPieceFromBoard(myX + 1, myY - 1) && this.gameService.getPieceFromBoard(myX + 1, myY - 1).color !== this.color) {
-            optionsArr = optionsArr.concat(this.run(1, -1, myX, myY))
+        if (gameService.getPieceFromBoard(myX + 1, myY - 1) && gameService.getPieceFromBoard(myX + 1, myY - 1).color !== this.color) {
+            optionsArr = optionsArr.concat(this.run(1, -1, myX, myY, gameService))
         }
 
-        optionsArr = optionsArr.concat(this.run(0, -1, myX, myY))
+        optionsArr = optionsArr.concat(this.run(0, -1, myX, myY, gameService))
         if (myY == 6) {
-            optionsArr = optionsArr.concat(this.run(0, -2, myX, myY))
+            optionsArr = optionsArr.concat(this.run(0, -2, myX, myY, gameService))
         }
     }
     else if(this.color == 'black'){
-        if (this.gameService.getPieceFromBoard(myX + 1, myY + 1) && this.gameService.getPieceFromBoard(myX + 1, myY + 1).color !== this.color) {
-            optionsArr = optionsArr.concat(this.run(+1, +1, myX, myY))
+        if (gameService.getPieceFromBoard(myX + 1, myY + 1) && gameService.getPieceFromBoard(myX + 1, myY + 1).color !== this.color) {
+            optionsArr = optionsArr.concat(this.run(+1, +1, myX, myY, gameService))
         }
-        if (this.gameService.getPieceFromBoard(myX - 1, myY + 1) && this.gameService.getPieceFromBoard(myX - 1, myY + 1).color !== this.color) {
-            optionsArr = optionsArr.concat(this.run(-1, 1, myX, myY))
+        if (gameService.getPieceFromBoard(myX - 1, myY + 1) && gameService.getPieceFromBoard(myX - 1, myY + 1).color !== this.color) {
+            optionsArr = optionsArr.concat(this.run(-1, 1, myX, myY, gameService))
         }
 
-        optionsArr = optionsArr.concat(this.run(0, 1, myX, myY))
+        optionsArr = optionsArr.concat(this.run(0, 1, myX, myY, gameService))
         if (myY == 1) {
-            optionsArr = optionsArr.concat(this.run(0, 2, myX, myY))
+            optionsArr = optionsArr.concat(this.run(0, 2, myX, myY, gameService))
         }
 
     }
