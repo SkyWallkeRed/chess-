@@ -12,6 +12,28 @@ export class Knight extends Piece {
 
         this.imgUrl = this.color === 'white' ? this.imgUrl = this.w : this.imgUrl = this.b;
     }
+
+    run(xMovment, yMovment, currX, currY) {
+        let options = [];
+        let currPiece;
+      
+            for (let i = 0; i < 1; i++) {
+                currX += xMovment;
+                currY += yMovment;
+
+                currPiece = this.gameService.getPieceFromBoard(currX, currY);
+                if (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
+                    options.push({ myX: currX, myY: currY });
+                }
+            }
+
+            if (currPiece && currPiece.color != this.color) {
+                options.push({ myX: currX, myY: currY });
+            }
+
+            return options;
+    }
+
     moveOptions(myX, myY) {
         const arr = [];
         const optionsArr = arr.concat(
