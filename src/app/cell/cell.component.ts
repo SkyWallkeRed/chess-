@@ -102,6 +102,7 @@ import { GameService } from '../game.service';
 import { AnimateService } from '../animate.service';
 // import { BaseAnimation } from '../Animation/baseAni';
 import { TweenMax } from 'gsap';
+import { GameSocketService } from '../game-socket.service';
 
 
 @Component({
@@ -124,7 +125,7 @@ export class CellComponent implements OnInit {
   private bloodMarkCell = false;
   private wep = false;
   private rect;
-  constructor(private gameService: GameService, private animationService: AnimateService) {
+  constructor(private gameService: GameService, private animationService: AnimateService, private gameSocket : GameSocketService) {
 
   }
   ngOnInit() {
@@ -184,7 +185,6 @@ export class CellComponent implements OnInit {
       //   this.killActive = false;
       // }, 2000);
       // this.killActive = true;
-
     }
   }
   checkValidPiece() {
@@ -195,6 +195,7 @@ export class CellComponent implements OnInit {
       this.sendAnimationData();
     }
   }
+
 
   getOptions() {
     this.wep = true;

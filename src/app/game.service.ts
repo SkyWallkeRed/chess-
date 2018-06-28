@@ -8,6 +8,7 @@ import { Bishop } from './model/bishop';
 import { Queen } from './model/queen';
 import { Piece } from './model/base-piece';
 import { Observable, Subject } from 'rxjs';
+import { GameSocketService } from './game-socket.service';
 
 
 @Injectable({
@@ -43,7 +44,7 @@ export class GameService {
   public killObservable: Observable<any>;
   public killSubject: Subject<any>;
 // END ANIMATION BOOLS
-  constructor() {
+  constructor(private gameSocket : GameSocketService) {
     this.killSubject = new Subject<any>();
     this.killObservable = this.killSubject.asObservable();
 
@@ -87,6 +88,10 @@ export class GameService {
     ];
     this.boardSubject.next(this.boardArray);
   }
+  sendMsg(){
+    let piece = JSON.stringify(this.clickedPiece)
+    this.gameSocket.sendMsg({piece : piece})
+  }
   catchOption(x, y) {
     if (this.clickedPiece) {
       if (this.boardArray[y][x]) {
@@ -107,6 +112,7 @@ export class GameService {
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION
+    this.sendMsg()
   }
   getPieceFromBoard(x, y) {
     if (this.boardArray[y]) {
