@@ -8,6 +8,7 @@ import { Bishop } from './model/bishop';
 import { Queen } from './model/queen';
 import { Piece } from './model/base-piece';
 import { Observable, Subject } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 
 @Injectable({
@@ -43,7 +44,7 @@ export class GameService {
   public killObservable: Observable<any>;
   public killSubject: Subject<any>;
   // END ANIMATION BOOLS
-  constructor() {
+  constructor(private http: HttpClient) {
     this.killSubject = new Subject<any>();
     this.killObservable = this.killSubject.asObservable();
 
@@ -87,6 +88,7 @@ export class GameService {
     ];
     this.boardSubject.next(this.boardArray);
   }
+
   catchOption(x, y) {
     if (this.clickedPiece) {
       if (this.boardArray[y][x]) {
@@ -106,8 +108,10 @@ export class GameService {
     this.switchTurns()    
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
-    this.optionsSubject.next([]); // ANIMATION
+    this.optionsSubject.next([]); // 
+    this.http.post<any>('/api', {boardArray: this.boardArray}).subscribe((data) => {console.log("http posted")})
   }
+
   getPieceFromBoard(x, y) {
     if (this.boardArray[y]) {
       return this.boardArray[y][x];

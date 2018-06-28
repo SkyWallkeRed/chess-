@@ -13,6 +13,8 @@ import { RowComponent } from './row/row.component';
 import { CellComponent } from './cell/cell.component';
 import { PregameComponent } from './pregame/pregame.component';
 import { PieceComponent } from './piece/piece.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -27,8 +29,8 @@ import { PieceComponent } from './piece/piece.component';
     BrowserModule,
     AppRoutingModule,
     AccordionModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
