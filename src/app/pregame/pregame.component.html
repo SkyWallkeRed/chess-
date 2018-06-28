@@ -5,7 +5,7 @@
     <div #btn1 class="btn1">btn1</div>
     <div #btn2 class="btn2">btn2</div>
     <div #btn3 class="btn3">btn3</div>
-    <div #loginF class="loginF">loginF
+    <div #loginF class="loginF" [routerLink]="['/login']">Login
       <!-- <div #pg13 class="pg13">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/RATED_PG-13.svg/64px-RATED_PG-13.svg.png" alt="">
       </div> -->
@@ -26,7 +26,7 @@
 
     </div>
 
-    <div #play class="play swing"[routerLink]="['/play']" >play
+    <div #play class="play swing" [routerLink]="['/play']" >play
     
     </div>
   </div>

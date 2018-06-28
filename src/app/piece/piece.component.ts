@@ -30,11 +30,11 @@ export class PieceComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log('on init')
+    // console.log('on init')
     //   SUBSCRIBE TO A KILL EVENT THAT WILL ANIMATE BLOOD MARK.
     this.gameService.killObservable.subscribe((data) => {
       this.killActive = data;
-      console.log(this.killActive);
+      // console.log(this.killActive);
     });
 
     if (this.myPiece !== null) {
