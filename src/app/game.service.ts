@@ -25,7 +25,7 @@ export class GameService {
   public deadObservable: Observable<any>;
   public deadSubject: Subject<any>;
   public clickedPiece;
-  public currentTurn
+  public currentTurn;
   public Nb;
   public Rb;
   public Kb;
@@ -43,7 +43,10 @@ export class GameService {
   public killObservable: Observable<any>;
   public killSubject: Subject<any>;
   // END ANIMATION BOOLS
+
   constructor() {
+
+
     this.killSubject = new Subject<any>();
     this.killObservable = this.killSubject.asObservable();
 
@@ -75,13 +78,17 @@ export class GameService {
   getData() {
     this.boardArray = [
 
+      // tslint:disable-next-line:max-line-length
       [new Rook('rook', 'black', this), new Knight('knight', 'black', this), new Bishop('bishop', 'black', this), this.Qb, this.Kb, new Bishop('bishop', 'black', this), new Knight('knight', 'black', this), new Rook('rook', 'black', this)],
-      [new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this),  new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this)],
+      // tslint:disable-next-line:max-line-length
+      [new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this), new Pawn('pawn', 'black', this)],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
+      // tslint:disable-next-line:max-line-length
       [new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this), new Pawn('pawn', 'white', this)],
+      // tslint:disable-next-line:max-line-length
       [new Rook('rook', 'white', this), new Knight('knight', 'white', this), new Bishop('bishop', 'white', this), this.Qw, this.Kw, new Bishop('bishop', 'white', this), new Knight('knight', 'white', this), new Rook('rook', 'white', this)]
 
     ];
@@ -103,7 +110,7 @@ export class GameService {
         this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
       }
     }
-    this.switchTurns()    
+    this.switchTurns()
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION
@@ -113,26 +120,26 @@ export class GameService {
       return this.boardArray[y][x];
     }
   }
-  switchTurns(){
-    if(this.currentTurn == 'white'){
+  switchTurns() {
+    if (this.currentTurn == 'white') {
       this.currentTurn = 'black';
-    } else if(this.currentTurn == 'black'){
+    } else if (this.currentTurn == 'black') {
       this.currentTurn = 'white'
     }
   }
 
   getOptions(x, y, piece) {
-    if(!this.deadArray.includes(piece) && piece.color == this.currentTurn){
-    // if( piece.color == this.currentTurn){
-    this.clickedPiece = { myX: x, myY: y, myPiece: piece };
-    this.optionsArray.length = 0;
-    this.optionsArray = piece.moveOptions(x, y) || [];
-    this.optionsSubject.next(this.optionsArray);
-    // console.log(this.optionsArray);
-    // console.log(x, y);
+    if (!this.deadArray.includes(piece) && piece.color == this.currentTurn) {
+      // if( piece.color == this.currentTurn){
+      this.clickedPiece = { myX: x, myY: y, myPiece: piece };
+      this.optionsArray.length = 0;
+      this.optionsArray = piece.moveOptions(x, y) || [];
+      this.optionsSubject.next(this.optionsArray);
+      // console.log(this.optionsArray);
+      // console.log(x, y);
     }
   }
-// }
+  // }
 
 }
 
