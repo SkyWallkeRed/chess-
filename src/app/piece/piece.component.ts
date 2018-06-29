@@ -22,10 +22,27 @@ export class PieceComponent implements OnInit {
   private status = false;
   private kq = false;
   private myUrl;
-
-  constructor(private gameService: GameService) { }
-  //
+  // SOUND SETUP .
+  public pieceSounds = [
+    '',
+    '../../assets/sound/game/piesesSound/PIGEONCOO.WAV',
+    '../../assets/sound/game/piesesSound/COUGH5.WAV',
+    '../../assets/sound/game/piesesSound/Cough4.wav',
+    '../../assets/sound/game/piesesSound/Cough3.wav',
+    '../../assets/sound/game/piesesSound/Cough2.wav',
+    '../../assets/sound/game/piesesSound/COUGH1.WAV'
+  ];
+  private pieceSound = new Audio();
+  constructor(private gameService: GameService) {
+    this.pieceSound.src = this.pieceSounds[this.setSound()];
+  }
+  setSound() {
+    return Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+  }
   ngOnInit() {
+    this.setSound();
+
+    this.pieceSound.load();
     //   SUBSCRIBE TO A KILL EVENT THAT WILL ANIMATE BLOOD MARK.
     this.gameService.killObservable.subscribe((data) => {
       this.killActive = data;
@@ -60,7 +77,7 @@ export class PieceComponent implements OnInit {
   }
   // JUMP IS THE OC-CLICK OF EACH PIECE .
   jump() {
-
+    this.pieceSound.play();
     this.tl.to(this.piece.nativeElement, 0.2, { bottom: 20 }).to(this.piece.nativeElement, 0.2, { top: 50 });
     this.attack();
   }
@@ -92,3 +109,5 @@ export class PieceComponent implements OnInit {
 
 
 }
+
+
