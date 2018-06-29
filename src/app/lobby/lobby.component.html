@@ -7,20 +7,20 @@
 </div>
 
 
-<div class="menu">
-  menu
-  <div class="pickColor">
+<div class="menu swing4" (click)='toggleMenu()'>
+  <span class="menuBtn"> Menu</span>
+  <div #pickColor class="pickColor" (click)='slidePickColor()'>
     color pick
   </div>
-  <div class="play1" [routerLink]="['/play']">
+  <div #play1 class="play1" [routerLink]="['/play']">
 
     play1
   </div>
-  <div class="home" [routerLink]="['/home']">
+  <div #home class="home" [routerLink]="['/home']">
     Home
   </div>
 </div>
 
-<div class="colorPickWindow">
-    <app-color-pick></app-color-pick>
+<div #pickColorWindow class="colorPickWindow">
+  <app-color-pick ></app-color-pick>
 </div>

@@ -7,6 +7,7 @@
     width: 300px;
     height: 50px;
     z-index: 1000;
+    opacity: 0;
 
 }
 .home{
@@ -18,11 +19,11 @@
     width: 300px;
     height: 50px;
     z-index: 1000;
-    // opacity: 0;
+    opacity: 0;
 
 }
 .onlineUsers{
-  border: 2px solid green;
+//   border: 2px solid green;
   position: absolute;
   top: 10%;
   min-width: 20%;
@@ -36,13 +37,28 @@
     min-width: 20%;
     min-height: 20%;
 }
+@keyframes swing4 {
+    0% { transform: rotate(-3deg); }
+    100% { transform: rotate(3deg); }
+}
+
+.swing4 {
+    animation: swing4 ease-in-out 3s infinite alternate;
+    transform-origin: center -3px;
+    // float:left;
+    // box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
 .menu{
-    border: 2px solid green;
+    // border: 2px solid green;
     position: absolute;
     top: 5%;
     right: 45%;
     min-width: 10%;
     min-height: 10%;
+}
+.menuBtn{
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
 }
 .pickColor{
     font-family: 'Indie Flower', cursive;
@@ -53,14 +69,16 @@
     width: 300px;
     height: 50px;
     z-index: 1000;
-    // opacity: 0;
+    opacity: 0;
   
 }
 .colorPickWindow{
-    border: 2px solid green;
+    font-family: 'Indie Flower', cursive;
+    opacity: 0;    
+    // border: 2px solid green;
     position: absolute;
-    top: 50%;
-    right: 35%;
+    // top: 50%;
+    // right: 35%;
     min-width: 35%;
     min-height: 35%;
 }

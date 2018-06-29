@@ -1,0 +1,37 @@
+.piece{
+    float: left;
+}
+
+@keyframes jump {
+    0%   {transform: translate3d(0,0,0) ;}
+
+    100% {transform: translate3d(0,20%,0) ;}
+  }
+  @keyframes jump1 {
+    0%   {transform: translate3d(0,0,0) ;}
+
+    100% {transform: translate3d(0,20%,0) ;}
+  }
+  @keyframes jump2 {
+    0%   {transform: translate3d(0,0,0) ;}
+
+    100% {transform: translate3d(0,20%,0) ;}
+  }
+.swing1 {
+    animation: jump ease-in-out 0.3s infinite alternate;
+    transform-origin: center 5px;
+    float:left;
+    // box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+.swing2 {
+    animation: jump1 ease-in-out 0.5s infinite alternate;
+    transform-origin: center 5px;
+    float:left;
+    // box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+.swing3 {
+    animation: jump2 ease-in-out 0.4s infinite alternate;
+    transform-origin: center 5px;
+    float:left;
+    // box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
