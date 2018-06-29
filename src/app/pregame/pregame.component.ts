@@ -57,9 +57,9 @@ export class PregameComponent implements OnInit {
       to(this.textRight.nativeElement, 0.5, { scale: 1, yoyo: true, opacity: 1 }).
       to(this.textRight.nativeElement, 0.5, { top: 150, opacity: 1, left: 500 }).
       to(this.textLeft.nativeElement, 0.5, { top: 150, opacity: 1, left: 820 }).
-      to(this.epic.nativeElement, 0.3, { yoyo: true, top: -200, left: 250, scale: 0.5 }).
-      to(this.epic.nativeElement, 0.5, { yoyo: true, top: -90, left: 250, opacity: 1, scale: 0.5 }).
-      to(this.textRight.nativeElement, 0.6, { top: 330, opacity: 1, left: 350, rotation: '90_w' }).
+      to(this.epic.nativeElement, 0.3, {  top: -200, left: 250, scale: 0.5 }).
+      to(this.epic.nativeElement, 0.5, { top: -90, left: 250, opacity: 1, scale: 0.5 }).
+      to(this.textRight.nativeElement, 0.6, { top: 830, opacity: 1, left: 350, rotation: '90_w' }).
       to(this.textRight.nativeElement, 0.5, { top: 500, opacity: 0 }).
       // to(this.textRight.nativeElement, 0.4, { top: 330, opacity: 1, left: 350, rotation: '20_w' }).
       to(this.animationBox.nativeElement, 1.2, { top: 240, opacity: 1, left: 600 }).
@@ -79,8 +79,8 @@ export class PregameComponent implements OnInit {
     this.tl.to(this.gitHub.nativeElement, 0.3, { right: 550, bottom: 300, opacity: 1 }).
       to(this.btn1.nativeElement, 0.3, { left: 1100, opacity: 1, top: 100 }).
       to(this.btn2.nativeElement, 0.3, { left: 1100, opacity: 1, top: 200 }).
-      to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 300 }).
-      to(this.btn4.nativeElement, 0.3, { left: 1100, opacity: 1, top: 400 });
+      to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 300 });
+      // to(this.btn4.nativeElement, 0.3, { left: 1100, opacity: 1, top: 400 }); // SUBSCRIBE BTN IS OFF FOR NOW.
 
   }
   // ANIMATION BOX .

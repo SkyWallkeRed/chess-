@@ -87,7 +87,7 @@ export class PieceComponent implements OnInit {
         this.axe = false;
         this.sword = false;
       }
-    }, 4000);
+    }, 5000);
   }
 
 
