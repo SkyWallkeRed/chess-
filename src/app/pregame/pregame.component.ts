@@ -15,6 +15,7 @@ export class PregameComponent implements OnInit {
 
   @ViewChild('textLeft') textLeft: ElementRef;
   @ViewChild('textRight') textRight: ElementRef;
+  @ViewChild('epic') epic: ElementRef;
   @ViewChild('container') container: ElementRef;
   @ViewChild('header') header: ElementRef;
   @ViewChild('animationBox') animationBox: ElementRef;
@@ -25,6 +26,7 @@ export class PregameComponent implements OnInit {
   @ViewChild('btn1') btn1: ElementRef;
   @ViewChild('btn2') btn2: ElementRef;
   @ViewChild('btn3') btn3: ElementRef;
+  @ViewChild('btn4') btn4: ElementRef;
   @ViewChild('loginF') loginF: ElementRef;
   @ViewChild('piece1') piece1: ElementRef;
   @ViewChild('piece2') piece2: ElementRef;
@@ -45,45 +47,38 @@ export class PregameComponent implements OnInit {
   private userImg;
   private userName;
   ngOnInit() {
-    //
-    // TweenMax.to(box1, 1.2, { scale: 2, repeat: 1, yoyo: true });
-    // // 50 x 4 = 200 (width x scale factor) .
-    // TweenMax.to(box2, 1.3, { scale: 4, repeat: 1, yoyo: true });
-
-    // TweenMax.to(box3, 1.5, { scale: 2, repeat: 1, yoyo: true });
-    //
-
     // landing page animation TimeLine
-    this.tl.to(this.textLeft.nativeElement, 0.4, { scale: 1, repeat: 1, yoyo: true }).
-      to(this.textLeft.nativeElement, 1, { top: 150, opacity: 1, left: 200 });
-    this.tl.to(this.textRight.nativeElement, 0.1, { bottom: 200 }).
-      to(this.textRight.nativeElement, 0.8, { top: 0, left: 350 }).
-      to(this.textRight.nativeElement, 1, { top: 330, opacity: 1, left: 350, rotation: '20_w' }).
-      to(this.animationBox.nativeElement, 1, { top: 140, opacity: 1, left: 600 }).
-      to(this.textLeft.nativeElement, 0.5, { left: 450, opacity: 1, top: 50 }).
-      to(this.textRight.nativeElement, 0.5, { left: 450, opacity: 1, top: 200, rotation: '10_W' });
+    this.tl.
+      to(this.textRight.nativeElement, 0.5, { scale: 1, yoyo: true, opacity: 1 }).
+      to(this.textRight.nativeElement, 0.5, { top: 150, opacity: 1, left: 500 }).
+      to(this.textLeft.nativeElement, 0.5, { top: 150, opacity: 1, left: 800 }).
+      to(this.epic.nativeElement, 0.3, { yoyo: true, top: -200, left: 250, scale: 0.5 }).
+      to(this.epic.nativeElement, 0.5, { yoyo: true, top: -90, left: 250, opacity: 1, scale: 0.5 }).
+      to(this.textRight.nativeElement, 0.6, { top: 330, opacity: 1, left: 350, rotation: '90_w' }).
+      to(this.textRight.nativeElement, 0.5, { top: 500, opacity: 0 }).
+      // to(this.textRight.nativeElement, 0.4, { top: 330, opacity: 1, left: 350, rotation: '20_w' }).
+      to(this.animationBox.nativeElement, 1.2, { top: 240, opacity: 1, left: 600 }).
+      // to(this.textLeft.nativeElement, 0.5, { left: 450, opacity: 1, top: 50 }).
+      // to(this.textRight.nativeElement, 0.5, { left: 450, opacity: 1, top: 200, rotation: '10_W' }).
+      to(this.loginF.nativeElement, 1, { left: 550, opacity: 1, top: 300 }).
+      to(this.piece1.nativeElement, 0.2, { left: -440, top: 200, opacity: 1 }).
+      to(this.piece2.nativeElement, 0.2, { left: -500, top: 200, opacity: 1 }).
+      to(this.piece3.nativeElement, 0.2, { left: -550, top: 200, opacity: 1 });
     setTimeout(() => {
       this.animate();
       setTimeout(() => {
         this.bloodMark2 = true;
-      }, 5000);
+      }, 4000);
       this.axe = true;
     }, 4000);
     this.tl.to(this.gitHub.nativeElement, 0.3, { right: 550, bottom: 300, opacity: 1 }).
-      to(this.loginF.nativeElement, 0.2, { left: 550, opacity: 1, top: 300 }).
       to(this.btn1.nativeElement, 0.3, { left: 1100, opacity: 1, top: 100 }).
       to(this.btn2.nativeElement, 0.3, { left: 1100, opacity: 1, top: 200 }).
       to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 300 }).
-      to(this.piece1.nativeElement, 0.2, { left: -440, top: 200, opacity: 1 }).
-      to(this.piece2.nativeElement, 0.2, { left: -500, top: 200, opacity: 1 }).
-      to(this.piece3.nativeElement, 0.2, { left: -550, top: 200, opacity: 1 });
-    // this.tlLoop.to(this.play.nativeElement, 0.5, { rotation: 10 }).
-    //   to(this.play.nativeElement, 0.5, { rotation: 10 });
-    // this.tlLoop.to(this.piece1.nativeElement, 1, { bottom: 5 }).
-    // to(this.piece1.nativeElement, 1, { top: -5 });
-    // this.tlLoop.to(this.piece2.nativeElement, 0.5, { bottom: 100 }).to(this.piece2.nativeElement, 0.5, { top: 200 });
-    // this.tlLoop.to(this.piece3.nativeElement, 0.5, { bottom: 100 }).to(this.piece3.nativeElement, 0.5, { top: 250 });
+      to(this.btn4.nativeElement, 0.3, { left: 1100, opacity: 1, top: 400 });
+
   }
+  // ANIMATION BOX .
   animate() {
     console.log('jump');
     this.axe = true;
@@ -101,25 +96,21 @@ export class PregameComponent implements OnInit {
         this.axe = false;
         setTimeout(() => {
           this.bloodMark = false;
-        }, 1000);
+        }, 500);
       }, 500);
       this.bloodMark = true;
     }, 500);
   }
-
+  // SETS THE BULIAN FOR THE DISPALY OF THE START BTN.
   loginTrue(bull) {
     console.log(bull);
     this.userLogedIn = bull;
     this.setUserPreLobby();
   }
-
+  // SET USER GIC AND NAME IN PREGAME.
   setUserPreLobby() {
     const t = this.userService.getUser();
     this.userName = t.userName;
     this.userImg = t.userImg;
-
-    // this.userName = t.
-
   }
-
 }

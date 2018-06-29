@@ -13,6 +13,17 @@
     width: 99%;
     height: 700px;
 }
+.epic{
+    position: absolute;
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    max-width: 800px;
+    max-height: 800px;
+    opacity: 0;
+    // scale: 0.5;
+    z-index: 1000;
+}
 .textLeft{
     // border: 2px solid green;   // ###################################
     font-size: 5em;
@@ -24,7 +35,8 @@
 .textRight{
     // border: 2px solid pink; // #######################################
     font-size: 5em;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Anton', sans-serif;
+    
     width: 600px;
     height: 200px;
     opacity: 0;
@@ -153,6 +165,7 @@ app-login{
     width: 200px;
     height: 50px;
     opacity: 0;
+    z-index: 1000;
 }
 .userimgdisplay{
     position: absolute;
@@ -181,9 +194,23 @@ app-login{
     width: 200px;
     height: 50px;
     opacity: 0;
+    z-index: 2000;
+    
 }
 .btn3{
     // border: 2px solid steelblue;
+    z-index: 2000;
+    
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+.btn4{
+    // border: 2px solid steelblue;
+    z-index: 2000;
     
     font-family: 'Indie Flower', cursive;
     font-size: 3em;

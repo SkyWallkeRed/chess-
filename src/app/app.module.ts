@@ -25,6 +25,10 @@ import { LobbyComponent } from './lobby/lobby.component';
 import { AboutComponent } from './about/about.component';
 import { TechComponent } from './tech/tech.component';
 import { ContributorsComponent } from './contributors/contributors.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
+import { ColorPickComponent } from './color-pick/color-pick.component';
+import { ActivUsersComponent } from './activ-users/activ-users.component';
+import { ActivGamesComponent } from './activ-games/activ-games.component';
 // Configs .
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -54,7 +58,11 @@ export function getAuthServiceConfigs() {
     LobbyComponent,
     AboutComponent,
     TechComponent,
-    ContributorsComponent
+    ContributorsComponent,
+    SubscribeComponent,
+    ColorPickComponent,
+    ActivUsersComponent,
+    ActivGamesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,16 @@
 <div #container class="container">
   <div #header class="header">
-    <div #textLeft class="textLeft">same old chess</div>
-    <div #textRight class="textRight ">with a twist</div>
+    <!-- <div  class="epic"> -->
+    <img #epic class="epic" src="../../assets/logos/EPICTEXT.png" alt="">
+    <!-- </div> -->
+    <div #textLeft class="textLeft"> chess</div>
+    <div #textRight class="textRight ">same old</div>
     <!-- WOKRING BUTTONS NO USE IN THIS PAGE  #>david<#. -->
-    <div #btn1 class="btn1">About</div>
-    <div #btn2 class="btn2">Contributors</div>
-    <div #btn3 class="btn3">Tech</div>
+    <div #btn1 class="btn1" [routerLink]="['/about']">About</div>
+    <div #btn2 class="btn2" [routerLink]="['/contributors']">Contributors</div>
+    <div #btn3 class="btn3" [routerLink]="['/tech']">Tech</div>
+    <div #btn4 class="btn4" [routerLink]="['/subscribe']">Subscribe</div>
+
     <div #loginF class="loginF">
       <app-login (showErr)='loginTrue($event)'></app-login>
 
@@ -30,9 +35,9 @@
 
     </div>
     <div>
-        <span class=" usernamedisplay">{{userName}}</span>
+      <span class=" usernamedisplay">{{userName}}</span>
       <img class="userimgdisplay" src="{{userImg}}" alt="">
-     </div>
+    </div>
   </div>
   <div #animationBox class="animationBox">
     <div class="k-container drag">
