@@ -1,8 +1,26 @@
-<div class="play1" [routerLink]="['/play']" >
-  
-  play1
+<div class="onlineUsers">
+  <app-activ-users></app-activ-users>
 </div>
 
-<div class="home" [routerLink]="['/home']">
-  Home
+<div class="activGames">
+  <app-activ-games></app-activ-games>
+</div>
+
+
+<div class="menu">
+  menu
+  <div class="pickColor">
+    color pick
+  </div>
+  <div class="play1" [routerLink]="['/play']">
+
+    play1
+  </div>
+  <div class="home" [routerLink]="['/home']">
+    Home
+  </div>
+</div>
+
+<div class="colorPickWindow">
+    <app-color-pick></app-color-pick>
 </div>

@@ -1,7 +1,7 @@
 export class User {
-    private userName: string;
+    public userName: string;
     private user_id: string;
-    private userImg: string;
+    public userImg: string;
     private userEmail: string;
     private userProvider: string;
     constructor(user_id: string, userName: string, userEmail: string, userImg: string, userProvider: string) {
