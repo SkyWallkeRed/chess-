@@ -39,19 +39,24 @@ export class PregameComponent implements OnInit {
   public axe = false;
   private status = false;
   // .
-
+  private userImg;
+  private userName;
   private userLogedIn = false;
   // BULIAN VAL FOR HTML ERR MSG.
   // private loginErr = false;
   constructor(private userService: UserService) { }
-  private userImg;
-  private userName;
+
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngAfterContentChecked() {
+
+  }
+
   ngOnInit() {
     // landing page animation TimeLine
     this.tl.
       to(this.textRight.nativeElement, 0.5, { scale: 1, yoyo: true, opacity: 1 }).
       to(this.textRight.nativeElement, 0.5, { top: 150, opacity: 1, left: 500 }).
-      to(this.textLeft.nativeElement, 0.5, { top: 150, opacity: 1, left: 800 }).
+      to(this.textLeft.nativeElement, 0.5, { top: 150, opacity: 1, left: 820 }).
       to(this.epic.nativeElement, 0.3, { yoyo: true, top: -200, left: 250, scale: 0.5 }).
       to(this.epic.nativeElement, 0.5, { yoyo: true, top: -90, left: 250, opacity: 1, scale: 0.5 }).
       to(this.textRight.nativeElement, 0.6, { top: 330, opacity: 1, left: 350, rotation: '90_w' }).
@@ -68,7 +73,7 @@ export class PregameComponent implements OnInit {
       this.animate();
       setTimeout(() => {
         this.bloodMark2 = true;
-      }, 4000);
+      }, 5000);
       this.axe = true;
     }, 4000);
     this.tl.to(this.gitHub.nativeElement, 0.3, { right: 550, bottom: 300, opacity: 1 }).
