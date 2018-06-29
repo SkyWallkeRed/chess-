@@ -6,6 +6,8 @@ export class Piece {
     public imgUrl?: string;
     public b?: string;
     public w?: string;
+    public T?: string;
+
 
     constructor(type, color) {
 
@@ -16,8 +18,10 @@ export class Piece {
   
 
 
+
     run(xMovment, yMovment, currX, currY, gameService) {
         let options = [];
+
         let currPiece;
        
             while (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
@@ -55,8 +59,10 @@ export class Piece {
                     if (currPiece.color != this.color && (xMovment === -1 && yMovment === -1) || (xMovment === 1 && yMovment === -1)) {
                         options.push({ myX: currX, myY: currY });
                     }
-                    else{
-                        return []
+
+                    else {
+                        return [];
+
                     }
                 }
             }

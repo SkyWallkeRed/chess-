@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TimelineMax, CSSPlugin, ScrollToPlugin, Draggable } from '../../../node_modules/gsap/all';
 import { ElementRef, ViewChild } from '@angular/core';
 import { TweenMax } from 'gsap';
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-pregame',
   templateUrl: './pregame.component.html',
@@ -29,25 +30,38 @@ export class PregameComponent implements OnInit {
   @ViewChild('piece2') piece2: ElementRef;
   @ViewChild('piece3') piece3: ElementRef;
   @ViewChild('gitHub') gitHub: ElementRef;
-
-
+  @ViewChild('lobby') lobby: ElementRef;
 
   public bloodMark2 = false;
   private bloodMark = false;
   public axe = false;
   private status = false;
-  constructor() { }
+  // .
 
+  private userLogedIn = false;
+  // BULIAN VAL FOR HTML ERR MSG.
+  // private loginErr = false;
+  constructor(private userService: UserService) { }
+  private userImg;
+  private userName;
   ngOnInit() {
+    //
+    // TweenMax.to(box1, 1.2, { scale: 2, repeat: 1, yoyo: true });
+    // // 50 x 4 = 200 (width x scale factor) .
+    // TweenMax.to(box2, 1.3, { scale: 4, repeat: 1, yoyo: true });
+
+    // TweenMax.to(box3, 1.5, { scale: 2, repeat: 1, yoyo: true });
+    //
+
     // landing page animation TimeLine
-    this.tl.to(this.textLeft.nativeElement, 0.4, { bottom: 200 }).
+    this.tl.to(this.textLeft.nativeElement, 0.4, { scale: 1, repeat: 1, yoyo: true }).
       to(this.textLeft.nativeElement, 1, { top: 150, opacity: 1, left: 200 });
     this.tl.to(this.textRight.nativeElement, 0.1, { bottom: 200 }).
       to(this.textRight.nativeElement, 0.8, { top: 0, left: 350 }).
       to(this.textRight.nativeElement, 1, { top: 330, opacity: 1, left: 350, rotation: '20_w' }).
-      to(this.animationBox.nativeElement, 1, { top: 80, opacity: 1, left: 350 }).
-      to(this.textLeft.nativeElement, 0.5, { left: 50, opacity: 1, top: 50 }).
-      to(this.textRight.nativeElement, 0.5, { left: 50, opacity: 1, top: 200, rotation: '10_W' });
+      to(this.animationBox.nativeElement, 1, { top: 140, opacity: 1, left: 600 }).
+      to(this.textLeft.nativeElement, 0.5, { left: 450, opacity: 1, top: 50 }).
+      to(this.textRight.nativeElement, 0.5, { left: 450, opacity: 1, top: 200, rotation: '10_W' });
     setTimeout(() => {
       this.animate();
       setTimeout(() => {
@@ -55,22 +69,20 @@ export class PregameComponent implements OnInit {
       }, 5000);
       this.axe = true;
     }, 4000);
-    this.tl.to(this.play.nativeElement, 1.3, { left: 550, opacity: 1, top: 440 }).
-      to(this.gitHub.nativeElement, 0.3, { right: 550, bottom: 350, opacity: 1 }).
-      to(this.loginF.nativeElement, 0.2, { left: 550, opacity: 1, top: 340 }).
+    this.tl.to(this.gitHub.nativeElement, 0.3, { right: 550, bottom: 300, opacity: 1 }).
+      to(this.loginF.nativeElement, 0.2, { left: 550, opacity: 1, top: 300 }).
       to(this.btn1.nativeElement, 0.3, { left: 1100, opacity: 1, top: 100 }).
       to(this.btn2.nativeElement, 0.3, { left: 1100, opacity: 1, top: 200 }).
       to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 300 }).
-      to(this.piece1.nativeElement, 0.2, { left: 400, top: 200, opacity: 1 }).
-      to(this.piece2.nativeElement, 0.2, { left: 450, top: 200, opacity: 1 }).
-      to(this.piece3.nativeElement, 0.2, { left: 500, top: 200, opacity: 1 });
-    this.tlLoop.to(this.play.nativeElement, 0.5, { rotation: 10 }).
-      to(this.play.nativeElement, 0.5, { rotation: 10 });
+      to(this.piece1.nativeElement, 0.2, { left: -440, top: 200, opacity: 1 }).
+      to(this.piece2.nativeElement, 0.2, { left: -500, top: 200, opacity: 1 }).
+      to(this.piece3.nativeElement, 0.2, { left: -550, top: 200, opacity: 1 });
+    // this.tlLoop.to(this.play.nativeElement, 0.5, { rotation: 10 }).
+    //   to(this.play.nativeElement, 0.5, { rotation: 10 });
     // this.tlLoop.to(this.piece1.nativeElement, 1, { bottom: 5 }).
     // to(this.piece1.nativeElement, 1, { top: -5 });
     // this.tlLoop.to(this.piece2.nativeElement, 0.5, { bottom: 100 }).to(this.piece2.nativeElement, 0.5, { top: 200 });
     // this.tlLoop.to(this.piece3.nativeElement, 0.5, { bottom: 100 }).to(this.piece3.nativeElement, 0.5, { top: 250 });
-
   }
   animate() {
     console.log('jump');
@@ -95,6 +107,19 @@ export class PregameComponent implements OnInit {
     }, 500);
   }
 
+  loginTrue(bull) {
+    console.log(bull);
+    this.userLogedIn = bull;
+    this.setUserPreLobby();
+  }
 
+  setUserPreLobby() {
+    const t = this.userService.getUser();
+    this.userName = t.userName;
+    this.userImg = t.userImg;
+
+    // this.userName = t.
+
+  }
 
 }

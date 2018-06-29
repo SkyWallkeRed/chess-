@@ -30,17 +30,17 @@ export class AnimateService {
   }
 
   setCurrentLocation(currentPiece, currentLocation) {
-    console.log(currentPiece);
-    console.log(currentLocation.top, currentLocation.right, currentLocation.bottom, currentLocation.left);
+    // console.log(currentPiece);
+    // console.log(currentLocation.top, currentLocation.right, currentLocation.bottom, currentLocation.left);
   }
   setNewPosition(newPosition) {
-    console.log(newPosition.top, newPosition.right, newPosition.bottom, newPosition.left);
+    // console.log(newPosition.top, newPosition.right, newPosition.bottom, newPosition.left);
   }
   buildAnimation() {
 
   }
   moveToTargrt() {
-    TweenMax.to(this.piece.nativeElement, 1, { bottom: 200 });
+    // TweenMax.to(this.piece.nativeElement, 1, { bottom: 200 });
 
   }
 
