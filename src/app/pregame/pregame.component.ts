@@ -5,9 +5,6 @@ import { TweenMax } from 'gsap';
 import { UserService } from '../user.service';
 import { AnimateService } from '../animate.service';
 
-
-
-
 @Component({
   selector: 'app-pregame',
   templateUrl: './pregame.component.html',
@@ -51,7 +48,7 @@ export class PregameComponent implements OnInit {
   @ViewChild('gitHub') gitHub: ElementRef;
   //         START .bad name i know.
   @ViewChild('lobby') lobby: ElementRef;
-  // animation -------------------------------------------------------NEED TO MAKE ANIMATION IN SEPERATE COMPONENT AND INJECT--- .
+  // animation ------------------------------------NEED TO MAKE ANIMATION IN SEPERATE COMPONENT AND INJECT--- .
   public bloodMark2 = false;
   private bloodMark = false;
   public axe = false;
@@ -63,8 +60,12 @@ export class PregameComponent implements OnInit {
   private userLogedIn = false;
   // BULIAN VAL FOR HTML ERR MSG.
   // private loginErr = false;
-
-
+  // ABOUT window
+  private about = false;
+  // CONTRIBUTORS window
+  private contributors = false;
+  // TECH window
+  private tech = false;
   constructor(private userService: UserService, private aniService: AnimateService) {
   }
   ngOnInit() {
@@ -138,5 +139,33 @@ export class PregameComponent implements OnInit {
     const t = this.userService.getUser();
     this.userName = t.userName;
     this.userImg = t.userImg;
+  }
+  // TOGGELING .
+  toggleAbout() {
+    if (!this.about) {
+      this.about = true;
+
+    } else if (this.about) {
+      this.about = false;
+
+    }
+  }
+  toggleContributors() {
+    if (!this.contributors) {
+      this.contributors = true;
+
+    } else if (this.contributors) {
+      this.contributors = false;
+
+    }
+  }
+  toggleTech() {
+    if (!this.tech) {
+      this.tech = true;
+
+    } else if (this.tech) {
+      this.tech = false;
+
+    }
   }
 }

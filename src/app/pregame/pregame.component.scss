@@ -167,6 +167,24 @@ app-login{
     opacity: 0;
     z-index: 2000;
 }
+.about{
+z-index: 20000;
+position: absolute;
+left: 20%;
+top: 10%;
+}
+.tech{
+    z-index: 20000;
+position: absolute;
+left: 20%;
+top: 10%;
+}
+.contributors{
+    z-index: 20000;
+position: absolute;
+left: 20%;
+top: 10%;
+}
 .userimgdisplay{
     position: absolute;
     top: 350px;

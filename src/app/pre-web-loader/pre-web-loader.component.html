@@ -1,4 +1,4 @@
-<div class="loader" >
+<div class="loader" *ngIf='!loadDone' >
 <p>this app uses sound so if your in the office turn vol off ;)</p>
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 </div>

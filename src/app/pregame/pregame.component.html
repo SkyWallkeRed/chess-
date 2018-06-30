@@ -6,15 +6,16 @@
     <div #textLeft class="textLeft"> chess</div>
     <div #textRight class="textRight ">same old</div>
     <!-- WOKRING BUTTONS NO USE IN THIS PAGE  #>david<#. -->
-    <div #btn1 class="btn1" [routerLink]="['/about']">About
+    <div #btn1 class="btn1" (click)='toggleAbout()'>About
+
       <img src="../../assets/logos/003-youtube.png" alt="">
     </div>
-    <div #btn2 class="btn2" [routerLink]="['/contributors']">Contributors
+    <div #btn2 class="btn2" (click)='toggleContributors()'>Contributors
     </div>
-    <div #btn3 class="btn3" [routerLink]="['/tech']">Tech
+    <div #btn3 class="btn3" (click)='toggleTech()'>Tech
       <img src="../../assets/logos/002-java.png" alt="">
     </div>
-    <!-- <div #btn4 class="btn4" [routerLink]="['/subscribe']">Subscribe</div>  // NOT IN USE CAN CHANGE TO ANYTHING --> 
+    <!-- <div #btn4 class="btn4" [routerLink]="['/subscribe']">Subscribe</div>  // NOT IN USE CAN CHANGE TO ANYTHING -->
 
     <div #loginF class="loginF">
       <app-login (showErr)='loginTrue($event)'></app-login>
@@ -62,5 +63,14 @@
     </div>
   </div>
 
+  <div *ngIf='about' class="about" #about>
+    <app-about></app-about>
+  </div>
+  <div *ngIf='contributors' class="contributors" #contributors>
+ <app-contributors></app-contributors>
+  </div>
+  <div *ngIf='tech' class="tech" #tech>
+    <app-tech></app-tech>
+  </div>
 
 </div>
