@@ -145,6 +145,7 @@ export class PregameComponent implements OnInit {
     if (!this.about) {
       this.about = true;
 
+
     } else if (this.about) {
       this.about = false;
 

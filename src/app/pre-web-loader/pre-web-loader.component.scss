@@ -3,9 +3,18 @@
     position: absolute;
     left: 35%;
     top: 40%;
+    width: 20%;
 }
 .enter{
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
     position: absolute;
     left: 35%;
-    top: 50%; 
+    top:40%; 
+}
+.logo{
+    // box-sizing: border-box;
+    display: inline-block;
+    width: 20%;
+    height: 10%;;
 }

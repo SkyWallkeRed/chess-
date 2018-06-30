@@ -126,7 +126,7 @@ export class CellComponent implements OnInit {
   private bloodMarkCell = false;
   private wep = false;
   private rect;
-  constructor(private gameService: GameService, private animationService: AnimateService, private gameSocket : GameSocketService) {
+  constructor(private gameService: GameService, private animationService: AnimateService, private gameSocket: GameSocketService) {
 
   }
   ngOnInit() {
@@ -215,6 +215,8 @@ export class CellComponent implements OnInit {
   }
 
   cellColorF() {
+    // const whitMarble = '../../assets/board/whitemarble.png';
+
     const t = this.myX + this.myY;
     if (t % 2 === 0) {
       this.cellColor = 'white';
