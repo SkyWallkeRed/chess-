@@ -1,20 +1,32 @@
+.logo{
+    position: absolute;
+    left: 40%;
+    top:25%; 
+    // box-sizing: border-box;
+    // display: inline-block;
+    width: 20%;
+    height: 20%;    
+}
 .loader{
     // border: 2px solid blue;
     position: absolute;
     left: 35%;
-    top: 40%;
-    width: 20%;
+    top: 45%;
+    width: 25%;
 }
-.enter{
+.info{
     font-family: 'Indie Flower', cursive;
     font-size: 2em;
     position: absolute;
-    left: 35%;
-    top:40%; 
+    left: 40%;
+    top:48%; 
 }
-.logo{
-    // box-sizing: border-box;
-    display: inline-block;
-    width: 20%;
-    height: 10%;;
+.enter{
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    position: absolute;
+    left: 45%;
+    top:55%; 
 }
+
+
