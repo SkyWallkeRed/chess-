@@ -68,10 +68,10 @@ export function getAuthServiceConfigs() {
     BrowserAnimationsModule,
     SocialLoginModule,
     LoadingModule.forRoot({
-      animationType: ANIMATION_TYPES.rotatingPlane,
+      animationType: ANIMATION_TYPES.cubeGrid,
       backdropBackgroundColour: 'rgba(0,0,0,0.1)',
       backdropBorderRadius: '50px',
-      primaryColour: 'blue',
+      primaryColour: '#B086DC',
       secondaryColour: 'pink',
       tertiaryColour: '#ffffff'
     })
