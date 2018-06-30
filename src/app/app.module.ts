@@ -23,6 +23,7 @@ import { ActivGamesComponent } from './activ-games/activ-games.component';
 import { PreWebLoaderComponent } from './pre-web-loader/pre-web-loader.component';
 // LOADER
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
+import { PreGameAnimationComponent } from './pre-game-animation/pre-game-animation.component';
 // Configs .
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -57,7 +58,8 @@ export function getAuthServiceConfigs() {
     ColorPickComponent,
     ActivUsersComponent,
     ActivGamesComponent,
-    PreWebLoaderComponent
+    PreWebLoaderComponent,
+    PreGameAnimationComponent
   ],
   imports: [
     BrowserModule,
