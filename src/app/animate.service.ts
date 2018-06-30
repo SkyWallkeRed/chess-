@@ -28,6 +28,7 @@ export class AnimateService {
   public audio = new Audio();
   public epicGong = new Audio();
   public soundLoaded = false;
+  private mute = false;
   constructor() {
 
     this.audio.src = '../../assets/sound/FrenchAnthem.wav';
@@ -35,6 +36,18 @@ export class AnimateService {
     this.epicGong.src = '../../assets/sound/impact.WAV';
     this.epicGong.load();
     this.soundLoaded = true;
+  }
+  toggleMute() { // ------------------------------------ TOGGLE OFF SUDIO WORKS TOGGLE PLAY DONT, NEED A FIX . LOADING TIME ISSUE.
+    if (!this.mute) {
+      this.mute = true;
+      this.audio.src = '';
+      this.epicGong.src = '';
+    } else if (this.mute) {
+      this.mute = false;
+      this.audio.src = '../../assets/sound/FrenchAnthem.wav';
+      this.audio.load(); // MOT SURE IF THIS LINE HAPPENES ON TIME .
+
+    }
   }
   isSoundLoaded() {
     console.log('isSoundLoaded');
