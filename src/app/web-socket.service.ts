@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
 import { Observable, Subject } from 'rxjs';
 // import * as Rx from 'rxjs/Rx';
-import {environment} from '../environments/environment';
+import { environment } from '../environments/environment';
 import { map } from "rxjs/operators";
 
 @Injectable({
@@ -10,27 +10,27 @@ import { map } from "rxjs/operators";
 })
 export class WebSocketService {
 
-  private socket
+  private socket;
 
   constructor() { }
 
-  connect(){
+  connect() {
     this.socket = io(environment.ws_url);
 
-    let observable = new Observable(observer => {
+    const observable = new Observable(observer => { // CHANGE THIS SHADOW NAME ASK LIOR.
       this.socket.on('message', (data) => {
         // console.log(data);
         observer.next(data);
       });
       return () => {
         this.socket.disconnect();
-      }
-    })
+      };
+    });
 
-    let observer = {
-      next : (data : Object) => {
+    const observer = {
+      next: (data: Object) => {
         this.socket.emit('message', JSON.stringify(data));
-        console.log(JSON.stringify(data))
+        console.log(JSON.stringify(data));
       },
     };
 

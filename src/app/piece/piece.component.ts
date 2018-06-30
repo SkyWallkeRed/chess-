@@ -72,7 +72,7 @@ export class PieceComponent implements OnInit {
   }
 
   // tslint:disable-next-line:use-life-cycle-interface
-  ngOnDestroy() { // NEED TO ADD UNSUBSCRIBE ######################## .
+  ngOnDestroy() { // ------------------------------------------ NEED TO ADD UNSUBSCRIBE ######################## .
 
   }
   // JUMP IS THE OC-CLICK OF EACH PIECE .
@@ -90,7 +90,6 @@ export class PieceComponent implements OnInit {
     } else {
       this.axe = true;
     }
-
     // SHOW WEPON ANIMATION =>
     TweenMax.to(this.wep.nativeElement, 1, { left: 75, bottom: 80 });
     TweenMax.to(this.wep.nativeElement, 0.5, { rotationX: '360_w', rotationY: '-60_short' });
@@ -106,8 +105,6 @@ export class PieceComponent implements OnInit {
       }
     }, 5000);
   }
-
-
 }
 
 

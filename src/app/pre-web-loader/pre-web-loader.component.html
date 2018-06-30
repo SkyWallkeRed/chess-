@@ -1,0 +1,5 @@
+<div class="loader" >
+<p>this app uses sound so if your in the office turn vol off ;)</p>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+</div>
+<div class="enter" *ngIf='loadDone' [routerLink]="['/home']">ENTER</div>
