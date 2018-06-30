@@ -4,6 +4,7 @@ import { ElementRef, ViewChild } from '@angular/core';
 import { TweenMax } from 'gsap';
 import { UserService } from '../user.service';
 import { AnimateService } from '../animate.service';
+// import { flatten } from '@angular/router';
 
 @Component({
   selector: 'app-pregame',
@@ -144,29 +145,28 @@ export class PregameComponent implements OnInit {
   toggleAbout() {
     if (!this.about) {
       this.about = true;
-
-
+      this.contributors = false;
+      this.tech = false;
     } else if (this.about) {
       this.about = false;
-
     }
   }
   toggleContributors() {
     if (!this.contributors) {
       this.contributors = true;
-
+      this.tech = false;
+      this.about = false;
     } else if (this.contributors) {
       this.contributors = false;
-
     }
   }
   toggleTech() {
     if (!this.tech) {
       this.tech = true;
-
+      this.contributors = false;
+      this.about = false;
     } else if (this.tech) {
       this.tech = false;
-
     }
   }
 }
