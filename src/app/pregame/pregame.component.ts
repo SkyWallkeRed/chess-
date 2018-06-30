@@ -3,6 +3,7 @@ import { TimelineMax, CSSPlugin, ScrollToPlugin, Draggable } from '../../../node
 import { ElementRef, ViewChild } from '@angular/core';
 import { TweenMax } from 'gsap';
 import { UserService } from '../user.service';
+import { AnimateService } from '../animate.service';
 
 
 
@@ -13,7 +14,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./pregame.component.scss']
 })
 export class PregameComponent implements OnInit {
-  // ANIMATION VARS 
+  // ANIMATION VARS .
   private tl = new TimelineMax();
   private tl1 = new TimelineMax();
   private tlLoop = new TimelineMax({ repeat: -1 });
@@ -50,39 +51,29 @@ export class PregameComponent implements OnInit {
   @ViewChild('gitHub') gitHub: ElementRef;
   //         START .bad name i know.
   @ViewChild('lobby') lobby: ElementRef;
-// animation -------------------------------------------------------NEED TO MAKE ANIMATION IN SEPERATE COMPONENT AND INJECT--- .
+  // animation -------------------------------------------------------NEED TO MAKE ANIMATION IN SEPERATE COMPONENT AND INJECT--- .
   public bloodMark2 = false;
   private bloodMark = false;
   public axe = false;
   private status = false;
-  //  AFTER LOGIN SHOW DATA .
+  //  AFTER LOGIN SHOW USER DATA .
   private userImg;
   private userName;
   // if user loged in show start btn.
   private userLogedIn = false;
   // BULIAN VAL FOR HTML ERR MSG.
   // private loginErr = false;
-  // AUDIO CONST
-  public audio = new Audio();
-  public epicGong = new Audio();
 
 
-  constructor(private userService: UserService) {
-    this.audio.src = '../../assets/sound/FrenchAnthem.wav';
-    this.epicGong.src = '../../assets/sound/impact.WAV';
+  constructor(private userService: UserService, private aniService: AnimateService) {
   }
-
-
-
   ngOnInit() {
-    this.audio.load();
-    this.epicGong.load();
     this.buildHome();
   }
   buildHome() {
-    this.audio.play();
+    this.aniService.audio.play();
     setTimeout(() => {
-      this.epicGong.play();
+      this.aniService.epicGong.play();
     }, 3000);
     // landing page animation TimeLine
     this.tl.
@@ -116,7 +107,6 @@ export class PregameComponent implements OnInit {
   }
   // ANIMATION BOX .
   animate() {
-
     console.log('jump');
     this.axe = true;
     this.status = !this.status;
@@ -140,7 +130,6 @@ export class PregameComponent implements OnInit {
   }
   // SETS THE BULIAN FOR THE DISPALY OF THE START BTN.
   loginTrue(bull) {
-    console.log(bull);
     this.userLogedIn = bull;
     this.setUserPreLobby();
   }
@@ -150,5 +139,4 @@ export class PregameComponent implements OnInit {
     this.userName = t.userName;
     this.userImg = t.userImg;
   }
-
 }

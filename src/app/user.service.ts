@@ -8,7 +8,6 @@ import { Subject, Observable } from 'rxjs';
 export class UserService {
   private user: User;
   private allUsers: Array<User>; // NEED TO MAKE AN OBSERVBLE WITH A USER API SO IT WILL GET UPDEATED .
-
   // LOGIN BLOCK.
   public loginObservable: Observable<any>;
   public loginSubject: Subject<any>;
@@ -18,8 +17,6 @@ export class UserService {
     this.user = new User('', '', '', '', '');
     this.allUsers.push(this.user);
   }
-
-
   setUser(user) {
     this.user = user; // NEED MORE WORK NOT SURE HOW SERVER SIDE WILL BE SET UP .
     for (let i = 0; i < this.allUsers.length; i++) {

@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { ContributorsComponent } from './contributors/contributors.component';
 import { TechComponent } from './tech/tech.component';
 import { SubscribeComponent } from './subscribe/subscribe.component';
+import { PreWebLoaderComponent } from './pre-web-loader/pre-web-loader.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: PregameComponent
+    component: PreWebLoaderComponent
   },
   {
     path: 'home',

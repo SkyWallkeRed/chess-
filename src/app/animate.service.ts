@@ -24,11 +24,23 @@ export class AnimateService {
   private currentLocation;
   private currentPiece;
   private newPosition;
-
+  // AUDIO
+  public audio = new Audio();
+  public epicGong = new Audio();
+  public soundLoaded = false;
   constructor() {
 
+    this.audio.src = '../../assets/sound/FrenchAnthem.wav';
+    this.audio.load();
+    this.epicGong.src = '../../assets/sound/impact.WAV';
+    this.epicGong.load();
+    this.soundLoaded = true;
   }
-
+  isSoundLoaded() {
+    console.log('isSoundLoaded');
+    console.log(this.soundLoaded);
+    return this.soundLoaded;
+  }
   setCurrentLocation(currentPiece, currentLocation) {
     // console.log(currentPiece);
     // console.log(currentLocation.top, currentLocation.right, currentLocation.bottom, currentLocation.left);
