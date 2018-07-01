@@ -104,8 +104,8 @@ export class PregameComponent implements OnInit {
     this.tl.to(this.gitHub.nativeElement, 0.3, { right: 640, bottom: 490, opacity: 1 }).
       to(this.btn1.nativeElement, 0.3, { left: 1100, opacity: 1, top: 300 }).
       to(this.btn2.nativeElement, 0.3, { left: 1100, opacity: 1, top: 400 }).
-      to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 500 });
-    // to(this.btn4.nativeElement, 0.3, { left: 1100, opacity: 1, top: 400 }); // SUBSCRIBE BTN IS OFF FOR NOW.
+      to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 500 }).
+      to(this.btn4.nativeElement, 0.3, { left: 1100, opacity: 1, top: 600 });
   }
   // ANIMATION BOX .
   animate() {
