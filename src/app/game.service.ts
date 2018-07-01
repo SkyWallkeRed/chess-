@@ -50,7 +50,9 @@ export class GameService {
   public killSubject: Subject<any>;
 
 // END ANIMATION BOOLS
+
   constructor(private gameSocket : GameSocketService, private http: HttpClient) {
+
 
     this.killSubject = new Subject<any>();
     this.killObservable = this.killSubject.asObservable();
@@ -118,6 +120,11 @@ export class GameService {
     else{
     this.isMultiplayer = false      
     }
+  }
+  createRoom(text){
+    this.http.post<any>('/socketApi', {text : text}).subscribe((data)=>{
+      console.log('got here')
+    })
   }
   sendMsg(x, y){
     if(this.isMultiplayer){

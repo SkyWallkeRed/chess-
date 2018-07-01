@@ -3,8 +3,11 @@
 </div>
 
 <div class="activGames">
-  <app-activ-games></app-activ-games>
+  <!-- <app-activ-games></app-activ-games> -->
+  <input  type="text" [(ngModel)]="myText" />
+  <button (click)="createRoom()" >send</button>
 </div>
+
 
 
 <div class="menu swing4" (click)='toggleMenu()'>

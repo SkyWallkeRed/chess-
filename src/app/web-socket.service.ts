@@ -15,7 +15,7 @@ export class WebSocketService {
   constructor() { }
 
   connect() {
-    this.socket = io(environment.ws_url);
+    this.socket = io(environment.ws_url+'/play');
 
     const observable = new Observable(observer => { // CHANGE THIS SHADOW NAME ASK LIOR.
       this.socket.on('message', (data) => {

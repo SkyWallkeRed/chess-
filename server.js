@@ -16,10 +16,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, 'dist/chess')));
 
+
+
+
 //API route
+const socketApi = require('./server/routes/socketApi');
+app.use('/socketApi', socketApi);
+
 const boardApi = require('./boardApi');
 
 app.use('/api', boardApi);
+
 
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, 'dist/chess/index.html'));
@@ -28,6 +35,16 @@ app.get('*', (req, res)=>{
 const server = http.createServer(app);
 
 const io = socketIO(server);
+
+// var nsp = io.of('/play2');
+// nsp.on('connection', function(socket){
+//     console.log('play2 connected');
+//   });
+
+//   var nsp2 = io.of('/play');
+// nsp2.on('connection', function(socket){
+//     console.log('play connected');
+//   });
 
 io.on('connection', (socket) => {
     console.log('New user connected');
@@ -38,6 +55,8 @@ io.on('connection', (socket) => {
 
     socket.on('message', (board) => {
         socket.broadcast.emit('message', board)
+        console.log('clients:')
+        console.log(JSON.stringify(io.clients) )
     });
 });
 

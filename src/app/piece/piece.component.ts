@@ -40,6 +40,7 @@ export class PieceComponent implements OnInit {
     return Math.floor(Math.random() * (5 - 1 + 1)) + 1;
   }
   ngOnInit() {
+    console.log(1)
     this.setSound();
 
     this.pieceSound.load();
