@@ -9,28 +9,26 @@ export class Piece {
     public T?: string;
 
 
-    constructor(type, color, public gameService: GameService) {
+    constructor(type, color) {
 
         this.type = type;
         this.color = color;
-
-        this.gameService = gameService;
-
-
     }
 
   
 
 
-    run(xMovment, yMovment, currX, currY) {
-        const options = [];
+
+    run(xMovment, yMovment, currX, currY, gameService) {
+        let options = [];
+
         let currPiece;
        
             while (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
                 currX += xMovment;
                 currY += yMovment;
 
-                currPiece = this.gameService.getPieceFromBoard(currX, currY); 
+                currPiece = gameService.getPieceFromBoard(currX, currY); 
                 if (!currPiece) {
                     options.push({ myX: currX, myY: currY });
                 }
@@ -43,7 +41,7 @@ export class Piece {
             return options;
     }
 
-    unfilteredOptions(xMovment, yMovment, currX, currY) {
+    unfilteredOptions(xMovment, yMovment, currX, currY, gameService) {
         let options = [];
         let currPiece;
         if (this.type == 'pawn') {
@@ -51,7 +49,7 @@ export class Piece {
                 currX += xMovment;
                 currY += yMovment;
 
-                currPiece = this.gameService.getPieceFromBoard(currX, currY);
+                currPiece = gameService.getPieceFromBoard(currX, currY);
 
 
                 if (currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
@@ -74,7 +72,7 @@ export class Piece {
                 currX += xMovment;
                 currY += yMovment;
 
-                currPiece = this.gameService.getPieceFromBoard(currX, currY);
+                currPiece = gameService.getPieceFromBoard(currX, currY);
                 if (currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
                     options.push({ myX: currX, myY: currY });
                 }
@@ -85,7 +83,7 @@ export class Piece {
                 currX += xMovment;
                 currY += yMovment;
 
-                currPiece = this.gameService.getPieceFromBoard(currX, currY);
+                currPiece = gameService.getPieceFromBoard(currX, currY);
 
                     options.push({ myX: currX, myY: currY });
                 

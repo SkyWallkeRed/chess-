@@ -37,6 +37,10 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('User has disconnected');
     });
+
+    socket.on('message', (board) => {
+        socket.broadcast.emit('message', board)
+    });
 });
 
 server.listen(port, ()=>{

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { GameService } from '../game.service';
 import { TweenMax } from 'gsap';
 
@@ -11,18 +11,30 @@ export class BoardComponent implements OnInit {
   boardArray: Array<any>;
   optionsArray: Array<any> = [];
   deadArray: Array<any> = [];
+
+  @Input() isMultiplayer;
+
   @ViewChild('home') home: ElementRef;
 
+
   @ViewChild('container') container: ElementRef;
+  public audio = new Audio();
 
   constructor(private gameService: GameService) {
+    this.audio.src = '../../assets/sound/StartRound.WAV';
+
     this.getBoard();
     this.getArrays();
   }
 
   ngOnInit() {
+    this.gameService.makeMultiplayer(this.isMultiplayer)    
+    this.audio.load();
+
     this.gameService.getData();
     TweenMax.to(this.container.nativeElement, 5, { opacity: 1 });
+    this.audio.play();
+
 
     // this.boardArray[this.optionsArray[0].myY][this.optionsArray[0].myX]
   }
@@ -40,6 +52,7 @@ export class BoardComponent implements OnInit {
       this.deadArray = data;
     });
   }
+
 
 
 }

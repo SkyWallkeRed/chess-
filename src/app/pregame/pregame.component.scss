@@ -13,6 +13,17 @@
     width: 99%;
     height: 700px;
 }
+.epic{
+    position: absolute;
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    max-width: 800px;
+    max-height: 800px;
+    opacity: 0;
+    // scale: 0.5;
+    z-index: 1000;
+}
 .textLeft{
     // border: 2px solid green;   // ###################################
     font-size: 5em;
@@ -24,7 +35,8 @@
 .textRight{
     // border: 2px solid pink; // #######################################
     font-size: 5em;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Anton', sans-serif;
+    
     width: 600px;
     height: 200px;
     opacity: 0;
@@ -114,6 +126,37 @@
     height: 50px;
     opacity: 0;
 }
+.loginErr{
+    color: rgb(179, 48, 48);
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    box-sizing: border-box;
+    object-fit: contain;
+    width: 200px;
+    height: 50px;
+    // opacity: 0;
+    position: absolute;
+    top: 350px;
+    left: 800px;
+}
+.lobby{
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    box-sizing: border-box;
+    object-fit: contain;
+    width: 300px;
+    height: 50px;
+    z-index: 1000;
+    // opacity: 0;
+    position: absolute;
+    top: 550px;
+    left: 550px;
+}
+app-login{
+    z-index: 100000;
+}
 .btn1{
     // border: 2px solid steelblue;
     font-family: 'Indie Flower', cursive;
@@ -122,6 +165,43 @@
     width: 200px;
     height: 50px;
     opacity: 0;
+    z-index: 2000;
+}
+.about{
+z-index: 20000;
+position: absolute;
+left: 25%;
+top: 10%;
+}
+.tech{
+    z-index: 20000;
+position: absolute;
+left: 0%;
+top: 5%;
+}
+.contributors{
+    z-index: 20000;
+position: absolute;
+left: 25%;
+top: 10%;
+}
+.userimgdisplay{
+    position: absolute;
+    top: 350px;
+    left: 640px;
+    // margin-bottom: 100px;
+    // width: 250px;
+    opacity: 0.8;
+}
+.usernamedisplay{
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    position: absolute;
+    top: 450px;
+    left: 600px;
+    margin-bottom: 100px;
+    width: 250px;
+
 }
 .btn2{
     // border: 2px solid steelblue;
@@ -132,9 +212,23 @@
     width: 200px;
     height: 50px;
     opacity: 0;
+    z-index: 2000;
+    
 }
 .btn3{
     // border: 2px solid steelblue;
+    z-index: 2000;
+    
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+}
+.btn4{
+    // border: 2px solid steelblue;
+    z-index: 2000;
     
     font-family: 'Indie Flower', cursive;
     font-size: 3em;
@@ -185,6 +279,7 @@ margin-top:  -150px;
     width: 200px;
     height: 50px;
     opacity: 0; 
+    z-index: 1000;
 }
 .bloodMark2{
 opacity: 0.5;

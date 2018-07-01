@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^6.0.2",
     "@angular/platform-browser-dynamic": "^6.0.2",
     "@angular/router": "^6.0.2",
+    "angular-6-social-login": "^1.1.1",
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.0",
     "core-js": "^2.5.4",
@@ -27,7 +28,9 @@
     "gsap": "^2.0.1",
     "mongoose": "^5.1.7",
     "mysql2": "^1.5.3",
-    "nodemon": "^1.17.5",
+
+    "ngx-loading": "^1.0.14",
+
     "primeicons": "^1.0.0-beta.9",
     "primeng": "^6.0.0",
     "rxjs": "^6.0.0",

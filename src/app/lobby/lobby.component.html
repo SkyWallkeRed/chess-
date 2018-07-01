@@ -1,0 +1,26 @@
+<div class="onlineUsers">
+  <app-activ-users></app-activ-users>
+</div>
+
+<div class="activGames">
+  <app-activ-games></app-activ-games>
+</div>
+
+
+<div class="menu swing4" (click)='toggleMenu()'>
+  <span class="menuBtn"> Menu</span>
+  <div #pickColor class="pickColor" (click)='slidePickColor()'>
+    color pick
+  </div>
+  <div #play1 class="play1" [routerLink]="['/play']">
+
+    play1
+  </div>
+  <div #home class="home" [routerLink]="['/home']">
+    Home
+  </div>
+</div>
+
+<div #pickColorWindow class="colorPickWindow">
+  <app-color-pick ></app-color-pick>
+</div>

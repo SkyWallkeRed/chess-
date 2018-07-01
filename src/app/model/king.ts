@@ -11,7 +11,9 @@ export class King extends Piece {
         this.imgUrl = this.color === 'white' ? this.w : this.b;
 
     }
-    run(xMovment, yMovment, currX, currY,gameService) {
+
+    run(xMovment, yMovment, currX, currY, gameService) {
+
         let options = [];
         let currPiece;
       
@@ -32,17 +34,19 @@ export class King extends Piece {
             return options;
     }
 
-    moveOptions(myX, myY,gameService) {
+
+    moveOptions(myX, myY, gameService) {
         const arr = [];
         const optionsArr = arr.concat(
-            this.run(0, -1, myX, myY,gameService),
-            this.run(-1, 0, myX, myY,gameService),
-            this.run(0, 1, myX, myY,gameService),
-            this.run(1, 0, myX, myY,gameService),
-            this.run(1, 1, myX, myY,gameService),
-            this.run(-1, -1, myX, myY,gameService),
-            this.run(1, -1, myX, myY,gameService),
-            this.run(-1, 1, myX, myY,gameService),
+            this.run(0, -1, myX, myY, gameService),
+            this.run(-1, 0, myX, myY, gameService),
+            this.run(0, 1, myX, myY, gameService),
+            this.run(1, 0, myX, myY, gameService),
+            this.run(1, 1, myX, myY, gameService),
+            this.run(-1, -1, myX, myY, gameService),
+            this.run(1, -1, myX, myY, gameService),
+            this.run(-1, 1, myX, myY, gameService),
+
         )
         return optionsArr;
     }
