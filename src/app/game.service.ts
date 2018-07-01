@@ -50,7 +50,9 @@ export class GameService {
   public killSubject: Subject<any>;
 
 // END ANIMATION BOOLS
-  constructor(private gameSocket : GameSocketService, private http : HttpClient) {
+
+  constructor(private gameSocket : GameSocketService, private http: HttpClient) {
+
 
     this.killSubject = new Subject<any>();
     this.killObservable = this.killSubject.asObservable();
@@ -153,6 +155,9 @@ export class GameService {
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION
+    this.http.post<any>('/api', { boardArray: this.boardArray }).subscribe((data) => { 
+      console.log("http posted") 
+    })
   }
   getPieceFromBoard(x, y) {
     if (this.boardArray[y]) {

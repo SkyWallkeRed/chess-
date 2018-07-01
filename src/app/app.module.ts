@@ -25,6 +25,7 @@ import { ActivGamesComponent } from './activ-games/activ-games.component';
 import { PreWebLoaderComponent } from './pre-web-loader/pre-web-loader.component';
 // LOADER
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
+import { HttpClientModule } from '@angular/common/http';
 import { PreGameAnimationComponent } from './pre-game-animation/pre-game-animation.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
@@ -38,7 +39,7 @@ export function getAuthServiceConfigs() {
       // },
       {
         id: GoogleLoginProvider.PROVIDER_ID,
-        provider: new GoogleLoginProvider('414685811338-lrrjq10n885klsgag1iacamieedf8ar9.apps.googleusercontent.com')
+        provider: new GoogleLoginProvider('414685811338-kf94b9e51f4bpslpmmfkceuqlh1qqvt4.apps.googleusercontent.com')
       },
 
 
@@ -75,6 +76,7 @@ export function getAuthServiceConfigs() {
     AppRoutingModule,
     AccordionModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SocialLoginModule,
     LoadingModule.forRoot({
       animationType: ANIMATION_TYPES.cubeGrid,
