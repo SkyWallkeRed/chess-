@@ -10,6 +10,7 @@ import { RowComponent } from './row/row.component';
 import { CellComponent } from './cell/cell.component';
 import { PregameComponent } from './pregame/pregame.component';
 import { PieceComponent } from './piece/piece.component';
+
 import { OfflineBoardComponent } from './offline-board/offline-board.component';
 import { OnlineBoardComponent } from './online-board/online-board.component';
 import { LoginComponent } from './login/login.component';
@@ -38,6 +39,10 @@ export function getAuthServiceConfigs() {
         id: GoogleLoginProvider.PROVIDER_ID,
         provider: new GoogleLoginProvider('414685811338-lrrjq10n885klsgag1iacamieedf8ar9.apps.googleusercontent.com')
       },
+
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
     ]
@@ -71,6 +76,7 @@ export function getAuthServiceConfigs() {
     AppRoutingModule,
     AccordionModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SocialLoginModule,
     LoadingModule.forRoot({
       animationType: ANIMATION_TYPES.cubeGrid,
@@ -80,6 +86,7 @@ export function getAuthServiceConfigs() {
       secondaryColour: 'pink',
       tertiaryColour: '#ffffff'
     })
+
 
   ],
   providers: [

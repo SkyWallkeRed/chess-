@@ -8,7 +8,11 @@ import { Bishop } from './model/bishop';
 import { Queen } from './model/queen';
 import { Piece } from './model/base-piece';
 import { Observable, Subject } from 'rxjs';
+
 import { GameSocketService } from './game-socket.service';
+
+import { HttpClient, HttpParams } from '@angular/common/http';
+
 
 
 @Injectable({
@@ -48,8 +52,10 @@ export class GameService {
   public killObservable: Observable<any>;
   public killSubject: Subject<any>;
 
+
 // END ANIMATION BOOLS
-  constructor(private gameSocket : GameSocketService) {
+  constructor(private gameSocket : GameSocketService,private http: HttpClient) {
+
 
     this.killSubject = new Subject<any>();
     this.killObservable = this.killSubject.asObservable();
@@ -79,6 +85,7 @@ export class GameService {
     // this.Nb = new Knight('knight', 'black', this);
     // this.Rb = new Rook('rook', 'black', this);
     this.Kb = new King('king', 'black');
+
     // this.Bb = new Bishop('bishop', 'black');
     this.Qb = new Queen('queen', 'black');
     // this.Pb = new Pawn('pawn', 'black');
@@ -89,13 +96,16 @@ export class GameService {
     this.Qw = new Queen('queen', 'white');
     // this.Pw = new Pawn('pawn', 'white');
     
+
   }
   getData() {
     this.boardArray = [
 
 
+
       [new Rook('rook', 'black'), new Knight('knight', 'black'), new Bishop('bishop', 'black'), this.Qb, this.Kb, new Bishop('bishop', 'black'), new Knight('knight', 'black'), new Rook('rook', 'black')],
       [new Pawn('pawn', 'black'), new Pawn('pawn', 'black'),  new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black')],
+
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
@@ -108,6 +118,7 @@ export class GameService {
     
     this.boardSubject.next(this.boardArray);
   }
+
   makeMultiplayer(boolean){
     debugger    
     if(boolean){
@@ -127,6 +138,7 @@ export class GameService {
     this.gameSocket.sendMsg({x : x, y : y, piece : this.clickedPiece, turn : this.currentTurn, myColor : 'white'})
   }
   }
+
   catchOption(x, y) {
     if (this.clickedPiece) {
       if (this.boardArray[y][x]) {
@@ -146,8 +158,12 @@ export class GameService {
     this.switchTurns()
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
-    this.optionsSubject.next([]); // ANIMATION
+    this.optionsSubject.next([]); // 
+    this.http.post<any>('/api', { boardArray: this.boardArray }).subscribe((data) => { 
+      console.log("http posted") 
+    })
   }
+
   getPieceFromBoard(x, y) {
     if (this.boardArray[y]) {
       return this.boardArray[y][x];
@@ -162,6 +178,7 @@ export class GameService {
   }
 
   getOptions(x, y, piece) {
+
 
     if(!this.deadArray.includes(piece) && piece.color == this.currentTurn ){
     // if( piece.color == this.currentTurn){
@@ -178,6 +195,7 @@ export class GameService {
       this.optionsArray = piece.moveOptions(x, y, this) || [];
       this.optionsSubject.next(this.optionsArray);
     }
+
     }
   }
   // }
