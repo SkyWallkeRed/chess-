@@ -1,9 +1,61 @@
 
+@media screen and (min-width : 100px)and (max-width: 400px) {
+    .deadPieses{
+        display: none;
+    }
+  .btns{
+    position: absolute;
+      
+      top: 100%;
+      left: 17%;
+  }
+  .lobby{
+    padding-top: 30px;
+  }
+  }
+  @media screen and (min-width : 401px)and (max-width: 650px) {
+   
+  
+  
+   
+  }
+  @media screen and (min-width : 651px)and (max-width: 850px) {
+    .deadPieses{
+        display: none;
+    }
+    .btns{
+        position: absolute;
+          
+          top: 100%;
+          left: 27%;
+      }
+    .lobby{
+        padding-top: 30px;
+      }
+   
+  }
+  @media screen and (min-width : 1200px)and (max-width: 1250px) {
+    .deadPieses{
+        display: none;
+    }
+    .btns{
+        position: absolute;
+          
+          top: 100%;
+          left: 27%;
+      }
+    .lobby{
+        padding-top: 30px;
+      }
+  
+  
+   
+  }
 .container{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(8);
-position: absolute;
+    position: absolute;
     // margin-top: 2%;
     
     // grid-gap: 10px;
