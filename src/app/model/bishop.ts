@@ -10,6 +10,7 @@ export class Bishop extends Piece {
         this.b = '../../assets/pieces_B/Bishop-Yellow-icon-75.png';
         this.w = '../../assets/pieces_Y/Bishop-Yellow-icon.png';
 
+
         this.imgUrl = this.color === 'white' ? this.imgUrl = this.w : this.imgUrl = this.b;
     }
     moveOptions(myX, myY, gameService) {

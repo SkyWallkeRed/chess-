@@ -1,0 +1,15 @@
+<div #animationBox class="animationBox">
+  <div class="k-container drag">
+    <div class="k " #k>
+      <img class="glow" [ngClass]="{'glowAttack': isActive}" (click)="isActive = !isActive" src="../../assets/pieces_Y/King-Yellow-icon.png"
+        alt="">
+      <div class="wep" #wep>
+        <img *ngIf='axe' src="http://icons.iconarchive.com/icons/chrisl21/minecraft/96/Diamond-Axe-icon.png" alt="">
+      </div>
+      <img *ngIf='bloodMark' class='blood' #blood src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png"
+        alt="">
+      <img class="bloodMark2" *ngIf='bloodMark2' src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png"
+        alt="">
+    </div>
+  </div>
+</div>

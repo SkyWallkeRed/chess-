@@ -26,9 +26,11 @@ export class GameService {
   public deadObservable: Observable<any>;
   public deadSubject: Subject<any>;
   public clickedPiece;
-  public currentTurn
-  public myColor
+
+  public currentTurn;
+  public myColor;
   public isMultiplayer : boolean
+
   public Nb;
   public Rb;
   public Kb;
@@ -45,8 +47,10 @@ export class GameService {
   public kill = false;
   public killObservable: Observable<any>;
   public killSubject: Subject<any>;
+
 // END ANIMATION BOOLS
   constructor(private gameSocket : GameSocketService) {
+
     this.killSubject = new Subject<any>();
     this.killObservable = this.killSubject.asObservable();
 
@@ -89,6 +93,7 @@ export class GameService {
   getData() {
     this.boardArray = [
 
+
       [new Rook('rook', 'black'), new Knight('knight', 'black'), new Bishop('bishop', 'black'), this.Qb, this.Kb, new Bishop('bishop', 'black'), new Knight('knight', 'black'), new Rook('rook', 'black')],
       [new Pawn('pawn', 'black'), new Pawn('pawn', 'black'),  new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black'), new Pawn('pawn', 'black')],
       [null, null, null, null, null, null, null, null],
@@ -126,9 +131,9 @@ export class GameService {
     if (this.clickedPiece) {
       if (this.boardArray[y][x]) {
         this.deadArray.push(this.boardArray[y][x]);
-        console.log(this.deadArray);
-        this.kill = true;
+        this.kill = true; // ANIMATION.
         this.killSubject.next(this.kill); // ANIMATION
+        console.log(this.kill);
         this.deadSubject.next(this.deadArray);
         this.boardArray[y][x] = this.clickedPiece.myPiece;
 
@@ -138,7 +143,7 @@ export class GameService {
         this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
       }
     }
-    this.switchTurns()    
+    this.switchTurns()
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION
@@ -148,15 +153,16 @@ export class GameService {
       return this.boardArray[y][x];
     }
   }
-  switchTurns(){
-    if(this.currentTurn == 'white'){
+  switchTurns() {
+    if (this.currentTurn == 'white') {
       this.currentTurn = 'black';
-    } else if(this.currentTurn == 'black'){
+    } else if (this.currentTurn == 'black') {
       this.currentTurn = 'white'
     }
   }
 
   getOptions(x, y, piece) {
+
     if(!this.deadArray.includes(piece) && piece.color == this.currentTurn ){
     // if( piece.color == this.currentTurn){
     this.clickedPiece = { myX: x, myY: y, myPiece: piece };
@@ -166,6 +172,7 @@ export class GameService {
     this.optionsSubject.next(this.optionsArray);
     // console.log(this.optionsArray);
     // console.log(x, y);
+
     }
     else if(!this.isMultiplayer){
       this.optionsArray = piece.moveOptions(x, y, this) || [];
@@ -173,7 +180,7 @@ export class GameService {
     }
     }
   }
-// }
+  // }
 
 }
 

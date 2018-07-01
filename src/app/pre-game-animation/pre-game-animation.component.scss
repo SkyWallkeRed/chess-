@@ -1,0 +1,20 @@
+*{
+    position: absolute;
+    
+}
+.animationBox{
+    // border: 2px solid red; //##########################################
+    width: 600px;
+    height: 600px;
+    opacity: 0;
+}
+.k{
+    z-index: 1000;
+  }
+  .k-container{
+      // z-index: 1;
+      box-sizing: border-box;
+      // align-content: center;
+      padding-left: 40%;
+      padding-top: 40%;    
+  }

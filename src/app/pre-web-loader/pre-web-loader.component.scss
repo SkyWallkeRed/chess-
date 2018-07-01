@@ -1,0 +1,44 @@
+.logo{
+    position: absolute;
+    left: 40%;
+    top:25%; 
+    // box-sizing: border-box;
+    // display: inline-block;
+    width: 20%;
+    height: 20%;    
+}
+.loader{
+    // border: 2px solid blue;
+    position: absolute;
+    left: 35%;
+    top: 45%;
+    width: 25%;
+}
+.info{
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    position: absolute;
+    left: 40%;
+    top:48%; 
+}
+.enter{
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    position: absolute;
+    left: 45%;
+    top:55%; 
+}
+.mute{
+    position: absolute;
+    left: 48%;
+    top:65%; 
+    opacity: 0.3;
+}
+.vol{
+    position: absolute;
+    left: 48%;
+    top:65%; 
+    opacity: 0.3;
+}
+
+
