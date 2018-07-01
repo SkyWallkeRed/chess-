@@ -78,8 +78,12 @@ background: white;
     0% { box-shadow: 0 0 -20px #2CD3D4;}
     20% {background-color: #2CD3D4}
     40% { box-shadow: 0 0 30px #2CD3D4; }
+    20% {background-color: #2CD3D4}
+    
     // 50% {background-color: #2CD3D4;}
     60% { box-shadow: 0 0 30px #2CD3D4; }
+    60% { box-shadow: 0 0 30px #2CD3D4; }
+    
     100% { box-shadow: 0 0 -20px #2CD3D4; }
 
   }
@@ -92,10 +96,63 @@ background: white;
     100% { box-shadow: 0 0 -30px #C60E33; }
 
   }
+  @keyframes neon4 {
+    from {
+      
+      background-color:  0 0 10px #fff,
+      0 0 20px #fff, 
+      0 0 30px #fff, 
+      0 0 40px #B6FF00,
+       0 0 70px #B6FF00, 
+       0 0 80px #B6FF00,
+        0 0 100px #B6FF00,
+         0 0 150px #B6FF00;
+      box-shadow: 0 0 10px #fff,
+       0 0 20px #fff, 
+       0 0 30px #fff, 
+       0 0 40px #B6FF00,
+        0 0 70px #B6FF00, 
+        0 0 80px #B6FF00,
+         0 0 100px #B6FF00,
+          0 0 150px #B6FF00;
+    }
+    to {
+      background-color:  0 0 10px #fff,
+      0 0 20px #fff, 
+      0 0 30px #fff, 
+      0 0 40px #B6FF00,
+       0 0 70px #B6FF00, 
+       0 0 80px #B6FF00,
+        0 0 100px #B6FF00,
+         0 0 150px #B6FF00;//>>>
+      
 
-  .glow{
-    animation: glowing 2000ms infinite;
+      box-shadow: 0 0 5px #fff,
+       0 0 10px #fff,
+       0 0 15px #fff,
+        0 0 20px #B6FF00,
+        0 0 35px #B6FF00, 
+        0 0 40px #B6FF00, 
+        0 0 50px #B6FF00, 
+        0 0 75px #B6FF00;//>>
+    
+        
+    }
   }
+  .glow.cell{
+    background-color:white !important;
+  }
+  .glow{
+    text-decoration: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon4 1.5s ease-in-out infinite alternate;
+    animation: neon4 1.5s ease-in-out infinite alternate;
+  }
+
+ 
   
   .glowAttack {
     animation: glowingAttack 2000ms infinite;

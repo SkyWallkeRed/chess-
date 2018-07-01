@@ -11,17 +11,26 @@ export class BoardComponent implements OnInit {
   boardArray: Array<any>;
   optionsArray: Array<any> = [];
   deadArray: Array<any> = [];
+  @ViewChild('home') home: ElementRef;
 
   @ViewChild('container') container: ElementRef;
+  public audio = new Audio();
 
   constructor(private gameService: GameService) {
+    this.audio.src = '../../assets/sound/StartRound.WAV';
+
     this.getBoard();
     this.getArrays();
   }
 
   ngOnInit() {
+    this.audio.load();
+
+
     this.gameService.getData();
     TweenMax.to(this.container.nativeElement, 5, { opacity: 1 });
+    this.audio.play();
+
 
     // this.boardArray[this.optionsArray[0].myY][this.optionsArray[0].myX]
   }
@@ -37,9 +46,9 @@ export class BoardComponent implements OnInit {
 
     this.gameService.deadObservable.subscribe((data) => {
       this.deadArray = data;
-      console.log(this.deadArray)
     });
   }
+
 
 
 }

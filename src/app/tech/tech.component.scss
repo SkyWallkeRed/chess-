@@ -1,0 +1,32 @@
+.teckSpec{
+    // color:#30477D ;    
+    font-family: 'Indie Flower', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    // box-sizing: border-box;
+    // object-fit: contain;
+    // width: 200px;
+    // height: 50px;
+    // opacity: 0;
+}
+.home{
+    font-family: 'Indie Flower', cursive;
+    font-size: 2.1em;
+    // text-align: center;
+    width: 200px;
+    height: 50px;
+    // opacity: 0;
+    position: absolute;
+    left: 80%;
+    top: 10%;
+    display: inline-block;
+    z-index: 1000;
+}
+.container{
+    border-radius: 20px;
+    width: 700px;
+    // padding-top: 20%;
+    // text-align: center;
+    background-color: EEEEEE;
+    z-index: 1000;
+}

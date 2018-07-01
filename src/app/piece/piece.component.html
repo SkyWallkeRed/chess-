@@ -1,14 +1,17 @@
 <div class="piece-container drag">
-  <div class="piece " #piece (click)='attack()'>
+  <div class="piece " #piece (click)='jump()' >
 
-    <img class="piece" [ngClass]="{'glowAttack': isActive}" (click)='jump()' src="{{myUrl}}" alt="">
-  
+    <img class="piece" [ngClass]="{'glowAttack': isActive}" src="{{myUrl}}" alt="">
+
     <div class="wep" #wep>
+      <!-- <img *ngIf='kq' *src="http://www.iconarchive.com/show/free-flat-sample-icons-by-thesquid.ink/carrot-icon.html" alt=""> -->
+
       <img *ngIf='axe' src="http://icons.iconarchive.com/icons/chrisl21/minecraft/96/Diamond-Axe-icon.png" alt="">
       <img *ngIf='sword' src="http://icons.iconarchive.com/icons/chrisl21/minecraft/96/Diamond-Sword-icon.png" alt="">
-      <img *ngIf='dragon' src="http://icons.iconarchive.com/icons/martin-berube/character/96/Dragon-icon.png" alt="">
+      <img *ngIf='dragon' src="../../assets/logos/if_Iron_Sword_185584.png" alt="">
+
     </div>
-    <img *ngIf='bloodMark' class='blood' #blood src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png"
+    <img *ngIf='bloodMark' class='bloodMark' src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png"
       alt="">
 
 
