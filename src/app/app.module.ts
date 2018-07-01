@@ -53,7 +53,7 @@ export function getAuthServiceConfigs() {
     PregameComponent,
     PieceComponent,
     OfflineBoardComponent,
-    OnlineBoardComponent
+    OnlineBoardComponent,
     LoginComponent,
     LobbyComponent,
     AboutComponent,
