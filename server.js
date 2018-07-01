@@ -3,10 +3,23 @@ const path = require('path');
 const http = require('http');
 const socketIO = require('socket.io');
 
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
+mongoose.connect('mongodb://leeherzog:mlabmlab1!@ds221631.mlab.com:21631/chess', function() {console.log("DB connection established!!!")});
+app.use(express.static('node_modules'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(express.static(path.join(__dirname, 'dist/chess')));
+
+//API route
+const boardApi = require('./boardApi');
+
+app.use('/api', boardApi);
 
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, 'dist/chess/index.html'));
