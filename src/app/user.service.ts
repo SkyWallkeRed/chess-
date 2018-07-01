@@ -18,7 +18,7 @@ export class UserService {
     this.allUsers.push(this.user);
   }
   setUser(user) {
-    this.user = user; // NEED MORE WORK NOT SURE HOW SERVER SIDE WILL BE SET UP .
+    this.user = user; // ----------------------NEED MORE WORK NOT SURE HOW SERVER SIDE WILL BE SET UP .
     for (let i = 0; i < this.allUsers.length; i++) {
       if (this.allUsers[i].user_id !== this.user.user_id) {
         this.allUsers.push(this.user);
