@@ -18,7 +18,7 @@
   </div>
   
   <span #home class="home" [routerLink]="['/home']">Home</span>
-  <span #lobby class="lobby" [routerLink]="['/lobby']">Lobby</span>
+  <span *ngIf="isMultiplayer" #lobby class="lobby" [routerLink]="['/lobby']">Lobby</span>
   
 
   <app-row [optionsArray]='optionsArray' class="row" *ngFor='let row of boardArray; let idx = index' [myY]="idx"></app-row>

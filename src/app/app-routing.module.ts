@@ -19,6 +19,10 @@ const routes: Routes = [
     component: OnlineBoardComponent
   },
   {
+    path: 'play2',
+    component: OnlineBoardComponent
+  },
+  {
     path: 'local',
     component: OfflineBoardComponent
   },
