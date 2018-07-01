@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { GameService } from '../game.service';
 import { TweenMax } from 'gsap';
 
@@ -11,6 +11,7 @@ export class BoardComponent implements OnInit {
   boardArray: Array<any>;
   optionsArray: Array<any> = [];
   deadArray: Array<any> = [];
+  @Input() isMultiplayer;
 
   @ViewChild('container') container: ElementRef;
 
@@ -20,6 +21,7 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.gameService.makeMultiplayer(this.isMultiplayer)    
     this.gameService.getData();
     TweenMax.to(this.container.nativeElement, 5, { opacity: 1 });
 

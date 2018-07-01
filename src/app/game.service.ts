@@ -28,6 +28,7 @@ export class GameService {
   public clickedPiece;
   public currentTurn
   public myColor
+  public isMultiplayer : boolean
   public Nb;
   public Rb;
   public Kb;
@@ -61,6 +62,7 @@ export class GameService {
     this.deadArray = [];
     this.currentTurn = 'white'
     this.myColor = 'white'
+    // this.isMultiplayer = false;
     this.getData();
     this.gameSocket.messages.subscribe((stringifiedMove)=>{
       let move = JSON.parse(stringifiedMove)
@@ -97,14 +99,28 @@ export class GameService {
       [new Rook('rook', 'white'), new Knight('knight', 'white'), new Bishop('bishop', 'white'), this.Qw, this.Kw, new Bishop('bishop', 'white'), new Knight('knight', 'white'), new Rook('rook', 'white')]
 
     ];
+    this.currentTurn = 'white'
+    
     this.boardSubject.next(this.boardArray);
   }
+  makeMultiplayer(boolean){
+    debugger    
+    if(boolean){
+      this.isMultiplayer = true
+
+    }
+    else{
+    this.isMultiplayer = false      
+    }
+  }
   sendMsg(x, y){
+    if(this.isMultiplayer){
     if(this.myColor == 'white'){
       this.gameSocket.sendMsg({x : x, y : y, piece : this.clickedPiece, turn : this.currentTurn, myColor : 'black'})
       return
     }
     this.gameSocket.sendMsg({x : x, y : y, piece : this.clickedPiece, turn : this.currentTurn, myColor : 'white'})
+  }
   }
   catchOption(x, y) {
     if (this.clickedPiece) {
@@ -145,11 +161,15 @@ export class GameService {
     // if( piece.color == this.currentTurn){
     this.clickedPiece = { myX: x, myY: y, myPiece: piece };
     this.optionsArray.length = 0;
-    if(this.clickedPiece.myPiece.color == this.myColor){
+    if(this.clickedPiece.myPiece.color == this.myColor && this.isMultiplayer){
     this.optionsArray = piece.moveOptions(x, y, this) || [];
     this.optionsSubject.next(this.optionsArray);
     // console.log(this.optionsArray);
     // console.log(x, y);
+    }
+    else if(!this.isMultiplayer){
+      this.optionsArray = piece.moveOptions(x, y, this) || [];
+      this.optionsSubject.next(this.optionsArray);
     }
     }
   }

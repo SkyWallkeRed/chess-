@@ -13,6 +13,8 @@ import { RowComponent } from './row/row.component';
 import { CellComponent } from './cell/cell.component';
 import { PregameComponent } from './pregame/pregame.component';
 import { PieceComponent } from './piece/piece.component';
+import { OfflineBoardComponent } from './offline-board/offline-board.component';
+import { OnlineBoardComponent } from './online-board/online-board.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PieceComponent } from './piece/piece.component';
     RowComponent,
     CellComponent,
     PregameComponent,
-    PieceComponent
+    PieceComponent,
+    OfflineBoardComponent,
+    OnlineBoardComponent
   ],
   imports: [
     BrowserModule,
