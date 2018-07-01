@@ -1,5 +1,6 @@
 <div #container class="container">
   <div #header class="header">
+
     <!-- <div  class="epic"> -->
     <img #epic class="epic" src="../../assets/logos/EPICTEXT.png" alt="">
     <!-- </div> -->
@@ -19,6 +20,7 @@
 
     <div #loginF class="loginF">
       <app-login (showErr)='loginTrue($event)'></app-login>
+
 
       <div #gitHub class="gitHub">
         <a href="https://github.com/SkyWallkeRed/chess-">
@@ -41,11 +43,13 @@
     </div> -->
     <div *ngIf='userLogedIn' #lobby class="lobby swing" [routerLink]="['/lobby']">START
 
+
     </div>
     <div>
       <span class=" usernamedisplay">{{userName}}</span>
       <img class="userimgdisplay" src="{{userImg}}" alt="">
     </div>
+
   </div>
   <div #animationBox class="animationBox">
     <div class="k-container drag">

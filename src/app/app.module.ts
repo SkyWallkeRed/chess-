@@ -10,6 +10,8 @@ import { RowComponent } from './row/row.component';
 import { CellComponent } from './cell/cell.component';
 import { PregameComponent } from './pregame/pregame.component';
 import { PieceComponent } from './piece/piece.component';
+import { OfflineBoardComponent } from './offline-board/offline-board.component';
+import { OnlineBoardComponent } from './online-board/online-board.component';
 import { LoginComponent } from './login/login.component';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular-6-social-login';
 import { LobbyComponent } from './lobby/lobby.component';
@@ -37,6 +39,7 @@ export function getAuthServiceConfigs() {
         provider: new GoogleLoginProvider('414685811338-lrrjq10n885klsgag1iacamieedf8ar9.apps.googleusercontent.com')
       },
 
+
     ]
   );
   return config;
@@ -49,6 +52,8 @@ export function getAuthServiceConfigs() {
     CellComponent,
     PregameComponent,
     PieceComponent,
+    OfflineBoardComponent,
+    OnlineBoardComponent
     LoginComponent,
     LobbyComponent,
     AboutComponent,
