@@ -1,29 +1,40 @@
-<div class="onlineUsers">
-  <app-activ-users></app-activ-users>
-</div>
+<div class="container">
 
-<div class="activGames">
-  <!-- <app-activ-games></app-activ-games> -->
-  <input  type="text" [(ngModel)]="myText" />
-  <button (click)="createRoom()" >send</button>
-</div>
+  <img class="epicLogo" src="../../assets/logos/3Depic2.png" alt="">
 
 
-
-<div class="menu swing4" (click)='toggleMenu()'>
-  <span class="menuBtn"> Menu</span>
-  <div #pickColor class="pickColor" (click)='slidePickColor()'>
-    color pick
+  <div class="onlineUsers">
+    <app-activ-users></app-activ-users>
   </div>
-  <div #play1 class="play1" [routerLink]="['/play']">
 
-    play1
+  <div class="activGames">
+    <p> create / join Room..</p>
+    <!-- <app-activ-games></app-activ-games> -->
+    <!-- <input class="input" type="text" [(ngModel)]="myText" />
+    <button class="btnGo" (click)="createRoom()">Go</button> -->
+    <!--  -->
+    <div class="input-container">
+      <input #txtSearch [(ngModel)]='roomName' name='roomName' type="text" id="txtSearch" placeholder="Room Name" spellcheck="false"
+      />
+      <input class="btnGo" type="button" id="btnSearch" Value="Go" (click)="sendData();" (click)='createRoom()' [routerLink]="['/play']" />
+    </div>
+    <br>
+    <p class="roomName">Room Name :</p>
+    <span id="dis">{{roomName}}</span>
+    <!--  -->
   </div>
-  <div #home class="home" [routerLink]="['/home']">
-    Home
-  </div>
-</div>
 
-<div #pickColorWindow class="colorPickWindow">
-  <app-color-pick ></app-color-pick>
+
+
+  <div class="menu swing4">
+    <span class="menuBtn"> Menu</span>
+    <!-- <div #pickColor class="pickColor" (click)='slidePickColor()'> color pick </div> -->
+    <div #play1 class="play1" [routerLink]="['/play']"> play1 </div>
+    <div #home class="home" [routerLink]="['/home']"> Home </div>
+  </div>
+
+  <div #pickColorWindow class="colorPickWindow">
+    <app-color-pick></app-color-pick>
+  </div>
+
 </div>

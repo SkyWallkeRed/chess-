@@ -218,13 +218,13 @@ table {
     text-align: center;
     box-sizing: border-box;
     object-fit: contain;
-    // width: 300px;
+    width: 300px;
     // height: 50px;
     z-index: 2000;
     // opacity: 0;
     position: absolute;
     top: 550px;
-    left: 650px;
+    left: 550px;
 }
 app-login{
     z-index: 100000;
@@ -308,7 +308,7 @@ top: 100px;
     font-family: 'Indie Flower', cursive;
     font-size: 3em;
     text-align: center;
-    width: 200px;
+    width: 300px;
     height: 50px;
     opacity: 0;
 }

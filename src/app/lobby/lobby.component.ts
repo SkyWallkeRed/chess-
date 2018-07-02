@@ -11,28 +11,35 @@ import { GameService } from '../game.service';
 export class LobbyComponent implements OnInit {
 
   @ViewChild('pickColorWindow') pickColorWindow: ElementRef;
-  @ViewChild('pickColor') pickColor: ElementRef;
+  // @ViewChild('pickColor') pickColor: ElementRef;
   @ViewChild('play1') play1: ElementRef;
   @ViewChild('home') home: ElementRef;
+  @ViewChild('txtSearch') txtSearch: ElementRef;
+
+
   private menu = false;
   private tl = new TimelineMax();
-  public myText
-
-  constructor(private gameService : GameService) { }
+  // public myText;
+  public roomName: string;
+  constructor(private gameService: GameService) { }
 
   ngOnInit() {
     this.menu = true;
     this.tl.to(this.home.nativeElement, 0.2, { opacity: 1 }).
-    to(this.pickColor.nativeElement, 0.2, { opacity: 1 }).
-    to(this.play1.nativeElement, 0.2, { opacity: 1 });
+      // to(this.pickColor.nativeElement, 0.2, { opacity: 1 }).
+      to(this.play1.nativeElement, 0.2, { opacity: 1 });
   }
-  createRoom(){
-    this.gameService.createRoom(this.myText)
+  createRoom() {
+    this.gameService.createRoom(this.roomName);
   }
-  slidePickColor() {
-    this.tl.to(this.pickColorWindow.nativeElement, 0.1, { top: 450, right: 500 }).
-      to(this.pickColorWindow.nativeElement, 1, { opacity: 1 });
+  // slidePickColor() {
+  //   this.tl.to(this.pickColorWindow.nativeElement, 0.1, { top: 450, right: 100 }).
+  //     to(this.pickColorWindow.nativeElement, 1, { opacity: 1 });
+  // }
+  sendData(data) {
+    console.log(this.roomName);
   }
+
   // toggleMenu() {
   //   if (!this.menu) {
   //     this.menu = true;
