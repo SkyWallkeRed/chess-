@@ -78,7 +78,7 @@ background: white;
     0% { box-shadow: 0 0 -20px #2CD3D4;}
     20% {background-color: #2CD3D4}
     40% { box-shadow: 0 0 30px #2CD3D4; }
-    20% {background-color: #2CD3D4}
+    // 20% {background-color: #2CD3D4}
     
     // 50% {background-color: #2CD3D4;}
     60% { box-shadow: 0 0 30px #2CD3D4; }
@@ -94,6 +94,22 @@ background: white;
     50% {background-color: #C60E33;}
     60% { box-shadow: 0 0 40px #C60E33; }
     100% { box-shadow: 0 0 -30px #C60E33; }
+
+  }
+  @keyframes davidGlow{
+    0%{box-shadow: 0 0 20px #fff}
+    20% {background-color: #B6FF00}
+    20% {opacity: 0.3}
+    10%{box-shadow: 0 0 30px #fff}
+    20%{box-shadow: 0 0 30px #B6FF00}
+    30%{box-shadow: 0 0 50px #B6FF00}
+    40%{box-shadow: 0 0 60px #B6FF00}
+    50%{box-shadow: 0 0 70px #B6FF00}
+    60%{box-shadow: 0 0 80px #B6FF00}
+    70%{box-shadow: 0 0 90px #B6FF00}
+    80%{box-shadow: 0 0 100px #B6FF00}
+    90%{box-shadow: 0 0 110px #B6FF00}
+    100%{box-shadow: 0 0 120px #B6FF00}
 
   }
   @keyframes neon4 {
@@ -149,7 +165,7 @@ background: white;
     transition: all 0.5s;
     -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
     -moz-animation: neon4 1.5s ease-in-out infinite alternate;
-    animation: neon4 1.5s ease-in-out infinite alternate;
+    animation: davidGlow 1.5s ease-in-out infinite alternate;
   }
 
  

@@ -40,14 +40,12 @@ export class PieceComponent implements OnInit {
     return Math.floor(Math.random() * (5 - 1 + 1)) + 1;
   }
   ngOnInit() {
-    console.log(1)
     this.setSound();
 
     this.pieceSound.load();
     //   SUBSCRIBE TO A KILL EVENT THAT WILL ANIMATE BLOOD MARK.
     this.gameService.killObservable.subscribe((data) => {
       this.killActive = data;
-      console.log(this.killActive);
     });
 
     if (this.myPiece !== null) {

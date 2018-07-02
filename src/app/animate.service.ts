@@ -50,8 +50,8 @@ export class AnimateService {
     }
   }
   isSoundLoaded() {
-    console.log('isSoundLoaded');
-    console.log(this.soundLoaded);
+    // console.log('isSoundLoaded');
+    // console.log(this.soundLoaded);
     return this.soundLoaded;
   }
   setCurrentLocation(currentPiece, currentLocation) {

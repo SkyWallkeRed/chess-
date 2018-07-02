@@ -14,7 +14,6 @@ export class ActivUsersComponent implements OnInit {
   ngOnInit() {
     const activUsers = this.userService.getAllUses(); // NEED TO SUBSCRIBE TO ALL USERS SUBJECT .
     this.activUsers = activUsers;
-    console.log(this.activUsers);
   }
 
 }
