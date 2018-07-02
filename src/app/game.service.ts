@@ -79,6 +79,7 @@ export class GameService {
       console.log('rooms are updated:');
       console.log(parsedRoom);
       this.gameId = parsedRoom.text;
+      this.gameIdSubject.next(this.gameId)
     });
     this.gameSocket.messages.subscribe((stringifiedMove) => {
       console.log('move made');

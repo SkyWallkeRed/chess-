@@ -16,8 +16,8 @@
     <i></i>
     <i></i>
   </div>
-  <div class="gameId">{{gameId}}</div>
-<div class="gameId">{{gameId}}lalallalallalalalalalal</div>
+  <div class="gameId"> Game ID: {{gameId || 'offline'}}</div>
+  <br>
   <div class="btns">
     <div #home class="home" [routerLink]="['/home']">Home</div>
     <div #lobby class="lobby" [routerLink]="['/lobby']">Lobby</div>
