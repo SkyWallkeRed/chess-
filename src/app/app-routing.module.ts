@@ -11,6 +11,7 @@ import { ContributorsComponent } from './contributors/contributors.component';
 import { TechComponent } from './tech/tech.component';
 import { SubscribeComponent } from './subscribe/subscribe.component';
 import { PreWebLoaderComponent } from './pre-web-loader/pre-web-loader.component';
+import { MobileHomeComponent } from './mobile-home/mobile-home.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'subscribe',
     component: SubscribeComponent
+  },
+  {
+    path: 'mobileHome',
+    component: MobileHomeComponent
   }
 
 ];
