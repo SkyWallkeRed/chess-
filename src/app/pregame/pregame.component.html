@@ -17,7 +17,7 @@
       </div>
     </div>
     
-    <div #btn4 class="btn4" [routerLink]="['/local']">offline</div>  
+    <div #btn4 class="btn4" [routerLink]="['/local']">play offline</div>  
 
 
 
@@ -44,7 +44,7 @@
 
 
     <div class="loginWrapper">
-      <div *ngIf='userLogedIn' #lobby class="lobby swing" [routerLink]="['/lobby']">online</div>
+      <div *ngIf='userLogedIn' #lobby class="lobby swing" [routerLink]="['/lobby']">play online</div>
       <span class=" usernamedisplay">{{userName}}</span>
       <img class="userimgdisplay" src="{{userImg}}" alt="">
     </div>

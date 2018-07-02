@@ -19,7 +19,7 @@ export class BoardComponent implements OnInit {
 
   @ViewChild('container') container: ElementRef;
   public audio = new Audio();
-
+  public gameId: string;
   constructor(private gameService: GameService) {
     this.audio.src = '../../assets/sound/StartRound.WAV';
 
@@ -28,7 +28,14 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.gameService.makeMultiplayer(this.isMultiplayer)    
+    this.gameId = this.gameService.gameId;
+    console.log(this.gameId);
+    // this.gameService.gameIdObservable.subscribe((data) => {
+    //   console.log(data);
+    //   this.gameId = data;
+    // });
+
+    this.gameService.makeMultiplayer(this.isMultiplayer);
     this.audio.load();
 
     this.gameService.getData();

@@ -8,6 +8,8 @@
     height: 50px;
     z-index: 2000;
     opacity: 0;
+   margin-bottom: 10%;
+   margin-top: 10%;
 
 }
 .home{
@@ -22,20 +24,53 @@
     opacity: 0;
 
 }
+.epicLogo{
+    position: absolute;
+    left: 5%;
+    top:5%; 
+    // box-sizing: border-box;
+    // display: inline-block;
+    width: 20%;
+    height: 20%;    
+}
 .onlineUsers{
 //   border: 2px solid green;
   position: absolute;
-  top: 10%;
+  top: 28%;
   min-width: 20%;
   min-height: 20%;
 }
 .activGames{
-    border: 2px solid green;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    // border: 2px solid green;
     position: absolute;
-    top: 10%;
-    right: 10%;
+    top: 5%;
+    right: 5%;
     min-width: 20%;
     min-height: 20%;
+}
+.activGames>p{
+    position: absolute;
+    left: 30%;
+    
+}
+.roomName{
+    position: absolute;
+    left: 30px !important;
+    
+}
+.btnGo{
+    top: 150px;
+    position: absolute;
+    left: 431px;
+    z-index: 1000;
+}
+.input{
+
+}
+#dis{
+
 }
 @keyframes swing4 {
     0% { transform: rotate(-3deg); }
@@ -51,8 +86,8 @@
 .menu{
     // border: 2px solid green;
     position: absolute;
-    top: 5%;
-    right: 45%;
+    top: 30%;
+    right: 40%;
     min-width: 10%;
     min-height: 10%;
 }
@@ -70,15 +105,97 @@
     height: 50px;
     z-index: 2000;
     opacity: 0;
+
   
 }
 .colorPickWindow{
     font-family: 'Indie Flower', cursive;
-    opacity: 0;    
+    // opacity: 0;    
     // border: 2px solid green;
     position: absolute;
+    right: 5%;
+    bottom: 5%;
     // top: 50%;
     // right: 35%;
     min-width: 35%;
     min-height: 35%;
+    z-index: -1;
 }
+//
+*:focus {
+    outline: none;
+  }
+
+  #txtSearch {
+    font-family: 'Indie Flower', cursive;
+      
+    -webkit-appearance: none;
+    margin-top: 30px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    border-radius: 40px;
+    font-size: 14px;
+    border: 3px solid #88BDEA;
+    color: #88BDEA;
+    background: none;
+    height: 40px;
+    width: 500px;
+    margin: 0;
+    transition: 0.3s;
+    box-shadow: inset 0 0 0 none;
+  }
+  ::-webkit-input-placeholder {
+    color: lightblue; 
+  }
+  #txtSearch:hover {
+    color: #fff;
+    box-sizing: border-box;
+    border: 3px solid #88BDEA;
+    background: #88BDEA;
+  }
+  #txtSearch:focus {
+    background: #88BDEA;
+    border: 3px solid #88BDEA;
+    color: #fff
+  }
+  #btnSearch {
+    // font-family: "Lato";
+    font-family: 'Indie Flower', cursive;
+    
+    -webkit-appearance: none;
+    text-transform: uppercase;
+    border-radius: 30px;
+    height: 40px;
+    width: 70px;
+    color: white;
+    background: #88BDEA;
+    border: none;
+    margin-left: 30px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+  }
+  #btnSearch:hover {
+    background: none;
+    color: #88BDEA;
+    border: 3px solid #88BDEA;
+  }
+  #btnSearch:active {
+    border-color: #0086C6;
+    background: none;
+  }
+  .input-container {
+    display: flex;
+    margin-top: 30px;
+    padding: 0;
+    margin-left: 30px;
+  }
+  #dis {
+    left: 200px;
+    position: absolute;
+    margin-top: 30px;
+    display: block;
+    text-align: justify;
+    margin-left: 30px;
+    width: 600px;
+    color: #88BDEA;
+  }
