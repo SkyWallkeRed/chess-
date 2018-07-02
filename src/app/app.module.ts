@@ -27,7 +27,11 @@ import { PreWebLoaderComponent } from './pre-web-loader/pre-web-loader.component
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 import { HttpClientModule } from '@angular/common/http';
 import { PreGameAnimationComponent } from './pre-game-animation/pre-game-animation.component';
+
 import { MobileHomeComponent } from './mobile-home/mobile-home.component';
+
+import { FormsModule } from '@angular/forms';
+
 // Configs .
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -71,10 +75,11 @@ export function getAuthServiceConfigs() {
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     AccordionModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     SocialLoginModule,
     LoadingModule.forRoot({
       animationType: ANIMATION_TYPES.cubeGrid,
