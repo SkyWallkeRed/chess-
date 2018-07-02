@@ -16,12 +16,14 @@
     <i></i>
     <i></i>
   </div>
+
   <div class="btns">
 
     <div #home class="home" [routerLink]="['/home']">Home</div>
 
     <div #lobby class="lobby" [routerLink]="['/lobby']">Lobby</div>
   </div>
+
 
 
   <app-row [optionsArray]='optionsArray' class="row" *ngFor='let row of boardArray; let idx = index' [myY]="idx"></app-row>
