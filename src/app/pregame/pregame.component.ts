@@ -54,6 +54,7 @@ export class PregameComponent implements OnInit {
   private bloodMark = false;
   public axe = false;
   private status = false;
+  // private playAnimation = true;
   //  AFTER LOGIN SHOW USER DATA .
   private userImg;
   private userName;
@@ -79,7 +80,7 @@ export class PregameComponent implements OnInit {
     }, 3000);
     // landing page animation TimeLine
     this.tl.
-      to(this.textRight.nativeElement, 0.5, { scale: 1, yoyo: true, opacity: 1 }).
+      to(this.textRight.nativeElement, 0.5, { scale: 1, opacity: 1 }).
       to(this.textRight.nativeElement, 0.5, { top: 150, opacity: 1, left: 500 }).
       to(this.textLeft.nativeElement, 0.5, { top: 150, opacity: 1, left: 820 }).
       to(this.epic.nativeElement, 0.3, { top: -200, left: 250, scale: 0.5 }).
@@ -87,13 +88,13 @@ export class PregameComponent implements OnInit {
       to(this.textRight.nativeElement, 0.6, { top: 830, opacity: 1, left: 350, rotation: '90_w' }).
       to(this.textRight.nativeElement, 0.5, { top: 500, opacity: 0 }).
       // to(this.textRight.nativeElement, 0.4, { top: 330, opacity: 1, left: 350, rotation: '20_w' }).
-      to(this.animationBox.nativeElement, 1.2, { top: 240, opacity: 1, left: 600 }).
+      to(this.animationBox.nativeElement, 1.2, { top: 240, opacity: 1, left: 440 }).
       // to(this.textLeft.nativeElement, 0.5, { left: 450, opacity: 1, top: 50 }).
       // to(this.textRight.nativeElement, 0.5, { left: 450, opacity: 1, top: 200, rotation: '10_W' }).
       to(this.loginF.nativeElement, 1, { left: 550, opacity: 1, top: 500 }).
-      to(this.piece1.nativeElement, 0.2, { left: -440, top: 200, opacity: 1 }).
-      to(this.piece2.nativeElement, 0.2, { left: -500, top: 200, opacity: 1 }).
-      to(this.piece3.nativeElement, 0.2, { left: -550, top: 200, opacity: 1 });
+      to(this.piece1.nativeElement, 0.2, { left: -440, top: 110, opacity: 1 }).
+      to(this.piece2.nativeElement, 0.2, { left: -500, top: 110, opacity: 1 }).
+      to(this.piece3.nativeElement, 0.2, { left: -550, top: 110, opacity: 1 });
     setTimeout(() => {
       this.animate();
       setTimeout(() => {
@@ -101,7 +102,7 @@ export class PregameComponent implements OnInit {
       }, 5000);
       this.axe = true;
     }, 4000);
-    this.tl.to(this.gitHub.nativeElement, 0.3, { right: 640, bottom: 490, opacity: 1 }).
+    this.tl.to(this.gitHub.nativeElement, 0.3, { right: 400, bottom: 400, opacity: 1 }).
       to(this.btn1.nativeElement, 0.3, { left: 1100, opacity: 1, top: 300 }).
       to(this.btn2.nativeElement, 0.3, { left: 1100, opacity: 1, top: 400 }).
       to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 500 }).

@@ -1,51 +1,46 @@
 <div #container class="container">
   <div #header class="header">
-
     <!-- <div  class="epic"> -->
     <img #epic class="epic" src="../../assets/logos/EPICTEXT.png" alt="">
     <!-- </div> -->
     <div #textLeft class="textLeft"> chess</div>
     <div #textRight class="textRight ">same old</div>
     <!-- WOKRING BUTTONS NO USE IN THIS PAGE  #>david<#. -->
-    <div #btn1 class="btn1" (click)='toggleAbout()'>About
-
-      <img src="../../assets/logos/003-youtube.png" alt="">
+    <div class="btnWrapper">
+      <div #btn1 class="btn1" (click)='toggleAbout()'>About
+        <img src="../../assets/logos/003-youtube.png" alt="">
+      </div>
+      <div #btn2 class="btn2" (click)='toggleContributors()'>Contributors
+      </div>
+      <div #btn3 class="btn3" (click)='toggleTech()'>Tech
+        <img src="../../assets/logos/002-java.png" alt="">
+      </div>
     </div>
-    <div #btn2 class="btn2" (click)='toggleContributors()'>Contributors
-    </div>
-    <div #btn3 class="btn3" (click)='toggleTech()'>Tech
-      <img src="../../assets/logos/002-java.png" alt="">
-    </div>
-    <div #btn4 class="btn4" [routerLink]="['/local']">offline</div>  
 
     <div #loginF class="loginF">
       <app-login (showErr)='loginTrue($event)'></app-login>
-
-
       <div #gitHub class="gitHub">
         <a href="https://github.com/SkyWallkeRed/chess-">
           <img src="../../assets/logos/001-github.png" alt="">
-
         </a>
       </div>
-      <div #piece1 class="piece1 swing1">
-        <img src="../../assets/pieces_B/Pawn-Yellow-icon-75.png" alt="">
-      </div>
-      <div #piece2 class="piece2 swing2">
-        <img src="../../assets/pieces_Y/Knight-Yellow-icon.png" alt="">
-      </div>
-      <div #piece3 class="piece3 swing3">
-        <img src="../../assets/pieces_W/Bishop-Yellow-icon_0_80.png" alt="">
+
+      <div class="picesWrapper">
+        <div #piece1 class="piece1 swing1">
+          <img src="../../assets/pieces_B/Pawn-Yellow-icon-75.png" alt="">
+        </div>
+        <div #piece2 class="piece2 swing2">
+          <img src="../../assets/pieces_Y/Knight-Yellow-icon.png" alt="">
+        </div>
+        <div #piece3 class="piece3 swing3">
+          <img src="../../assets/pieces_W/Bishop-Yellow-icon_0_80.png" alt="">
+        </div>
       </div>
     </div>
-    <!--  PLAY MOVED TO LOBBY , HERE YOU GET GO TO LOBBY . -->
-    <!-- <div #play class="play swing" [routerLink]="['/play']">play
-    </div> -->
-    <div *ngIf='userLogedIn' #lobby class="lobby swing" [routerLink]="['/lobby']">START
 
 
-    </div>
-    <div>
+    <div class="loginWrapper">
+      <div *ngIf='userLogedIn' #lobby class="lobby swing" [routerLink]="['/lobby']">START</div>
       <span class=" usernamedisplay">{{userName}}</span>
       <img class="userimgdisplay" src="{{userImg}}" alt="">
     </div>
@@ -67,14 +62,17 @@
     </div>
   </div>
 
-  <div *ngIf='about' class="about" #about>
-    <app-about></app-about>
-  </div>
-  <div *ngIf='contributors' class="contributors" #contributors>
- <app-contributors></app-contributors>
-  </div>
-  <div *ngIf='tech' class="tech" #tech>
-    <app-tech></app-tech>
+  <div class="infoPopWrapper">
+    <div *ngIf='about' class="about" #about>
+      <app-about></app-about>
+    </div>
+    <div *ngIf='contributors' class="contributors" #contributors>
+      <app-contributors></app-contributors>
+    </div>
+    <div *ngIf='tech' class="tech" #tech>
+      <app-tech></app-tech>
+    </div>
+    <div #btn4 class="btn4" [routerLink]="['/local']">offline</div>
   </div>
 
 </div>
