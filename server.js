@@ -55,9 +55,11 @@ io.on('connection', (socket) => {
 
     //possibily does nothing
     socket.on('message', (board) => {
-        socket.broadcast.emit('message', board)
+        let parsedBoard = JSON.parse(board)
+        // socket.broadcast.emit('message', board)
+        socket.broadcast.to(parsedBoard.gameId).emit('message', board)
         console.log('clients:')
-        console.log(JSON.stringify(io.clients) )
+        console.log(parsedBoard.gameId)
     });
 
     socket.on('room', (room) => {
