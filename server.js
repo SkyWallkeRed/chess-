@@ -53,13 +53,28 @@ io.on('connection', (socket) => {
         console.log('User has disconnected');
     });
 
+    //possibily does nothing
     socket.on('message', (board) => {
         socket.broadcast.emit('message', board)
         console.log('clients:')
         console.log(JSON.stringify(io.clients) )
     });
+
+    socket.on('room', (room) => {
+        let gameId = JSON.parse(room)
+        socket.join(gameId.text);        
+        // socket.broadcast.emit('room', room)
+        io.to(gameId.text).emit('room', room)
+        console.log('New room created')
+    });
 });
+// io.on('room', (socket) => {
+//     console.log('New room created');
+
+
+
+// });
 
 server.listen(port, ()=>{
-    console.log('server running on ' + port);
+    console.log('server RUNNING on ' + port);
 });

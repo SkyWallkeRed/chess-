@@ -19,8 +19,8 @@ export class BaseAnimation {
         // this.type = type;
         this.color = color;
         this.ele = this.type.toString();
-        console.log(this.color);
-        console.log(this.type);
+        // console.log(this.color);
+        // console.log(this.type);
         // console.log(this.ele);
 
 
@@ -38,7 +38,7 @@ export class BaseAnimation {
         TweenMax.to(this.wep.nativeElement, 0.5, { rotationX: '360_w', rotationY: '-60_short' });
     }
     kill() {
-        console.log('kill');
+        // console.log('kill');
         TweenMax.to(this.wep.nativeElement, 0.5, { rotation: '700_w', top: 150 });
         setTimeout(() => {
             this.finish();

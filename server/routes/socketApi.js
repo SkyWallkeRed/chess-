@@ -6,9 +6,9 @@ const router = express.Router();
 router.post('/', (req, res) => {
     console.log('i also got here')
     console.log(req.body.text)
-    // io.on('connection', function(socket){
-    //     socket.join(req.body);
-    //   });
+    io.on('room', function(socket){
+        socket.join(req.body.text);
+      });
 })
 
 module.exports = router;
