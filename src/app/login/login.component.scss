@@ -21,6 +21,8 @@
     100% { transform: rotate(5deg); }
 }
 .swing2 {
+    position: absolute;
+    left: 100px;
     animation: swing ease-in-out 0.5s infinite alternate;
     transform-origin: center -60px;
     float:left;

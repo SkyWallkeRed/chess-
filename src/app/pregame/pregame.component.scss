@@ -1,65 +1,72 @@
-*{
-    position: absolute;
-    
-}
 
-.container{
-    
-    position: absolute;
-    box-sizing: border-box;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+@media screen and (min-width : 100px)and (max-width: 400px) {
+    .container{
+//   display: none;
+       width: 100px !important;
+    }
 
-    margin: auto;   
-    // border: 2px solid black; //######################################
-    width: 99%;
-    height: 700px;
-}
-.epic{
-    position: absolute;
-    box-sizing: border-box;
-    width: auto;
-    height: auto;
-    max-width: 800px;
-    max-height: 800px;
-    opacity: 0;
-    // scale: 0.5;
-    z-index: 1000;
-}
-.textLeft{
-    // border: 2px solid green;   // ###################################
-    font-size: 5em;
-    font-family: 'Anton', sans-serif;
-    width: 600px;
-    height: 200px; 
-    opacity: 0;
-}
-.textRight{
-    // border: 2px solid pink; // #######################################
-    font-size: 5em;
-    font-family: 'Anton', sans-serif;
-    
-    width: 600px;
-    height: 200px;
-    opacity: 0;
-}
-.animationBox{
-    // border: 2px solid red; //##########################################
-    width: 600px;
-    height: 600px;
-    opacity: 0;
-}
-.play{
-    z-index: 2000;
-    // border: 2px solid steelblue;    //###################################
-    font-family: 'Indie Flower', cursive;
-    font-size: 3em;
-    text-align: center;
-    box-sizing: border-box;
-    object-fit: contain;
-    width: 200px;
-    height: 50px;
-    opacity: 0;
-}
-@keyframes swing {
+  }
+  @media screen and (min-width : 401px)and (max-width: 650px) {
+   
+  
+  
+   
+  }
+  @media screen and (min-width : 651px)and (max-width: 850px) {
+   
+  
+   
+  }
+  @media screen and (min-width : 851px)and (max-width: 1250px) {
+   
+  
+  
+   
+  }
+  @keyframes swing {
     0% { transform: rotate(3deg); }
     100% { transform: rotate(-3deg); }
 }
@@ -96,6 +103,11 @@
 
     100% {transform: translate3d(0,20%,0) ;}
   }
+
+*{
+    position: absolute;
+    opacity: 1;
+}
 .swing1 {
     animation: jump ease-in-out 0.3s infinite alternate;
     transform-origin: center 5px;
@@ -114,6 +126,66 @@
     float:left;
     // box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
+
+.container{
+    
+    position: absolute;
+    box-sizing: border-box;
+
+    margin: auto;   
+    // border: 2px solid black; //######################################
+    // width: 98%;
+    max-width: 98%;
+    // height: 700px;
+}
+.epic{
+    position: absolute;
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    max-width: 800px;
+    max-height: 800px;
+    opacity: 0;
+    // scale: 0.5;
+    z-index: 1000;
+}
+.textLeft{
+    // border: 2px solid green;   // ###################################
+    font-size: 5em;
+    font-family: 'Anton', sans-serif;
+    // width: 200px;
+    // height: 200px; 
+    opacity: 0;
+}
+.textRight{
+    // border: 2px solid pink; // #######################################
+    font-size: 5em;
+    font-family: 'Anton', sans-serif;
+    
+    width: 300px;
+    // height: 50px;
+    opacity: 0;
+}
+.animationBox{
+    // border: 2px solid red; //##########################################
+    // width: 600px;
+    // height: 600px;
+    opacity: 0;
+}
+.play{
+    z-index: 2000;
+    // border: 2px solid steelblue;    //###################################
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    box-sizing: border-box;
+    object-fit: contain;
+    // width: 200px;
+    // height: 50px;
+    opacity: 0;
+}
+
+
 .loginF{
     // border: 2px solid rgb(158, 70, 180);
     color:#30477D ;    
@@ -122,8 +194,8 @@
     text-align: center;
     box-sizing: border-box;
     object-fit: contain;
-    width: 200px;
-    height: 50px;
+    // width: 200px;
+    // height: 50px;
     opacity: 0;
 }
 .loginErr{
@@ -133,8 +205,8 @@
     text-align: center;
     box-sizing: border-box;
     object-fit: contain;
-    width: 200px;
-    height: 50px;
+    // width: 200px;
+    // height: 50px;
     // opacity: 0;
     position: absolute;
     top: 350px;
@@ -146,32 +218,23 @@
     text-align: center;
     box-sizing: border-box;
     object-fit: contain;
-    width: 300px;
-    height: 50px;
-    z-index: 1000;
+    // width: 300px;
+    // height: 50px;
+    z-index: 2000;
     // opacity: 0;
     position: absolute;
     top: 550px;
-    left: 550px;
+    left: 650px;
 }
 app-login{
     z-index: 100000;
 }
-.btn1{
-    // border: 2px solid steelblue;
-    font-family: 'Indie Flower', cursive;
-    font-size: 3em;
-    text-align: center;
-    width: 200px;
-    height: 50px;
-    opacity: 0;
-    z-index: 2000;
-}
+
 .about{
-z-index: 20000;
+z-index: 1000;
 position: absolute;
-left: 25%;
-top: 10%;
+left: 350px;
+top: 100px;
 }
 .tech{
     z-index: 20000;
@@ -182,8 +245,8 @@ top: 5%;
 .contributors{
     z-index: 20000;
 position: absolute;
-left: 25%;
-top: 10%;
+left: 350px;
+top: 100px;
 }
 .userimgdisplay{
     position: absolute;
@@ -202,6 +265,16 @@ top: 10%;
     margin-bottom: 100px;
     width: 250px;
 
+}
+.btn1{
+    // border: 2px solid steelblue;
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    text-align: center;
+    width: 3em;
+    // height: 50px;
+    opacity: 0;
+    z-index: 2000;
 }
 .btn2{
     // border: 2px solid steelblue;
@@ -222,8 +295,10 @@ top: 10%;
     font-family: 'Indie Flower', cursive;
     font-size: 3em;
     text-align: center;
-    width: 200px;
-    height: 50px;
+    // width: 200px;
+    width: 3em;
+    
+    // height: 50px;
     opacity: 0;
 }
 .btn4{
@@ -276,6 +351,8 @@ margin-top:  -150px;
 }
 .gitHub{
     // border: 2px solid steelblue;
+    // opacity: 0;
+    
     width: 200px;
     height: 50px;
     opacity: 0; 

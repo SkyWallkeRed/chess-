@@ -1,0 +1,21 @@
+<div class="container">
+
+
+  <img #epic class="epic" src="../../assets/logos/EPICTEXT.png" alt="">
+
+  <app-login (showErr)='loginTrue($event)'></app-login>
+  <div #gitHub class="gitHub">
+    <a href="https://github.com/SkyWallkeRed/chess-">
+      <img src="../../assets/logos/001-github.png" alt="">
+    </a>
+  </div>
+
+  <div class="loginWrapper">
+    <div *ngIf='userLogedIn' #lobby class="start swing" [routerLink]="['/lobby']">online</div>
+    <span class=" usernamedisplay">{{userName}}</span>
+    <img class="userimgdisplay" src="{{userImg}}" alt="">
+  </div>
+
+  <div #btn4 class="btn4" [routerLink]="['/local']">offline</div>
+
+</div>

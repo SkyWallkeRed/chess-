@@ -1,3 +1,51 @@
+@media screen and (min-width : 100px)and (max-width: 400px) {
+    .qr{
+        display: none;
+    }
+    .logo{
+        width: 50% !important;
+        left: 10%;
+      left: 28% !important;
+        
+    }
+    .container{
+        // width: 100%;
+        // margin-right: 20% !important;
+    }
+    .info{
+        font-size: 1em !important;
+        left: 30% !important;
+    
+       }
+  .enter{
+    font-size: 2em !important;
+      left: 35% !important;
+  }
+  .mute{
+    left: 10% !important;
+      
+  }
+  }
+  @media screen and (min-width : 401px)and (max-width: 650px) {
+   
+  
+  
+   
+  }
+  @media screen and (min-width : 651px)and (max-width: 850px) {
+   
+  
+   
+  }
+  @media screen and (min-width : 851px)and (max-width: 1250px) {
+   
+  
+  
+   
+  }
+.container{
+    width: 100%;
+}
 .logo{
     position: absolute;
     left: 40%;
@@ -6,6 +54,9 @@
     // display: inline-block;
     width: 20%;
     height: 20%;    
+}
+.qr{
+    // background-color: red;
 }
 .loader{
     // border: 2px solid blue;

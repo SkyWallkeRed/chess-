@@ -1,3 +1,31 @@
+@media screen and (min-width : 100px)and (max-width: 400px) {
+  img{
+    width: 60px;
+  }
+ .piece{
+  bottom: -20px !important;
+  margin-left: 5px;
+  
+ }
+
+}
+@media screen and (min-width : 401px)and (max-width: 650px) {
+ 
+
+
+ 
+}
+@media screen and (min-width : 651px)and (max-width: 850px) {
+ 
+
+ 
+}
+@media screen and (min-width : 851px)and (max-width: 1250px) {
+ 
+
+
+ 
+}
 *{
     position: absolute;
     
@@ -36,13 +64,14 @@ margin-top:  -290px;
 .piece{
   z-index: 100;
 //   width: 20%;
-bottom: -50px;
+bottom: -40px;
 }
 .piece-container{
+  width: 100%;
     // z-index: 1;
     box-sizing: border-box;
     // align-content: center;
-    margin-left: -10px;
+    margin-left: -20px;
 }
 
 // button {

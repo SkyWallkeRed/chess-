@@ -16,10 +16,14 @@
     <i></i>
     <i></i>
   </div>
-  
-  <span #home class="home" [routerLink]="['/home']">Home</span>
-  <span *ngIf="isMultiplayer" #lobby class="lobby" [routerLink]="['/lobby']">Lobby</span>
-  
+
+  <div class="btns">
+
+    <div #home class="home" [routerLink]="['/home']">Home</div>
+
+    <div #lobby class="lobby" [routerLink]="['/lobby']">Lobby</div>
+  </div>
+
 
   <app-row [optionsArray]='optionsArray' class="row" *ngFor='let row of boardArray; let idx = index' [myY]="idx"></app-row>
 
@@ -46,4 +50,3 @@
 <div class="rock">
   <img src="../../assets/logos/if_Coal_185596.png" alt="">
 </div> -->
-

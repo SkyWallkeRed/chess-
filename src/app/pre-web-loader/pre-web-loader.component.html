@@ -1,13 +1,21 @@
-<img class="logo" src="../../assets/logos/3Depic2.png" alt="">
+<div class="container">
+    <img class="logo" src="../../assets/logos/3Depic2.png" alt="">
 
-<div class="loader" *ngIf='!loadDone'>
-    <!-- <p>this app uses sound so if your in the office turn vol off ;)</p> -->
-    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }">
-    </ngx-loading>
-</div>
-<div class="info">this app plays audio </div>
-<div class="enter" *ngIf='loadDone' [routerLink]="['/home']">ENTER</div>
-<div (click)='toggleMute()'>
-    <img #mute *ngIf='mute' class="mute" src="../../assets/logos/Media-Controls-Mute-icon.png" alt="">
-    <img #vol *ngIf='!mute' class="vol" src="../../assets/logos/vol.png" alt="">
+    <div class="loader" *ngIf='!loadDone'>
+        <!-- <p>this app uses sound so if your in the office turn vol off ;)</p> -->
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }">
+        </ngx-loading>
+    </div>
+    <div class="info">this app plays audio </div>
+    <div class="enter" *ngIf='loadDone' (click)='checkClient()'>ENTER</div>
+    <div (click)='toggleMute()'>
+        <img #mute *ngIf='mute' class="mute" src="../../assets/logos/Media-Controls-Mute-icon.png" alt="">
+        <img #vol *ngIf='!mute' class="vol" src="../../assets/logos/vol.png" alt="">
+    </div>
+
+    <a class="qr" rel='nofollow' href='http://www.qrcode-generator.de
+        ' border='0' style='cursor:default'>
+        <img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fepic-chess.herokuapp.com&chs=180x180&choe=UTF-8&chld=L|2'
+            alt=''>
+    </a>
 </div>

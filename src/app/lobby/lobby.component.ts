@@ -21,6 +21,10 @@ export class LobbyComponent implements OnInit {
   constructor(private gameService : GameService) { }
 
   ngOnInit() {
+    this.menu = true;
+    this.tl.to(this.home.nativeElement, 0.2, { opacity: 1 }).
+    to(this.pickColor.nativeElement, 0.2, { opacity: 1 }).
+    to(this.play1.nativeElement, 0.2, { opacity: 1 });
   }
   createRoom(){
     this.gameService.createRoom(this.myText)
@@ -29,20 +33,21 @@ export class LobbyComponent implements OnInit {
     this.tl.to(this.pickColorWindow.nativeElement, 0.1, { top: 450, right: 500 }).
       to(this.pickColorWindow.nativeElement, 1, { opacity: 1 });
   }
-  toggleMenu() {
-    if (!this.menu) {
-      this.menu = true;
-      this.tl.to(this.home.nativeElement, 0.2, { opacity: 1 }).
-        to(this.pickColor.nativeElement, 0.2, { opacity: 1 }).
-        to(this.play1.nativeElement, 0.2, { opacity: 1 });
-    } else if (this.menu) {
-      this.menu = false;
-      this.tl.to(this.home.nativeElement, 0.2, { opacity: 0 }).
-        to(this.pickColor.nativeElement, 0.2, { opacity: 0 }).
-        to(this.play1.nativeElement, 0.2, { opacity: 0 });
-    }
+  // toggleMenu() {
+  //   if (!this.menu) {
+  //     this.menu = true;
+  //     this.tl.to(this.home.nativeElement, 0.2, { opacity: 1 }).
+  //       to(this.pickColor.nativeElement, 0.2, { opacity: 1 }).
+  //       to(this.play1.nativeElement, 0.2, { opacity: 1 });
+  //   } else if (this.menu) {
+  //     this.menu = false;
+  //     this.tl.to(this.home.nativeElement, 0.2, { opacity: 0 }).
+  //       to(this.pickColor.nativeElement, 0.2, { opacity: 0 }).
+  //       to(this.play1.nativeElement, 0.2, { opacity: 0 });
+  //   }
 
 
 
-  }
+  // }
 }
+

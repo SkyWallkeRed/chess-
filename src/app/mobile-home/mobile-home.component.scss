@@ -1,0 +1,66 @@
+.container{
+    width: 100%;
+}
+.epic{
+    width: 300px;
+    height: 210px;
+}
+app-login{
+    position: absolute;
+    top:50%;
+    left: 40%;
+}
+.gitHub{
+    // border: 2px solid steelblue;
+    // opacity: 0;
+    position: absolute;
+    top:85%;
+
+    max-width: 100px;
+    max-height: 100px;
+    // opacity: 0; 
+    z-index: 1000;
+}
+.btn4{
+    // border: 2px solid steelblue;
+    z-index: 2000;
+    
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    text-align: center;
+    // width: 200px;
+    width: 3em;
+    position: absolute;
+    left: 35%;
+    top: 70%;
+    // height: 50px;
+    // opacity: 0;
+}
+.start{
+    z-index: 2000;
+    
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    text-align: center;
+    // width: 200px;
+    width: 3em;
+    position: absolute;
+    left: 35%;
+    top: 60%;
+}
+.usernamedisplay{
+        
+    font-family: 'Indie Flower', cursive;
+    font-size: 1em;
+    text-align: center;
+    // width: 200px;
+    width: 5em;
+    position: absolute;
+    left: 35%;
+    top: 30%;
+}
+.userimgdisplay{
+    position: absolute;
+    left: 35%;
+    top: 40%;
+}
