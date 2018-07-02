@@ -12,8 +12,7 @@ router.get('/', (req, res) => {
   })
 
   router.post('/', (req, res) => {
-      // console.log(req.body)
-    let boardArray = req.body.boardArray
+    let boardArray = req.body.boardArray;
     let newBoard = new Board({game_Id: 1, user1_id: 1, user2_id: 2, boardArray: req.body});
     newBoard.save();
     Board.find().exec().then(data => {

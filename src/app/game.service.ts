@@ -50,7 +50,9 @@ export class GameService {
   public killSubject: Subject<any>;
 
 // END ANIMATION BOOLS
+
   constructor(private gameSocket : GameSocketService, private http: HttpClient) {
+
 
     this.killSubject = new Subject<any>();
     this.killObservable = this.killSubject.asObservable();
@@ -69,7 +71,12 @@ export class GameService {
     this.myColor = 'white'
     // this.isMultiplayer = false;
     this.getData();
+    this.gameSocket.rooms.subscribe((room)=>{ 
+      console.log('rooms are updated:')
+      console.log(room)      
+    })
     this.gameSocket.messages.subscribe((stringifiedMove)=>{
+      console.log('move made')      
       let move = JSON.parse(stringifiedMove)
       this.myColor = move.myColor
       this.clickedPiece = move.piece
@@ -77,6 +84,7 @@ export class GameService {
       // this.boardSubject.next(this.boardArray);
       this.currentTurn = move.turn;
     })
+
     // this.Nb = new Knight('knight', 'black', this);
     // this.Rb = new Rook('rook', 'black', this);
     this.Kb = new King('king', 'black');
@@ -110,7 +118,6 @@ export class GameService {
     this.boardSubject.next(this.boardArray);
   }
   makeMultiplayer(boolean){
-    debugger    
     if(boolean){
       this.isMultiplayer = true
 
@@ -118,6 +125,12 @@ export class GameService {
     else{
     this.isMultiplayer = false      
     }
+  }
+  createRoom(text){
+    // this.http.post<any>('/socketApi', {text : text}).subscribe((data)=>{
+    //   console.log('got here')
+    // })
+    this.gameSocket.makeRoom({text : text})
   }
   sendMsg(x, y){
     if(this.isMultiplayer){
