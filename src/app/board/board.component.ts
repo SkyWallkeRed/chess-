@@ -25,10 +25,12 @@ export class BoardComponent implements OnInit {
 
     this.getBoard();
     this.getArrays();
+    this.gameService.gameIdObservable.subscribe((data)=>{
+      this.gameId = data
+    })
   }
 
   ngOnInit() {
-    this.gameId = this.gameService.gameId;
     console.log(this.gameId);
     // this.gameService.gameIdObservable.subscribe((data) => {
     //   console.log(data);
