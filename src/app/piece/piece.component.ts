@@ -46,7 +46,6 @@ export class PieceComponent implements OnInit {
     //   SUBSCRIBE TO A KILL EVENT THAT WILL ANIMATE BLOOD MARK.
     this.gameService.killObservable.subscribe((data) => {
       this.killActive = data;
-      console.log(this.killActive);
     });
 
     if (this.myPiece !== null) {
