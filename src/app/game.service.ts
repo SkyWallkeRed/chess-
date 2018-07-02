@@ -31,6 +31,7 @@ export class GameService {
   public currentTurn;
   public myColor;
   public isMultiplayer : boolean
+  public gameId : string
 
   public Nb;
   public Rb;
@@ -72,17 +73,21 @@ export class GameService {
     // this.isMultiplayer = false;
     this.getData();
     this.gameSocket.rooms.subscribe((room)=>{ 
+      let parsedRoom = JSON.parse(room)
       console.log('rooms are updated:')
-      console.log(room)      
+      console.log(parsedRoom)      
+      this.gameId = parsedRoom.text
     })
     this.gameSocket.messages.subscribe((stringifiedMove)=>{
       console.log('move made')      
       let move = JSON.parse(stringifiedMove)
-      this.myColor = move.myColor
-      this.clickedPiece = move.piece
-      this.catchOption(move.x, move.y)
-      // this.boardSubject.next(this.boardArray);
-      this.currentTurn = move.turn;
+      if(move.gameId == this.gameId){
+        this.myColor = move.myColor
+        this.clickedPiece = move.piece
+        this.catchOption(move.x, move.y)
+        // this.boardSubject.next(this.boardArray);
+        this.currentTurn = move.turn;
+      }
     })
 
     // this.Nb = new Knight('knight', 'black', this);
@@ -135,10 +140,10 @@ export class GameService {
   sendMsg(x, y){
     if(this.isMultiplayer){
     if(this.myColor == 'white'){
-      this.gameSocket.sendMsg({x : x, y : y, piece : this.clickedPiece, turn : this.currentTurn, myColor : 'black'})
+      this.gameSocket.sendMsg({x : x, y : y, piece : this.clickedPiece, turn : this.currentTurn, myColor : 'black', gameId : this.gameId})
       return
     }
-    this.gameSocket.sendMsg({x : x, y : y, piece : this.clickedPiece, turn : this.currentTurn, myColor : 'white'})
+    this.gameSocket.sendMsg({x : x, y : y, piece : this.clickedPiece, turn : this.currentTurn, myColor : 'white', gameId : this.gameId})
   }
   }
   catchOption(x, y) {
