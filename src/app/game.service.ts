@@ -16,7 +16,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GameService {
-
+public roomsArray: Array<any>;
   public boardArray: Array<any>;
   public boardObservable: Observable<any>;
   public boardSubject: Subject<any>;
@@ -72,6 +72,7 @@ export class GameService {
     this.deadArray = [];
     this.currentTurn = 'white';
     this.myColor = 'white';
+    this.roomsArray = []
     // this.isMultiplayer = false;
     this.getData();
     this.gameSocket.rooms.subscribe((room) => {
@@ -172,9 +173,19 @@ export class GameService {
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION
-    this.http.post<any>('/api', { boardArray: this.boardArray }).subscribe((data) => {
-      // console.log("http posted");
-    });
+    this.http.post<any>('/api', { game_id: this.gameId, boardArray: this.boardArray }).subscribe((data1) =>  {
+
+    })
+    this.http.get<any>('/api').subscribe((data) => {
+    for (let i = 0; i < data.length; i++){
+      if(!this.roomsArray.includes(data[i].game_id)){
+        this.roomsArray.push(data[i].game_id)
+      }
+    }
+    console.log(this.roomsArray)
+      console.log("get is " + data[0].game_id)
+      })
+ 
   }
   getPieceFromBoard(x, y) {
     if (this.boardArray[y]) {
