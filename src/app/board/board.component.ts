@@ -11,7 +11,7 @@ export class BoardComponent implements OnInit {
   boardArray: Array<any>;
   optionsArray: Array<any> = [];
   deadArray: Array<any> = [];
-  gameOver : boolean
+  gameOver: boolean;
 
   @Input() isMultiplayer;
 
@@ -26,12 +26,14 @@ export class BoardComponent implements OnInit {
 
     this.getBoard();
     this.getArrays();
+
     this.gameService.gameIdObservable.subscribe((data)=>{
       this.gameId = data
     })
     this.gameService.gameOverObservable.subscribe((data)=>{
       this.gameOver = data
     })
+
   }
 
   ngOnInit() {
@@ -50,8 +52,8 @@ export class BoardComponent implements OnInit {
 
     // this.boardArray[this.optionsArray[0].myY][this.optionsArray[0].myX]
   }
-  startGame(){
-    this.gameService.startGame()
+  startGame() {
+    this.gameService.startGame();
   }
   getBoard() {
     this.gameService.boardObservable.subscribe((data) => {
