@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ws_url: 'http://epic-chess.herokuapp.com'
+  ws_url: 'https://epic-chess.herokuapp.com'
 };
 
 /*
