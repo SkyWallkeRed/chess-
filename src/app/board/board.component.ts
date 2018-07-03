@@ -11,6 +11,7 @@ export class BoardComponent implements OnInit {
   boardArray: Array<any>;
   optionsArray: Array<any> = [];
   deadArray: Array<any> = [];
+  gameOver : boolean
 
   @Input() isMultiplayer;
 
@@ -28,6 +29,12 @@ export class BoardComponent implements OnInit {
     this.gameService.gameIdObservable.subscribe((data)=>{
       this.gameId = data
     })
+    this.gameService.gameOverObservable.subscribe((data)=>{
+      this.gameOver = data
+      if(this.gameOver){
+        // this.gameService.startGame()
+      }
+    })
   }
 
   ngOnInit() {
@@ -40,12 +47,15 @@ export class BoardComponent implements OnInit {
     this.gameService.makeMultiplayer(this.isMultiplayer);
     this.audio.load();
 
-    this.gameService.getData();
+    this.startGame();
     TweenMax.to(this.container.nativeElement, 5, { opacity: 1 });
     this.audio.play();
 
 
     // this.boardArray[this.optionsArray[0].myY][this.optionsArray[0].myX]
+  }
+  startGame(){
+    this.gameService.startGame()
   }
   getBoard() {
     this.gameService.boardObservable.subscribe((data) => {
