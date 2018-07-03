@@ -31,9 +31,6 @@ export class BoardComponent implements OnInit {
     })
     this.gameService.gameOverObservable.subscribe((data)=>{
       this.gameOver = data
-      if(this.gameOver){
-        // this.gameService.startGame()
-      }
     })
   }
 

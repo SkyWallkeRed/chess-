@@ -103,8 +103,8 @@ export class GameService {
     this.Kw = new King('king', 'white');
     this.Qw = new Queen('queen', 'white');
     this.getRooms()
+    setInterval(()=>{console.log('minute passed')}, 60000)    
     setInterval(()=>{this.getRooms()}, 5000)
-    
   }
   startGame() {
     this.boardArray = [
@@ -154,6 +154,9 @@ export class GameService {
       this.roomArraySubject.next(this.roomsArray)
     })
   }
+  deleteRooms(){
+    this.http.delete<any>('/api').subscribe((data) => {})
+  }
   createRoom(text) {
     this.gameSocket.makeRoom({ text: text });
     this.http.post<any>('/api', { game_id: text, boardArray: null }).subscribe((data1) => {
@@ -178,6 +181,9 @@ export class GameService {
         if (this.boardArray[y][x].type == 'king') {
           this.gameOver = true;
           this.gameOverSubject.next(this.gameOver);
+          this.deadSubject.next(this.deadArray);
+          this.boardArray[y][x] = this.clickedPiece.myPiece;
+          this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
         } else {
           this.deadSubject.next(this.deadArray);
           this.boardArray[y][x] = this.clickedPiece.myPiece;
