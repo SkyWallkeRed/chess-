@@ -103,7 +103,6 @@ export class GameService {
     this.Kw = new King('king', 'white');
     this.Qw = new Queen('queen', 'white');
     this.getRooms()
-    setInterval(()=>{console.log('minute passed')}, 60000)    
     setInterval(()=>{this.getRooms()}, 5000)
   }
   startGame() {
@@ -146,6 +145,7 @@ export class GameService {
   }
   getRooms(){
     this.http.get<any>('/api').subscribe((data) => {
+      this.roomsArray = []
       for (let i = 0; i < data.length; i++) {
         if (!this.roomsArray.includes(data[i].game_id)) {
           this.roomsArray.push(data[i].game_id)
