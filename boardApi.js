@@ -33,11 +33,12 @@ router.delete('/', (req, res) => {
 })
 
 var requestLoop = setInterval(function(){
-  router.delete('/', (req, res) => {
+  
     Board.remove(function (err) {
       if (err) throw err;
     });
-  })
-}, 60000);
+
+}, 240000);
+
 
 module.exports = router
