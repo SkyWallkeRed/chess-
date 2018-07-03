@@ -10,7 +10,6 @@
     // opacity: 0;
     max-width: 80%;
     margin: auto;
-    
 }
 .home{
     font-family: 'Indie Flower', cursive;
@@ -24,12 +23,24 @@
     top: 10%;
     // display: inline-block;
     z-index: 1000;
+    cursor: pointer;
+    
 }
 .container{
+    margin:10% auto;
     border-radius: 20px;
     width: 700px;
-    padding-top: 20%;
-    // text-align: center;
+    // padding-top: 20%;
+    text-align: center;
     background-color: white;
     z-index: 1000;
+}
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+.hover:hover{
+    animation: swing ease-in-out 3s infinite alternate;
+    transform-origin: center -10px;
+    float:left;
 }
