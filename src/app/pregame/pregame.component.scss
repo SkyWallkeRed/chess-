@@ -183,6 +183,8 @@ table {
     // width: 200px;
     // height: 50px;
     opacity: 0;
+cursor: pointer;
+    
 }
 
 
@@ -211,6 +213,8 @@ table {
     position: absolute;
     top: 350px;
     left: 800px;
+cursor: pointer;
+    
 }
 .lobby{
     font-family: 'Indie Flower', cursive;
@@ -223,11 +227,15 @@ table {
     z-index: 2000;
     // opacity: 0;
     position: absolute;
-    top: 550px;
+    top: 570px;
     left: 550px;
+cursor: pointer;
+    
 }
 app-login{
     z-index: 100000;
+cursor: pointer;
+    
 }
 
 .about{
@@ -235,12 +243,16 @@ z-index: 1000;
 position: absolute;
 left: 350px;
 top: 100px;
+cursor: pointer;
+
 }
 .tech{
     z-index: 20000;
 position: absolute;
 left: 0%;
 top: 5%;
+cursor: pointer;
+
 }
 .contributors{
     z-index: 20000;
@@ -273,6 +285,8 @@ top: 100px;
     text-align: center;
     width: 3em;
     // height: 50px;
+cursor: pointer;
+    
     opacity: 0;
     z-index: 2000;
 }
@@ -286,6 +300,7 @@ top: 100px;
     height: 50px;
     opacity: 0;
     z-index: 2000;
+cursor: pointer;
     
 }
 .btn3{
@@ -297,6 +312,7 @@ top: 100px;
     text-align: center;
     // width: 200px;
     width: 3em;
+cursor: pointer;
     
     // height: 50px;
     opacity: 0;
@@ -311,6 +327,7 @@ top: 100px;
     width: 300px;
     height: 50px;
     opacity: 0;
+cursor: pointer;
 }
 .blood{
     opacity: 0.9;
@@ -360,4 +377,7 @@ margin-top:  -150px;
 }
 .bloodMark2{
 opacity: 0.5;
+position: absolute;
+top: 140px;
+left: 880px;
 }
