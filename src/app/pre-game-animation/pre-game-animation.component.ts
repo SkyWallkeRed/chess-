@@ -23,15 +23,12 @@ export class PreGameAnimationComponent implements OnInit {
   ngOnInit() {
   }
   animate() {
-    console.log('jump');
     this.axe = true;
     this.status = !this.status;
     this.tl.to(this.k.nativeElement, 0.2, { bottom: 20 }).to(this.k.nativeElement, 0.2, { top: 20 });
-    console.log('attack');
     this.axe = true;
     TweenMax.to(this.wep.nativeElement, 1, { left: 60 });
     TweenMax.to(this.wep.nativeElement, 0.5, { rotationX: '360_w', rotationY: '-60_short' });
-    console.log('kill');
     TweenMax.to(this.wep.nativeElement, 0.5, { rotation: '700_w', top: 150 });
     setTimeout(() => {
       TweenMax.to(this.wep.nativeElement, 0.5, { rotation: '60_short' });

@@ -38,7 +38,6 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.gameId);
     // this.gameService.gameIdObservable.subscribe((data) => {
     //   console.log(data);
     //   this.gameId = data;

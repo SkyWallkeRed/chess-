@@ -16,7 +16,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GameService {
-public roomsArray: Array<any>;
+  public roomsArray: Array<any>;
   public boardArray: Array<any>;
   public boardObservable: Observable<any>;
   public boardSubject: Subject<any>;
@@ -54,6 +54,8 @@ public roomsArray: Array<any>;
   public gameIdSubject: Subject<any>;
   public gameOverObservable: Observable<any>;
   public gameOverSubject: Subject<any>;
+  public roomArrayObservable: Observable<any>;
+  public roomArraySubject: Subject<any>;
   // END ANIMATION BOOLS
 
   constructor(private gameSocket: GameSocketService, private http: HttpClient) {
@@ -72,10 +74,11 @@ public roomsArray: Array<any>;
     this.deadSubject = new Subject<any>();
     this.deadObservable = this.deadSubject.asObservable();
 
-
-
     this.gameOverSubject = new Subject<any>();
     this.gameOverObservable = this.gameOverSubject.asObservable();
+
+    this.roomArraySubject = new Subject<any>();
+    this.roomArrayObservable = this.roomArraySubject.asObservable();
 
     this.startGame();
 
@@ -99,7 +102,9 @@ public roomsArray: Array<any>;
     this.Qb = new Queen('queen', 'black');
     this.Kw = new King('king', 'white');
     this.Qw = new Queen('queen', 'white');
-
+    this.getRooms()
+    setInterval(()=>{this.getRooms()}, 5000)
+    
   }
   startGame() {
     this.boardArray = [
@@ -127,6 +132,8 @@ public roomsArray: Array<any>;
     this.optionsArray = [];
     this.optionsSubject.next(this.optionsArray);
     this.roomsArray = []
+    this.roomArraySubject.next(this.roomsArray)
+
     this.boardSubject.next(this.boardArray);
   }
   makeMultiplayer(boolean) {
@@ -137,8 +144,21 @@ public roomsArray: Array<any>;
       this.isMultiplayer = false;
     }
   }
+  getRooms(){
+    this.http.get<any>('/api').subscribe((data) => {
+      for (let i = 0; i < data.length; i++) {
+        if (!this.roomsArray.includes(data[i].game_id)) {
+          this.roomsArray.push(data[i].game_id)
+        }
+      }
+      this.roomArraySubject.next(this.roomsArray)
+    })
+  }
   createRoom(text) {
     this.gameSocket.makeRoom({ text: text });
+    this.http.post<any>('/api', { game_id: text, boardArray: null }).subscribe((data1) => {
+
+    })
   }
   sendMsg(x, y) {
     if (this.isMultiplayer) {
@@ -173,19 +193,18 @@ public roomsArray: Array<any>;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION
 
-    this.http.post<any>('/api', { game_id: this.gameId, boardArray: this.boardArray }).subscribe((data1) =>  {
+    this.http.post<any>('/api', { game_id: this.gameId, boardArray: this.boardArray }).subscribe((data1) => {
 
     })
     this.http.get<any>('/api').subscribe((data) => {
-    for (let i = 0; i < data.length; i++){
-      if(!this.roomsArray.includes(data[i].game_id)){
-        this.roomsArray.push(data[i].game_id)
+      for (let i = 0; i < data.length; i++) {
+        if (!this.roomsArray.includes(data[i].game_id)) {
+          this.roomsArray.push(data[i].game_id)
+        }
       }
-    }
-    console.log(this.roomsArray)
-      console.log("get is " + data[0].game_id)
-      })
- 
+      this.roomArraySubject.next(this.roomsArray)
+    })
+
 
   }
   getPieceFromBoard(x, y) {
