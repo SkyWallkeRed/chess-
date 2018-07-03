@@ -3,24 +3,21 @@ const router = express.Router();
 const Board = require('./boardModel');
 const mongoose = require('mongoose');
 
-router.get('/', (req, res) => {
-    Board.find().exec().then((data) => {
-       res.send(JSON.stringify(data));
-    }, (err) => {
-      console.error(err)
+
+router.get('/', function (req, res) {
+    Board.find().exec(function(err, data){
+      if (err){
+        console.log(err)
+      } else{
+        console.log(data)
+        res.send(data);
+      } 
     });
-  })
+  });
 
   router.post('/', (req, res) => {
-    let boardArray = req.body.boardArray;
-    let newBoard = new Board({game_Id: 1, user1_id: 1, user2_id: 2, boardArray: req.body});
+    let newBoard = new Board({game_id: req.body.game_id, boardArray: req.body.boardArray});
     newBoard.save();
-    Board.find().exec().then(data => {
-        res.send(JSON.stringify(data))
-      }), (err) => {
-        console.error(err);
-        throw err;
-        }
     })
     
 
