@@ -81,14 +81,14 @@ export class PregameComponent implements OnInit {
     // landing page animation TimeLine
     this.tl.
       to(this.textRight.nativeElement, 0.5, { scale: 1, opacity: 1 }).
-      to(this.textRight.nativeElement, 0.5, { top: 150, opacity: 1, left: 500 }).
-      to(this.textLeft.nativeElement, 0.5, { top: 150, opacity: 1, left: 820 }).
-      to(this.epic.nativeElement, 0.3, { top: -200, left: 250, scale: 0.5 }).
-      to(this.epic.nativeElement, 0.5, { top: -90, left: 250, opacity: 1, scale: 0.5 }).
-      to(this.textRight.nativeElement, 0.6, { top: 830, opacity: 1, left: 350, rotation: '90_w' }).
-      to(this.textRight.nativeElement, 0.5, { top: 500, opacity: 0 }).
-      // to(this.textRight.nativeElement, 0.4, { top: 330, opacity: 1, left: 350, rotation: '20_w' }).
-      to(this.animationBox.nativeElement, 1.2, { top: 240, opacity: 1, left: 440 }).
+      to(this.textRight.nativeElement, 0.5, { top:  50, opacity: 1, left: 200 }).
+      to(this.textLeft.nativeElement, 0.5, { top: 50, opacity: 1, left: 520 }).
+      to(this.epic.nativeElement, 0.3, { top: -200, left: 150, scale: 0.5 }).
+      to(this.epic.nativeElement, 0.5, { top: -200, left: -50, opacity: 1, scale: 0.5 }).
+      to(this.textRight.nativeElement, 0.6, { top: 830, opacity: 1, left: 250, rotation: '90_w' }).
+      // to(this.textRight.nativeElement, 0.5, { top: 500, opacity: 0 }).
+      to(this.textRight.nativeElement, 0.4, { top: 330, opacity: 0, left: 350, rotation: '20_w' }).
+      to(this.animationBox.nativeElement, 1.2, { top: 600, opacity: 1, left: 50 }).
       // to(this.textLeft.nativeElement, 0.5, { left: 450, opacity: 1, top: 50 }).
       // to(this.textRight.nativeElement, 0.5, { left: 450, opacity: 1, top: 200, rotation: '10_W' }).
       to(this.loginF.nativeElement, 1, { left: 550, opacity: 1, top: 500 }).
@@ -105,8 +105,8 @@ export class PregameComponent implements OnInit {
     this.tl.to(this.gitHub.nativeElement, 0.3, { right: 400, bottom: 400, opacity: 1 }).
       to(this.btn1.nativeElement, 0.3, { left: 1100, opacity: 1, top: 300 }).
       to(this.btn2.nativeElement, 0.3, { left: 1100, opacity: 1, top: 400 }).
-      to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 500 }).
-      to(this.btn4.nativeElement, 0.3, { left: 1100, opacity: 1, top: 600 });
+      to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 500 });
+      // to(this.btn4.nativeElement, 0.3, { left: 560, opacity: 1, top: 636 });
   }
   // ANIMATION BOX .
   animate() {

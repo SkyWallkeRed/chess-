@@ -8,7 +8,8 @@
   </div>
 
   <div class="activGames">
-    <p> create / join Room..</p>
+  <p class="createroomtext"> create / join Room..</p>
+    
     <!-- <app-activ-games></app-activ-games> -->
     <!-- <input class="input" type="text" [(ngModel)]="myText" />
     <button class="btnGo" (click)="createRoom()">Go</button> -->
@@ -16,7 +17,7 @@
     <div class="input-container">
       <input #txtSearch [(ngModel)]='roomName' name='roomName' type="text" id="txtSearch" placeholder="Room Name" spellcheck="false"
       />
-      <input class="btnGo" type="button" id="btnSearch" Value="Go" (click)="sendData();" (click)='createRoom()' [routerLink]="['/play']" />
+      <button class="btnGo" type="button" id="btnSearch" (click)="sendData();" (click)='createRoom()' [routerLink]="['/play']">play</button>
     </div>
     <br>
     <p class="roomName">Room Name :</p>
@@ -27,9 +28,10 @@
 
 
   <div class="menu swing4">
-    <span class="menuBtn"> Menu</span>
+    <span class="menuBtn"> </span>
     <!-- <div #pickColor class="pickColor" (click)='slidePickColor()'> color pick </div> -->
-    <!-- <div #play1 class="play1" [routerLink]="['/play']"> play1 </div> -->
+    <div #play1 class="play1" [routerLink]="['/local']"> play offline </div>
+
     <div #home class="home" [routerLink]="['/home']"> Home </div>
   </div>
 
