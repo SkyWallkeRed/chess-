@@ -55,6 +55,7 @@
    
   }
 .container{
+    // cursor: url('../../assets/logos/Yoshi-Alternate.cur'), auto;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(8);
@@ -116,6 +117,25 @@ top: 10%;
     font-family: 'Indie Flower', cursive;
     font-size: 3em;
 
+}
+.gameOver{
+    width: 49%;
+    position: absolute;
+    top: 45%;
+    left: 26%;
+    z-index: 1000;
+    transform: rotate(20deg);
+}
+.playArgine{
+    font-family: 'Indie Flower', cursive;
+    position: absolute;
+    top: 59%;
+    left: 38%;
+    z-index: 1001;
+    font-size: 4em;
+    transform: rotate(20deg);
+cursor: pointer;
+    
 }
 .home{
     font-family: 'Indie Flower', cursive;
@@ -281,5 +301,15 @@ top: 10%;
             rotate(0deg);
         opacity: 0;
     }
+}
+
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+.hover:hover{
+    animation: swing ease-in-out 3s infinite alternate;
+    transform-origin: center -10px;
+    float:left;
 }
 

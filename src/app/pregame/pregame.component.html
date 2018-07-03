@@ -3,21 +3,23 @@
     <!-- <div  class="epic"> -->
     <img #epic class="epic" src="../../assets/logos/EPICTEXT.png" alt="">
     <!-- </div> -->
+    <img class="bloodMark2" *ngIf='bloodMark2' src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png"
+      alt="">
     <div #textLeft class="textLeft"> chess</div>
     <div #textRight class="textRight ">same old</div>
     <!-- WOKRING BUTTONS NO USE IN THIS PAGE  #>david<#. -->
     <div class="btnWrapper">
-      <div #btn1 class="btn1" (click)='toggleAbout()'>About
-        <img src="../../assets/logos/003-youtube.png" alt="">
+      <div #btn1 class="btn1 hover" [routerLink]="['/about']">About
+        <!-- <img src="../../assets/logos/0-Question-mark-icon.png" alt=""> -->
       </div>
-      <div #btn2 class="btn2" (click)='toggleContributors()'>Contributors
+      <div #btn2 class="btn2 hover" (click)='toggleContributors()'>Contributors
       </div>
-      <div #btn3 class="btn3" (click)='toggleTech()'>Tech
+      <div #btn3 class="btn3 hover" (click)='toggleTech()'>Tech
         <img src="../../assets/logos/002-java.png" alt="">
       </div>
     </div>
-    
-    <div #btn4 class="btn4" [routerLink]="['/local']">play offline</div>  
+
+    <!-- <div #btn4 class="btn4" [routerLink]="['/local']">play offline</div> -->
 
 
 
@@ -44,7 +46,7 @@
 
 
     <div class="loginWrapper">
-      <div *ngIf='userLogedIn' #lobby class="lobby swing" [routerLink]="['/lobby']">play online</div>
+      <div *ngIf='userLogedIn' #lobby class="lobby swing hover" [routerLink]="['/lobby']">play online</div>
       <span class=" usernamedisplay">{{userName}}</span>
       <img class="userimgdisplay" src="{{userImg}}" alt="">
     </div>
@@ -60,8 +62,7 @@
         </div>
         <img *ngIf='bloodMark' class='blood' #blood src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png"
           alt="">
-        <img class="bloodMark2" *ngIf='bloodMark2' src="https://images.vexels.com/media/users/3/143405/isolated/preview/ea7fefc0fd132bc41819426ad91bbcd3-grunge-blood-splatter-by-vexels.png"
-          alt="">
+
       </div>
     </div>
   </div>

@@ -8,6 +8,12 @@
     0% { transform: rotate(3deg); }
     100% { transform: rotate(-3deg); }
 }
+.hover:hover{
+    animation: swing ease-in-out 3s infinite alternate;
+    transform-origin: center -10px;
+    float:left;
+}
+
 @keyframes swing1 {
     0% { transform: rotate(-4deg); }
     100% { transform: rotate(4deg); }
@@ -22,11 +28,36 @@
 }
 .swing2 {
     position: absolute;
-    left: 100px;
+    left: 220px;
+    top: -150px;
     animation: swing ease-in-out 0.5s infinite alternate;
     transform-origin: center -60px;
-    float:left;
+    // float:left;
     // box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
+.glogin{
+    font-family: 'Indie Flower', cursive;
+    font-size: 1em;
+    position: absolute;
+    top: -200px;
+    left: -20px;
+    width: 240px;
+}
+.btn4{
+    // border: 2px solid steelblue;
+    z-index: 2000;
+    
+    font-family: 'Indie Flower', cursive;
+    font-size: 1em;
+    text-align: center;
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    // top: ;
+    // opacity: 0;
+cursor: pointer;
+}
+
+
 
 

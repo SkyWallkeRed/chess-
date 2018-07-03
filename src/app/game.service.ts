@@ -32,6 +32,7 @@ public roomsArray: Array<any>;
   public myColor;
   public isMultiplayer: boolean;
   public gameId: string;
+  public gameOver: boolean;
 
   public Nb;
   public Rb;
@@ -51,6 +52,8 @@ public roomsArray: Array<any>;
   public killSubject: Subject<any>;
   public gameIdObservable: Observable<any>;
   public gameIdSubject: Subject<any>;
+  public gameOverObservable: Observable<any>;
+  public gameOverSubject: Subject<any>;
   // END ANIMATION BOOLS
 
   constructor(private gameSocket: GameSocketService, private http: HttpClient) {
@@ -65,25 +68,23 @@ public roomsArray: Array<any>;
 
     this.optionsSubject = new Subject<any>();
     this.optionsObservable = this.optionsSubject.asObservable();
-    this.optionsArray = [];
 
     this.deadSubject = new Subject<any>();
     this.deadObservable = this.deadSubject.asObservable();
-    this.deadArray = [];
-    this.currentTurn = 'white';
-    this.myColor = 'white';
-    this.roomsArray = []
-    // this.isMultiplayer = false;
-    this.getData();
+
+
+
+    this.gameOverSubject = new Subject<any>();
+    this.gameOverObservable = this.gameOverSubject.asObservable();
+
+    this.startGame();
+
     this.gameSocket.rooms.subscribe((room) => {
       const parsedRoom = JSON.parse(room);
-      console.log('rooms are updated:');
-      console.log(parsedRoom);
       this.gameId = parsedRoom.text;
-      this.gameIdSubject.next(this.gameId)
+      this.gameIdSubject.next(this.gameId);
     });
     this.gameSocket.messages.subscribe((stringifiedMove) => {
-      console.log('move made');
       const move = JSON.parse(stringifiedMove);
       if (move.gameId == this.gameId) {
         this.myColor = move.myColor;
@@ -94,23 +95,14 @@ public roomsArray: Array<any>;
       }
     });
 
-    // this.Nb = new Knight('knight', 'black', this);
-    // this.Rb = new Rook('rook', 'black', this);
     this.Kb = new King('king', 'black');
-    // this.Bb = new Bishop('bishop', 'black');
     this.Qb = new Queen('queen', 'black');
-    // this.Pb = new Pawn('pawn', 'black');
-    // this.Nw = new Knight('knight', 'white');
-    // this.Rw = new Rook('rook', 'white');
     this.Kw = new King('king', 'white');
-    // this.Bw = new Bishop('bishop', 'white');
     this.Qw = new Queen('queen', 'white');
-    // this.Pw = new Pawn('pawn', 'white');
 
   }
-  getData() {
+  startGame() {
     this.boardArray = [
-
 
       // tslint:disable-next-line:max-line-length
       [new Rook('rook', 'black'), new Knight('knight', 'black'), new Bishop('bishop', 'black'), this.Qb, this.Kb, new Bishop('bishop', 'black'), new Knight('knight', 'black'), new Rook('rook', 'black')],
@@ -127,7 +119,14 @@ public roomsArray: Array<any>;
 
     ];
     this.currentTurn = 'white';
-
+    this.myColor = 'white';
+    this.gameOver = false;
+    this.gameOverSubject.next(this.gameOver);
+    this.deadArray = [];
+    this.deadSubject.next(this.deadArray);
+    this.optionsArray = [];
+    this.optionsSubject.next(this.optionsArray);
+    this.roomsArray = []
     this.boardSubject.next(this.boardArray);
   }
   makeMultiplayer(boolean) {
@@ -139,9 +138,6 @@ public roomsArray: Array<any>;
     }
   }
   createRoom(text) {
-    // this.http.post<any>('/socketApi', {text : text}).subscribe((data)=>{
-    //   console.log('got here')
-    // })
     this.gameSocket.makeRoom({ text: text });
   }
   sendMsg(x, y) {
@@ -159,11 +155,14 @@ public roomsArray: Array<any>;
         this.deadArray.push(this.boardArray[y][x]);
         this.kill = true; // ANIMATION.
         this.killSubject.next(this.kill); // ANIMATION
-        console.log(this.kill);
-        this.deadSubject.next(this.deadArray);
-        this.boardArray[y][x] = this.clickedPiece.myPiece;
-
-        this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
+        if (this.boardArray[y][x].type == 'king') {
+          this.gameOver = true;
+          this.gameOverSubject.next(this.gameOver);
+        } else {
+          this.deadSubject.next(this.deadArray);
+          this.boardArray[y][x] = this.clickedPiece.myPiece;
+          this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
+        }
       } else {
         this.boardArray[y][x] = this.clickedPiece.myPiece;
         this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
@@ -173,6 +172,7 @@ public roomsArray: Array<any>;
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION
+
     this.http.post<any>('/api', { game_id: this.gameId, boardArray: this.boardArray }).subscribe((data1) =>  {
 
     })
@@ -186,6 +186,7 @@ public roomsArray: Array<any>;
       console.log("get is " + data[0].game_id)
       })
  
+
   }
   getPieceFromBoard(x, y) {
     if (this.boardArray[y]) {

@@ -1,6 +1,8 @@
 <!-- <button (click)="socialSignIn('facebook')">Sign in with Facebook</button> -->
 
-<span *ngIf='loginErr' (click)="socialSignIn('google')">
+<span  *ngIf='loginErr' (click)="socialSignIn('google')">
     <!-- <div class="loginErr swing2">  login to play..</div> -->
+    <p class="glogin hover"> play online </p>
     <img class="loginErr swing2" src="../../assets/logos/006-google.png" alt="">
 </span>
+<div #btn4 class="btn4 hover" [routerLink]="['/local']">play offline</div>
