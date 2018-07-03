@@ -17,6 +17,7 @@
     <i></i>
   </div>
   <div class="gameId"> Game ID: {{gameId || 'offline'}}</div>
+  <div *ngIf="gameOver" class="gameId" (click)="startGame()" > play again?</div>  
   <br>
   <div class="btns">
     <div #home class="home" [routerLink]="['/home']">Home</div>

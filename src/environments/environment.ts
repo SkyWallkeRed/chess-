@@ -4,12 +4,12 @@
 
 export const environment = {
   production: false,
-  ws_url: 'http://epic-chess.herokuapp.com'
+  ws_url: 'http://localhost:3000'
 };
 
 /*
  * In development mode, to ignore zone related error stack frames such as
- * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
+ * `zone.run`, `zoneDelegate.icnvokeTask` for easier debugging, you can
  * import the following file, but please comment it out in production mode
  * because it will have performance impact when throw error
  */
