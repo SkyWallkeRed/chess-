@@ -32,7 +32,7 @@ export class GameService {
   public myColor;
   public isMultiplayer: boolean;
   public gameId: string;
-  public gameOver : boolean
+  public gameOver: boolean;
 
   public Nb;
   public Rb;
@@ -79,7 +79,7 @@ export class GameService {
     this.gameSocket.rooms.subscribe((room) => {
       const parsedRoom = JSON.parse(room);
       this.gameId = parsedRoom.text;
-      this.gameIdSubject.next(this.gameId)
+      this.gameIdSubject.next(this.gameId);
     });
     this.gameSocket.messages.subscribe((stringifiedMove) => {
       const move = JSON.parse(stringifiedMove);
@@ -117,12 +117,12 @@ export class GameService {
     ];
     this.currentTurn = 'white';
     this.myColor = 'white';
-    this.gameOver = false
-    this.gameOverSubject.next(this.gameOver)    
+    this.gameOver = false;
+    this.gameOverSubject.next(this.gameOver);
     this.deadArray = [];
-    this.deadSubject.next(this.deadArray)
+    this.deadSubject.next(this.deadArray);
     this.optionsArray = [];
-    this.optionsSubject.next(this.optionsArray)
+    this.optionsSubject.next(this.optionsArray);
 
     this.boardSubject.next(this.boardArray);
   }
@@ -152,11 +152,10 @@ export class GameService {
         this.deadArray.push(this.boardArray[y][x]);
         this.kill = true; // ANIMATION.
         this.killSubject.next(this.kill); // ANIMATION
-        if(this.boardArray[y][x].type == 'king'){
-          this.gameOver = true
-          this.gameOverSubject.next(this.gameOver)
-        }
-        else {
+        if (this.boardArray[y][x].type == 'king') {
+          this.gameOver = true;
+          this.gameOverSubject.next(this.gameOver);
+        } else {
           this.deadSubject.next(this.deadArray);
           this.boardArray[y][x] = this.clickedPiece.myPiece;
           this.boardArray[this.clickedPiece.myY][this.clickedPiece.myX] = null;
@@ -171,7 +170,7 @@ export class GameService {
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION
     // this.http.post<any>('/api', { boardArray: this.boardArray }).subscribe((data) => {
-      // console.log("http posted");
+    // console.log("http posted");
     // });
   }
   getPieceFromBoard(x, y) {

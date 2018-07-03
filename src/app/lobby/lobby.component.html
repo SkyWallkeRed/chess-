@@ -17,7 +17,7 @@
     <div class="input-container">
       <input #txtSearch [(ngModel)]='roomName' name='roomName' type="text" id="txtSearch" placeholder="Room Name" spellcheck="false"
       />
-      <button class="btnGo" type="button" id="btnSearch" (click)="sendData();" (click)='createRoom()' [routerLink]="['/play']">play</button>
+      <button class="btnGo hover" type="button" id="btnSearch" (click)="sendData();" (click)='createRoom()' [routerLink]="['/play']">play</button>
     </div>
     <br>
     <p class="roomName">Room Name :</p>
@@ -30,9 +30,9 @@
   <div class="menu swing4">
     <span class="menuBtn"> </span>
     <!-- <div #pickColor class="pickColor" (click)='slidePickColor()'> color pick </div> -->
-    <div #play1 class="play1" [routerLink]="['/local']"> play offline </div>
+    <div #play1 class="play1 hover" [routerLink]="['/local']"> play offline </div>
 
-    <div #home class="home" [routerLink]="['/home']"> Home </div>
+    <div #home class="home hover" [routerLink]="['/home']"> Home </div>
   </div>
 
   <div #pickColorWindow class="colorPickWindow">

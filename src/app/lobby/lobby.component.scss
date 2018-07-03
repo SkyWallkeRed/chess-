@@ -46,7 +46,7 @@
     // border: 2px solid green;
     position: absolute;
     top: 30%;
-    right: 33%;
+    right: 36%;
     min-width: 20%;
     min-height: 20%;
 }
@@ -76,6 +76,15 @@
 @keyframes swing4 {
     0% { transform: rotate(-3deg); }
     100% { transform: rotate(3deg); }
+}
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+.hover:hover{
+    animation: swing ease-in-out 3s infinite alternate;
+    transform-origin: center -10px;
+    float:left;
 }
 
 .swing4 {
@@ -191,7 +200,7 @@
     border: 3px solid #88BDEA;
   }
   #btnSearch:active {
-      font-size: 4em !important ;
+      font-size: 20em !important ;
     border-color: #0086C6;
     background: none;
   }

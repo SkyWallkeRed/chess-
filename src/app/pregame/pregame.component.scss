@@ -237,7 +237,11 @@ app-login{
 cursor: pointer;
     
 }
-
+.hover:hover{
+    animation: swing ease-in-out 3s infinite alternate;
+    transform-origin: center -10px;
+    float:left;
+}
 .about{
 z-index: 1000;
 position: absolute;
@@ -257,8 +261,8 @@ cursor: pointer;
 .contributors{
     z-index: 20000;
 position: absolute;
-left: 350px;
-top: 100px;
+left: 10%;
+top: 4em;
 }
 .userimgdisplay{
     position: absolute;
@@ -378,6 +382,6 @@ margin-top:  -150px;
 .bloodMark2{
 opacity: 0.5;
 position: absolute;
-top: 140px;
-left: 880px;
+top: -190px;
+left: -163px;;
 }
