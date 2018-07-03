@@ -29,7 +29,6 @@ export class WebSocketService {
 
     const observer = {
       next: (data: Object) => {
-        console.log("what")
         this.socket.emit('message', JSON.stringify(data));
       },
     };
@@ -42,9 +41,7 @@ export class WebSocketService {
     const observable2 = new Observable(observer2 => { // CHANGE THIS SHADOW NAME ASK LIOR.
       this.socket.on('room', (data) => {
         //we never get here for some reason. this subs to the emitting to room and in the gameservice we sub to this obs     
-        debugger 
         let gameId = JSON.parse(data)
-        console.log('data please');   
         observer2.next(data);
       });
       return () => {

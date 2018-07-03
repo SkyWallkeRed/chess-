@@ -5,6 +5,7 @@
 
   <div class="onlineUsers">
     <app-activ-users></app-activ-users>
+    <h3 *ngFor='let room of rooms'  (click)="sendData();" (click)='joinRoom(room)' [routerLink]="['/play']">{{room}}</h3>
   </div>
 
   <div class="activGames">
