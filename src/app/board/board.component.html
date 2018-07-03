@@ -17,10 +17,10 @@
     <i></i>
   </div>
   <div class="gameId"> Room : {{gameId || 'offline'}}</div>
-  <div *ngIf="gameOver"   > 
+  <div *ngIf="gameOver">
     <img class="gameOver" src="../../assets/logos/checkmate_orig.png" alt="">
     <span (click)="startGame()" class="playArgine hover">play again?</span>
-    </div>  
+  </div>
   <br>
   <div class="btns">
     <div #home class="home hover" [routerLink]="['/home']">Home</div>
