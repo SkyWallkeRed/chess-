@@ -26,16 +26,14 @@ export class BoardComponent implements OnInit {
 
     this.getBoard();
     this.getArrays();
-    this.gameService.gameIdObservable.subscribe((data) => {
-      this.gameId = data;
-    });
-    this.gameService.gameOverObservable.subscribe((data) => {
-      console.log(data);
-      this.gameOver = data;
-      if (this.gameOver) {
-        // this.gameService.startGame()
-      }
-    });
+
+    this.gameService.gameIdObservable.subscribe((data)=>{
+      this.gameId = data
+    })
+    this.gameService.gameOverObservable.subscribe((data)=>{
+      this.gameOver = data
+    })
+
   }
 
   ngOnInit() {
