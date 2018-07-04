@@ -28,14 +28,22 @@ router.post('/', (req, res) => {
 
 router.delete('/', (req, res) => {
   Board.remove(function (err) {
-    if (err) throw err;
+    if (err) {
+      console.log(err)
+    } else {
+      return;
+    }
   });
 })
 
 var requestLoop = setInterval(function(){
   
     Board.remove(function (err) {
-      if (err) throw err;
+      if (err) {
+        console.log(err)
+      } else {
+        return
+      }
     });
 
 }, 240000);
