@@ -118,7 +118,7 @@ export class PregameComponent implements OnInit {
       to(this.btn3.nativeElement, 0.3, { left: 900, opacity: 1, top: 720 });
 
     // to(this.btn4.nativeElement, 0.3, { left: 560, opacity: 1, top: 636 });
-    TweenMax.to(this.piece4.nativeElement, 2, { top: 650, left: -200 });
+    TweenMax.to(this.piece4.nativeElement, 2, { top: 600, left: -200 });
     this.tl5.to(this.piece4.nativeElement, 3, { left: 350 }).
       to(this.piece2.nativeElement, 1.5, { left: 450 }).
       to(this.piece1.nativeElement, 1.8, { left: 500 }).
