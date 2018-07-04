@@ -122,7 +122,7 @@ export class PregameComponent implements OnInit {
     this.tl5.to(this.piece4.nativeElement, 3, { left: 350 }).
       to(this.piece2.nativeElement, 1.5, { left: 450 }).
       to(this.piece1.nativeElement, 1.8, { left: 500 }).
-      to(this.piece4.nativeElement, 1.6, { left: 350 }).
+      to(this.piece4.nativeElement, 1.6, { left: 1200 }).
       to(this.piece3.nativeElement, 1.7, { left: 400 }).
       to(this.piece4.nativeElement, 1.6, { left: -900 }).
       to(this.piece3.nativeElement, 1.9, { left: -900 }).
