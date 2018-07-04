@@ -151,6 +151,13 @@ cursor: pointer;
     display: inline-block;
     z-index: 1000;
 }
+.currentTurn{
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+    position: absolute;
+    top: 30%;
+    left: 80%;
+}
 .lobby{
     font-family: 'Indie Flower', cursive;
     font-size: 3em;

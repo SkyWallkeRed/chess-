@@ -25,6 +25,8 @@
   <div class="btns">
     <div #home class="home hover" [routerLink]="['/home']">Home</div>
     <div #lobby class="lobby hover" [routerLink]="['/lobby']">Lobby</div>
+    <span class="currentTurn" >{{currentTurn}}'s turn!</span>
+    
   </div>
 
   <app-row [optionsArray]='optionsArray' class="row" *ngFor='let row of boardArray; let idx = index' [myY]="idx"></app-row>

@@ -26,27 +26,30 @@ router.post('/', (req, res) => {
 })
 
 
-router.delete('/', (req, res) => {
-  Board.remove(function (err) {
-    if (err) {
-      console.log(err)
-    } else {
-      return;
-    }
-  });
-})
+// router.delete('/', (req, res) => {
+//   Board.remove(function (err) {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       return;
+//     }
+//   });
+// })
 
 var requestLoop = setInterval(function(){
   
-    Board.remove(function (err) {
+    Board.remove((err, result) => {
       if (err) {
         console.log(err)
       } else {
-        return
+        return result
       }
     });
 
-}, 240000);
+}, 480000);
+
+
+
 
 
 module.exports = router
