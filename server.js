@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://leeherzog:mlabmlab1!@ds221631.mlab.com:21631/chess', function() {console.log("DB connection established!!!")});
+mongoose.connect(process.env.CONNECTION_STRING || 'mongodb://leeherzog:mlabmlab1!@ds221631.mlab.com:21631/chess', function() {console.log("DB connection established!!!")});
 app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

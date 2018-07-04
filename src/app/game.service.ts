@@ -56,6 +56,8 @@ export class GameService {
   public gameOverSubject: Subject<any>;
   public roomArrayObservable: Observable<any>;
   public roomArraySubject: Subject<any>;
+  public currentTurnObservable: Observable<any>;
+  public currentTurnSubject: Subject<any>;
   // END ANIMATION BOOLS
 
   constructor(private gameSocket: GameSocketService, private http: HttpClient) {
@@ -79,6 +81,9 @@ export class GameService {
 
     this.roomArraySubject = new Subject<any>();
     this.roomArrayObservable = this.roomArraySubject.asObservable();
+
+    this.currentTurnSubject = new Subject<any>();
+    this.currentTurnObservable = this.currentTurnSubject.asObservable();
 
     this.startGame();
 
@@ -123,6 +128,7 @@ export class GameService {
 
     ];
     this.currentTurn = 'white';
+    this.currentTurnSubject.next(this.currentTurn)
     this.myColor = 'white';
     this.gameOver = false;
     this.gameOverSubject.next(this.gameOver);
@@ -154,9 +160,9 @@ export class GameService {
       this.roomArraySubject.next(this.roomsArray)
     })
   }
-  deleteRooms(){
-    this.http.delete<any>('/api').subscribe((data) => {})
-  }
+  // deleteRooms(){
+  //   this.http.delete<any>('/api').subscribe((data) => {})
+  // }
   createRoom(text) {
     this.gameSocket.makeRoom({ text: text });
     this.http.post<any>('/api', { game_id: text, boardArray: null }).subscribe((data1) => {
@@ -195,6 +201,7 @@ export class GameService {
       }
     }
     this.switchTurns();
+    this.currentTurnSubject.next(this.currentTurn)    
     // this.clickedPiece = null;
     this.optionsArray.length = 0; // ANIMATION
     this.optionsSubject.next([]); // ANIMATION

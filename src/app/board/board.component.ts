@@ -12,6 +12,7 @@ export class BoardComponent implements OnInit {
   optionsArray: Array<any> = [];
   deadArray: Array<any> = [];
   gameOver: boolean;
+  currentTurn : string
 
   @Input() isMultiplayer;
 
@@ -28,10 +29,13 @@ export class BoardComponent implements OnInit {
     this.getArrays();
 
     this.gameService.gameIdObservable.subscribe((data)=>{
-      this.gameId = data
+      this.gameId = data;
     })
     this.gameService.gameOverObservable.subscribe((data)=>{
-      this.gameOver = data
+      this.gameOver = data;
+    })
+    this.gameService.currentTurnObservable.subscribe((data)=>{
+      this.currentTurn = data;
     })
 
   }
