@@ -49,46 +49,52 @@
 .logo{
     position: absolute;
     left: 40%;
-    top:25%; 
+    top:10%; 
     // box-sizing: border-box;
     // display: inline-block;
     width: 20%;
     height: 20%;    
 }
-.qr{
-    // background-color: red;
-}
 .loader{
     // border: 2px solid blue;
     position: absolute;
     left: 36%;
-    top: 45%;
+    top: 30%;
     width: 25%;
 }
+
+
 .info{
     font-family: 'Indie Flower', cursive;
     font-size: 2em;
     position: absolute;
+    top:35%;     
     left: 40%;
-    top:48%; 
 }
 .enter{
     font-family: 'Indie Flower', cursive;
     font-size: 3em;
     position: absolute;
     left: 45%;
-    top:55%; 
+    top:45%; 
 }
 .mute{
     position: absolute;
     left: 48%;
-    top:65%; 
+    top:55%; 
     opacity: 0.3;
+}
+.qr{
+    // background-color: red;
+    width: 8em;
+    position: absolute;
+    top: 68%;
+    left: 45%;
 }
 .vol{
     position: absolute;
     left: 48%;
-    top:65%; 
+    top:55%; 
     opacity: 0.3;
 }
 

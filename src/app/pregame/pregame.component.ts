@@ -109,13 +109,13 @@ export class PregameComponent implements OnInit {
       this.animate();
       setTimeout(() => {
         this.bloodMark2 = true;
-      }, 3000);
+      }, 1000);
       this.axe = true;
-    }, 2000);
+    }, 1000);
     this.tl2.to(this.gitHub.nativeElement, 0.3, { right: 400, bottom: 400, opacity: 1 }).
-      to(this.btn1.nativeElement, 0.3, { left: 1100, opacity: 1, top: 300 }).
-      to(this.btn2.nativeElement, 0.3, { left: 1100, opacity: 1, top: 400 }).
-      to(this.btn3.nativeElement, 0.3, { left: 1100, opacity: 1, top: 500 });
+      to(this.btn1.nativeElement, 0.3, { left: 400, opacity: 1, top: 720 }).
+      to(this.btn2.nativeElement, 0.3, { left: 600, opacity: 1, top: 720 }).
+      to(this.btn3.nativeElement, 0.3, { left: 900, opacity: 1, top: 720 });
 
     // to(this.btn4.nativeElement, 0.3, { left: 560, opacity: 1, top: 636 });
     TweenMax.to(this.piece4.nativeElement, 2, { top: 650, left: -200 });

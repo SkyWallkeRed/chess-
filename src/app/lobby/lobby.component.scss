@@ -8,9 +8,12 @@
     height: 50px;
     z-index: 2000;
     opacity: 0;
-   margin-bottom: 10%;
-   margin-top: 10%;
-
+//    margin-bottom: 10%;
+//    margin-top: 10%;
+cursor: pointer;
+position: absolute;
+bottom: 1em;
+left: 48%;
 }
 .home{
     font-family: 'Indie Flower', cursive;
@@ -22,11 +25,15 @@
     height: 50px;
     z-index: 2000;
     opacity: 0;
+cursor: pointer;
+position: absolute;
+bottom: 1em;
+left: 32%;
 
 }
 .epicLogo{
     position: absolute;
-    left: 5%;
+    left: 40%;
     top:5%; 
     // box-sizing: border-box;
     // display: inline-block;
@@ -36,7 +43,7 @@
 .onlineUsers{
 //   border: 2px solid green;
   position: absolute;
-  top: 28%;
+  top: 2%;
   min-width: 20%;
   min-height: 20%;
 }
@@ -45,7 +52,7 @@
     font-size: 2em;
     // border: 2px solid green;
     position: absolute;
-    top: 30%;
+    top: 40%;
     right: 36%;
     min-width: 20%;
     min-height: 20%;
@@ -107,11 +114,11 @@ room:hover{
 }
 .menu{
     // border: 2px solid green;
-    position: absolute;
-    top: 3%;
-    right: 3%;
-    min-width: 10%;
-    min-height: 10%;
+    // position: absolute;
+    // top: 3%;
+    // right: 3%;
+    // min-width: 10%;
+    // min-height: 10%;
 }
 .menuBtn{
     font-family: 'Indie Flower', cursive;
