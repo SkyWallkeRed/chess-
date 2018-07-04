@@ -27,12 +27,12 @@ export class BoardComponent implements OnInit {
     this.getBoard();
     this.getArrays();
 
-    this.gameService.gameIdObservable.subscribe((data)=>{
-      this.gameId = data
-    })
-    this.gameService.gameOverObservable.subscribe((data)=>{
-      this.gameOver = data
-    })
+    this.gameService.gameIdObservable.subscribe((data) => {
+      this.gameId = data;
+    });
+    this.gameService.gameOverObservable.subscribe((data) => {
+      this.gameOver = data;
+    });
 
   }
 

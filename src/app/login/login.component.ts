@@ -1,10 +1,5 @@
-
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {
-  AuthService,
-  FacebookLoginProvider,
-  GoogleLoginProvider
-} from 'angular-6-social-login';
+import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular-6-social-login';
 import { User } from '../model/User';
 import { UserService } from '../user.service';
 
@@ -36,7 +31,6 @@ export class LoginComponent implements OnInit {
         console.error('valif login');
         this.loginErr = false;
         this.showErr.emit(true);
-
       }
     ).then(); // AFTER LOGIN.
   }

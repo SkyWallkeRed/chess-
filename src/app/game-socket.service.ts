@@ -8,36 +8,37 @@ import { map } from "rxjs/operators";
 })
 export class GameSocketService {
   messages: Subject<any>;
-  rooms : Subject<any>;
+  rooms: Subject<any>;
   // messagesObs : Observable<any>;
-  
+
   constructor(private wsService: WebSocketService) {
     // this.messages = new Subject()
     // this.messagesObs = this.messages.asObservable()
     this.rooms = <Subject<any>>wsService
-    .newRoom()
-    .pipe(
-      map((response: any): any => {
-      return response;
-    }))
-    
+      .newRoom()
+      .pipe(
+        map((response: any): any => {
+          return response;
+        }));
+
     this.messages = <Subject<any>>wsService
       .connect()
       .pipe(
         map((response: any): any => {
-        return response;
-      }))
+          return response;
+        }));
 
 
-   }
-   
-  
+  }
+
+
   sendMsg(msg) {
     this.messages.next(msg);
   }
-  makeRoom(msg){
-    this.rooms.next(msg)
+  makeRoom(msg) {
+    this.rooms.next(msg);
   }
 
 
-};
+}
+

@@ -11,7 +11,6 @@ export class PreWebLoaderComponent implements OnInit {
   //
   public loading = false;
   public loadDone = false;
-  //
   // @ViewChild('mute') mute: ElementRef;
   // @ViewChild('vol') vol: ElementRef;
 

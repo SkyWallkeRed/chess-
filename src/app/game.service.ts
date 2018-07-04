@@ -102,8 +102,8 @@ export class GameService {
     this.Qb = new Queen('queen', 'black');
     this.Kw = new King('king', 'white');
     this.Qw = new Queen('queen', 'white');
-    this.getRooms()
-    setInterval(()=>{this.getRooms()}, 5000)
+    this.getRooms();
+    setInterval(() => { this.getRooms(); }, 5000);
   }
   startGame() {
     this.boardArray = [
@@ -130,8 +130,8 @@ export class GameService {
     this.deadSubject.next(this.deadArray);
     this.optionsArray = [];
     this.optionsSubject.next(this.optionsArray);
-    this.roomsArray = []
-    this.roomArraySubject.next(this.roomsArray)
+    this.roomsArray = [];
+    this.roomArraySubject.next(this.roomsArray);
 
     this.boardSubject.next(this.boardArray);
   }
@@ -143,25 +143,25 @@ export class GameService {
       this.isMultiplayer = false;
     }
   }
-  getRooms(){
+  getRooms() {
     this.http.get<any>('/api').subscribe((data) => {
-      this.roomsArray = []
+      this.roomsArray = [];
       for (let i = 0; i < data.length; i++) {
         if (!this.roomsArray.includes(data[i].game_id)) {
-          this.roomsArray.push(data[i].game_id)
+          this.roomsArray.push(data[i].game_id);
         }
       }
-      this.roomArraySubject.next(this.roomsArray)
-    })
+      this.roomArraySubject.next(this.roomsArray);
+    });
   }
-  deleteRooms(){
-    this.http.delete<any>('/api').subscribe((data) => {})
+  deleteRooms() {
+    this.http.delete<any>('/api').subscribe((data) => { });
   }
   createRoom(text) {
     this.gameSocket.makeRoom({ text: text });
     this.http.post<any>('/api', { game_id: text, boardArray: null }).subscribe((data1) => {
 
-    })
+    });
   }
   sendMsg(x, y) {
     if (this.isMultiplayer) {
@@ -201,15 +201,15 @@ export class GameService {
 
     this.http.post<any>('/api', { game_id: this.gameId, boardArray: this.boardArray }).subscribe((data1) => {
 
-    })
+    });
     this.http.get<any>('/api').subscribe((data) => {
       for (let i = 0; i < data.length; i++) {
         if (!this.roomsArray.includes(data[i].game_id)) {
-          this.roomsArray.push(data[i].game_id)
+          this.roomsArray.push(data[i].game_id);
         }
       }
-      this.roomArraySubject.next(this.roomsArray)
-    })
+      this.roomArraySubject.next(this.roomsArray);
+    });
 
 
   }

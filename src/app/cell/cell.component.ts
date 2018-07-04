@@ -1,101 +1,3 @@
-// import { Component, OnInit, Input, ViewChild, ElementRef, SimpleChanges } from '@angular/core';
-// import { GameService } from '../game.service';
-// import { AnimateService } from '../animate.service';
-// import { BaseAnimation } from '../Animation/baseAni';
-// @Component({
-//   selector: 'app-cell',
-//   templateUrl: './cell.component.html',
-//   styleUrls: ['./cell.component.scss']
-// })
-// export class CellComponent implements OnInit {
-//   public cellColor = 'green';
-//   private currentOption = false;
-
-
-//   // private colo = this.cellColorF();
-//   // @ViewChild('wep') wep: ElementRef;
-//   // @ViewChild('blood') blood: ElementRef;
-//   @Input() myX;
-//   @Input() myY;
-//   @Input() myPiece;
-//   @Input() optionsArray;
-//   @ViewChild('cell') cell: ElementRef;
-//   // private boardArray;
-
-//   constructor(private gameService: GameService, private animationService: AnimateService) {
-//     // const ani = new BaseAnimation(this.myPiece.type, this.myPiece.color);
-
-//   }
-//   ngOnInit() {
-//     // this.boardArray = this.gameService.getData();
-//     this.cellColorF();
-//   }
-//   sendAnimationData() {
-//     this.animationService.setCurrentLocation(this.myPiece, { currentX: this.myX, currentY: this.myY });
-//   }
-//   // tslint:disable-next-line:use-life-cycle-interface
-//   ngOnChanges() {
-//     this.currentOption = false;
-//     // debugger
-//     for (let i = 0; i < this.optionsArray.length; i++) {
-//       if (this.optionsArray[i].myX === this.myX) {
-//         if (this.optionsArray[i].myY === this.myY) {
-//           this.cell.nativeElement.className = 'glow cell';
-//           this.currentOption = true;
-//         }
-//       }
-//     }
-//     if (!this.currentOption) {
-//       this.cell.nativeElement.className = ' cell';
-//       // this.currentOption = false;
-//     }
-
-//   }
-
-//   checkValidOption() {
-//     if (this.currentOption) {
-//       this.gameService.catchOption(this.myX, this.myY);
-//       console.log(this.myX, this.myY);
-//       this.animationService.setNewPosition(this.myX, this.myY);
-//       // this.gameService.getData();
-//     }
-
-
-//   }
-//   checkValidPiece() {
-//     if (this.myPiece) {
-//       this.gameService.getOptions(this.myX, this.myY, this.myPiece);
-//       this.sendAnimationData();
-//     }
-//   }
-
-//   getOptions() {
-//     this.checkValidPiece();
-//     this.checkValidOption();
-//     // animate();
-//   }
-
-//   cellColorF() {
-//     const t = this.myX + this.myY;
-//     if (t % 2 === 0) {
-//       this.cellColor = 'white';
-//       return 'white';
-//     } else {
-//       this.cellColor = 'black';
-//       return '#777777';
-//     }
-//   }
-// }
-
-
-
-
-// this.cell.nativeElement.className === 'glow cell' ?
-// this.cell.nativeElement.className = ' cell' :
-// this.cell.nativeElement.className = 'glow cell';
-// this.currentOption = false;
-
-
 // ----------------------------------------------------------------------------------------------
 import { Component, OnInit, Input, ViewChild, ElementRef, SimpleChanges } from '@angular/core';
 import { GameService } from '../game.service';
@@ -131,8 +33,6 @@ export class CellComponent implements OnInit {
   }
   ngOnInit() {
     this.cellColorF();
-
-
   }
   sendAnimationData() {
     this.rect = this.cell.nativeElement.getBoundingClientRect();
@@ -160,9 +60,7 @@ export class CellComponent implements OnInit {
     }
     if (!this.currentOption) {
       this.cell.nativeElement.className = ' cell';
-
     }
-
   }
 
   checkValidOption() {
@@ -188,7 +86,7 @@ export class CellComponent implements OnInit {
       //   console.log(this.animateKill)
       // }, 1000);
       this.gameService.catchOption(this.myX, this.myY);
-      this.gameService.sendMsg(this.myX, this.myY)
+      this.gameService.sendMsg(this.myX, this.myY);
       // setTimeout(() => {
       //   this.killActive = false;
       // }, 2000);

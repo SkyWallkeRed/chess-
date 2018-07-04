@@ -21,12 +21,12 @@ export class LobbyComponent implements OnInit {
   private tl = new TimelineMax();
   // public myText;
   public roomName: string;
-  public rooms : Array<any>
-  constructor(private gameService: GameService) { 
-    this.rooms = [];    
-    this.gameService.roomArrayObservable.subscribe((data)=>{
-      this.rooms = data
-    })
+  public rooms: Array<any>;
+  constructor(private gameService: GameService) {
+    this.rooms = [];
+    this.gameService.roomArrayObservable.subscribe((data) => {
+      this.rooms = data;
+    });
   }
 
   ngOnInit() {
@@ -38,8 +38,8 @@ export class LobbyComponent implements OnInit {
   createRoom() {
     this.gameService.createRoom(this.roomName);
   }
-  joinRoom(roomName){
-    this.gameService.createRoom(roomName);    
+  joinRoom(roomName) {
+    this.gameService.createRoom(roomName);
   }
   // slidePickColor() {
   //   this.tl.to(this.pickColorWindow.nativeElement, 0.1, { top: 450, right: 100 }).

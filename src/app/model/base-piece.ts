@@ -15,34 +15,34 @@ export class Piece {
         this.color = color;
     }
 
-  
+
 
 
 
     run(xMovment, yMovment, currX, currY, gameService) {
-        let options = [];
+        const options = [];
 
         let currPiece;
-       
-            while (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
-                currX += xMovment;
-                currY += yMovment;
 
-                currPiece = gameService.getPieceFromBoard(currX, currY); 
-                if (!currPiece) {
-                    options.push({ myX: currX, myY: currY });
-                }
-            }
+        while (!currPiece && currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
+            currX += xMovment;
+            currY += yMovment;
 
-            if (currPiece && currPiece.color != this.color) {
+            currPiece = gameService.getPieceFromBoard(currX, currY);
+            if (!currPiece) {
                 options.push({ myX: currX, myY: currY });
             }
+        }
 
-            return options;
+        if (currPiece && currPiece.color != this.color) {
+            options.push({ myX: currX, myY: currY });
+        }
+
+        return options;
     }
 
     unfilteredOptions(xMovment, yMovment, currX, currY, gameService) {
-        let options = [];
+        const options = [];
         let currPiece;
         if (this.type == 'pawn') {
             for (let i = 0; i < 1; i++) {
@@ -54,20 +54,16 @@ export class Piece {
 
                 if (currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
                     options.push({ myX: currX, myY: currY });
-                }
-                else{
+                } else {
                     if (currPiece.color != this.color && (xMovment === -1 && yMovment === -1) || (xMovment === 1 && yMovment === -1)) {
                         options.push({ myX: currX, myY: currY });
-                    }
-
-                    else {
+                    } else {
                         return [];
 
                     }
                 }
             }
-        }
-        else if (this.type == 'king' || this.type == 'knight') {
+        } else if (this.type == 'king' || this.type == 'knight') {
             for (let i = 0; i < 1; i++) {
                 currX += xMovment;
                 currY += yMovment;
@@ -77,16 +73,15 @@ export class Piece {
                     options.push({ myX: currX, myY: currY });
                 }
             }
-        }
-        else {
+        } else {
             while (currX < 8 && currY < 8 && currX >= 0 && currY >= 0) {
                 currX += xMovment;
                 currY += yMovment;
 
                 currPiece = gameService.getPieceFromBoard(currX, currY);
 
-                    options.push({ myX: currX, myY: currY });
-                
+                options.push({ myX: currX, myY: currY });
+
             }
         }
 

@@ -80,22 +80,14 @@ export class PregameComponent implements OnInit {
   }
   buildHome() {
     // this.aniService.audio.play();
-    setTimeout(() => {
-      // this.aniService.epicGong.play();
-    }, 3000);
+    // setTimeout(() => {
+    // this.aniService.epicGong.play();
+    // }, 3000);
     // landing page animation TimeLine
-    this.tl.
-      // to(this.textRight.nativeElement, 0.3, { scale: 1, opacity: 1 }).
-      // to(this.textRight.nativeElement, 0.3, { top:  50, opacity: 1, left: 450 }).
-      to(this.textLeft.nativeElement, 0.3, { top: 50, opacity: 1, left: 770 }).
+    this.tl.to(this.textLeft.nativeElement, 0.3, { top: 50, opacity: 1, left: 770 }).
       to(this.epic.nativeElement, 0.3, { top: -200, left: 150, scale: 0.5 }).
       to(this.epic.nativeElement, 0.3, { top: -200, left: 200, opacity: 1, scale: 0.5 });
-    // to(this.textRight.nativeElement, 0.3, { top: 830, opacity: 1, left: 250, rotation: '90_w' }).
-    // to(this.textRight.nativeElement, 0.5, { top: 500, opacity: 0 });
-    // this.tl1.to(this.textRight.nativeElement, 0.3, { top: 330, opacity: 0, left: 350, rotation: '20_w' }).
     this.tl3.to(this.animationBox.nativeElement, 1.2, { top: 600, opacity: 1, left: 50 });
-    // to(this.textLeft.nativeElement, 0.5, { left: 450, opacity: 1, top: 50 }).
-    // to(this.textRight.nativeElement, 0.5, { left: 450, opacity: 1, top: 200, rotation: '10_W' }).
     this.tl4.to(this.loginF.nativeElement, 0.3, { left: 550, opacity: 1, top: 500 }).
       to(this.piece1.nativeElement, 0.2, { left: -440, top: 110, opacity: 1 }).
       to(this.piece1.nativeElement, 1, { left: -900 }).
@@ -103,8 +95,6 @@ export class PregameComponent implements OnInit {
       to(this.piece2.nativeElement, 1, { left: -900 }).
       to(this.piece3.nativeElement, 0.2, { left: -550, top: 110, opacity: 1 }).
       to(this.piece3.nativeElement, 1, { left: -900 });
-
-
     setTimeout(() => {
       this.animate();
       setTimeout(() => {
@@ -116,8 +106,6 @@ export class PregameComponent implements OnInit {
       to(this.btn1.nativeElement, 0.3, { left: 400, opacity: 1, top: 720 }).
       to(this.btn2.nativeElement, 0.3, { left: 600, opacity: 1, top: 720 }).
       to(this.btn3.nativeElement, 0.3, { left: 900, opacity: 1, top: 720 });
-
-    // to(this.btn4.nativeElement, 0.3, { left: 560, opacity: 1, top: 636 });
     TweenMax.to(this.piece4.nativeElement, 2, { top: 600, left: -200 });
     this.tl5.to(this.piece4.nativeElement, 3, { left: 350 }).
       to(this.piece2.nativeElement, 1.5, { left: 450 }).

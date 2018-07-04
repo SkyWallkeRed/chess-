@@ -52,7 +52,7 @@ export class PieceComponent implements OnInit {
       this.myUrl = this.myPiece.imgUrl;
       // on board load all blood mark are activ for 3 sec.
 
-      // BUGGED BLOOD EFFECT NEED WORK .
+      // BUGGED BLOOD EFFECT NEED WORK . =======================================  need work   ============================>
 
       // setTimeout(() => {
       //   if (this.killActive) {
@@ -74,7 +74,7 @@ export class PieceComponent implements OnInit {
   ngOnDestroy() { // ------------------------------------------ NEED TO ADD UNSUBSCRIBE ######################## .
 
   }
-  // JUMP IS THE OC-CLICK OF EACH PIECE .
+  // JUMP IS THE ON-CLICK OF EACH PIECE .
   jump() {
     this.pieceSound.play();
     this.tl.to(this.piece.nativeElement, 0.2, { bottom: 20 }).to(this.piece.nativeElement, 0.2, { top: 50 });
